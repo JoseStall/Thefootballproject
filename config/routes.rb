@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-	root 'home#index'
-  	devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  get 'jeux/matchs'
+  get 'jeux/actu'
+  get 'jeux/classement'
+  get 'user/show'
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  root 'home#index'
+  get 'contact', to: 'home#contact'
+  get 'mentions', to: 'home#mentions'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
