@@ -51,18 +51,3 @@
 //= require_tree .
 
 
-<script src="../../assets/vendor/textarea-autosize/autosize.min.js"></script>
-<script src="../../assets/vendor/typeahead/typeahead.bundle.min.js"></script>
-<script src="../../assets/vendor/typed/typed.min.js"></script>
-<script src="../../assets/vendor/vide/vide.min.js"></script>
-<script src="../../assets/vendor/viewport-checker/viewportchecker.min.js"></script>
-<script src="../../assets/vendor/wow/wow.min.js"></script>
-
-<!-- Isotope -->
-<script src="../../assets/vendor/isotope/isotope.min.js"></script>
-<script src="../../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-
-
-<!-- App JS -->
-<script src="../../assets/js/boomerang.min.js"></script>
