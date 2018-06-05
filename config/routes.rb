@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'jeux/matchs'
   get 'jeux/actu'
   get 'jeux/classement'
