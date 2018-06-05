@@ -6,10 +6,18 @@
   
 </p>
 
+
+<div style="width:400px; height:auto">
+<% if @event.images.attached? %>
 <p>
-  <strong>Image:</strong>
-  <%= image_tag @event.image %>
+  <strong>Images:</strong>
+  <br>
+  <% @event.images.each do |image|  %>
+    <%= image_tag(image, style:'width:100%') %>
+  <% end %>
 </p>
+<% end %>
+</div>
 
 <p>
   <strong>Date:</strong>

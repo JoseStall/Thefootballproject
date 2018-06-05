@@ -15,11 +15,6 @@
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
     
   <div class="field">
     <%= form.label :date %>
@@ -27,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
   </div>
 
   <div class="field">
