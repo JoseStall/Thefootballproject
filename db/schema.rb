@@ -10,27 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2018_06_05_102528) do
-
-  create_table "events", force: :cascade do |t|
-    t.string "description"
-    t.datetime "date"
-    t.integer "game_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_events_on_game_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
-  end
-
-  create_table "events_users", id: false, force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.integer "user_id", null: false
-    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
-    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
-=======
-ActiveRecord::Schema.define(version: 2018_06_05_095049) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,7 +31,24 @@ ActiveRecord::Schema.define(version: 2018_06_05_095049) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
+  create_table "events", force: :cascade do |t|
+    t.string "description"
+    t.datetime "date"
+    t.integer "game_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_events_on_game_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "user_id", null: false
+    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
+    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
   end
 
   create_table "games", force: :cascade do |t|
