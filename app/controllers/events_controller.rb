@@ -14,7 +14,13 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @games = Game.all
+    @game_id = 3 #temps qu'on réussisse l'ajax. On récupère le params game_id
+    @event = Event.create(user_id: current_user.id, game_id: @game_id)
+    @array_games = []
+    @games.each do |game|
+      @array_games << game.home_team.name + " VS " + game.visiting_team.name
+    end
   end
 
   # GET /events/1/edit
