@@ -43,7 +43,90 @@ Team.create(name: 'Iran', flag: 'https://upload.wikimedia.org/wikipedia/commons/
 
 
 
-Game.create(date: DateTime.strptime("06/14/2018 15:00", "%m/%d/%Y %H:%M"),home_team_id: 1, visiting_team_id: 30)
-Game.create(date: DateTime.strptime("06/15/2018 12:00", "%m/%d/%Y %H:%M"),home_team_id: 26, visiting_team_id: 17)
-Game.create(date: DateTime.strptime("06/15/2018 15:00", "%m/%d/%Y %H:%M"),home_team_id: 24, visiting_team_id: 32)
-Game.create(date: DateTime.strptime("06/15/2018 18:50", "%m/%d/%Y %H:%M"),home_team_id: 11, visiting_team_id: 4)
+Game.create(date: DateTime.strptime("06/14/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 1, visiting_team_id: 30)
+Game.create(date: DateTime.strptime("06/15/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 26, visiting_team_id: 17)
+Game.create(date: DateTime.strptime("06/15/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 24, visiting_team_id: 32)
+Game.create(date: DateTime.strptime("06/15/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 11, visiting_team_id: 4)
+Game.create(date: DateTime.strptime("06/16/2018 12:00", "%m/%d/%Y %H:%M"),home_team_id: 5, visiting_team_id: 31)
+Game.create(date: DateTime.strptime("06/16/2018 18:00", "%m/%d/%Y %H:%M"),home_team_id: 19, visiting_team_id: 12)
+Game.create(date: DateTime.strptime("06/16/2018 15:00", "%m/%d/%Y %H:%M"),home_team_id: 16, visiting_team_id: 14)
+Game.create(date: DateTime.strptime("06/16/2018 21:00", "%m/%d/%Y %H:%M"),home_team_id: 13, visiting_team_id: 23)
+Game.create(date: DateTime.strptime("06/17/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 21, visiting_team_id: 7)
+Game.create(date: DateTime.strptime("06/17/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 15, visiting_team_id: 9)
+Game.create(date: DateTime.strptime("06/17/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 2, visiting_team_id: 20)
+Game.create(date: DateTime.strptime("06/18/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 8, visiting_team_id: 28)
+Game.create(date: DateTime.strptime("06/18/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 6, visiting_team_id: 22)
+Game.create(date: DateTime.strptime("06/18/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 15, visiting_team_id: 9)
+Game.create(date: DateTime.strptime("06/19/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 18, visiting_team_id: 29)
+Game.create(date: DateTime.strptime("06/19/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 10, visiting_team_id: 27)
+Game.create(date: DateTime.strptime("06/19/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 1, visiting_team_id: 26)
+Game.create(date: DateTime.strptime("06/20/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 11, visiting_team_id: 24)
+Game.create(date: DateTime.strptime("06/20/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 17, visiting_team_id: 30)
+Game.create(date: DateTime.strptime("06/20/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 32, visiting_team_id: 4)
+Game.create(date: DateTime.strptime("06/21/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 12, visiting_team_id: 31)
+Game.create(date: DateTime.strptime("06/21/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 5, visiting_team_id: 19)
+Game.create(date: DateTime.strptime("06/21/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 16, visiting_team_id: 13)
+Game.create(date: DateTime.strptime("06/22/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 15, visiting_team_id: 21)
+Game.create(date: DateTime.strptime("06/22/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 23, visiting_team_id: 14)
+Game.create(date: DateTime.strptime("06/22/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 7, visiting_team_id: 9)
+Game.create(date: DateTime.strptime("06/23/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 6, visiting_team_id: 25)
+Game.create(date: DateTime.strptime("06/23/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 28, visiting_team_id: 20)
+Game.create(date: DateTime.strptime("06/23/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 2, visiting_team_id: 8)
+Game.create(date: DateTime.strptime("06/24/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 3, visiting_team_id: 22)
+Game.create(date: DateTime.strptime("06/24/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 29, visiting_team_id: 27)
+Game.create(date: DateTime.strptime("06/24/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 10, visiting_team_id: 18)
+Game.create(date: DateTime.strptime("06/25/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 30, visiting_team_id: 26)
+Game.create(date: DateTime.strptime("06/25/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 17, visiting_team_id: 1)
+Game.create(date: DateTime.strptime("06/25/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 32, visiting_team_id: 11)
+Game.create(date: DateTime.strptime("06/25/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 4, visiting_team_id: 24)
+Game.create(date: DateTime.strptime("06/26/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 31, visiting_team_id: 19)
+Game.create(date: DateTime.strptime("06/26/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 12, visiting_team_id: 5)
+Game.create(date: DateTime.strptime("06/26/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 23, visiting_team_id: 16)
+Game.create(date: DateTime.strptime("06/26/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 14, visiting_team_id: 13)
+Game.create(date: DateTime.strptime("06/27/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 28, visiting_team_id: 2)
+Game.create(date: DateTime.strptime("06/27/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 20, visiting_team_id: 8)
+Game.create(date: DateTime.strptime("06/27/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 9, visiting_team_id: 21)
+Game.create(date: DateTime.strptime("06/27/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 7, visiting_team_id: 15)
+Game.create(date: DateTime.strptime("06/28/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 27, visiting_team_id: 18)
+Game.create(date: DateTime.strptime("06/28/2018 16:00", "%m/%d/%Y %H:%M"),home_team_id: 29, visiting_team_id: 10)
+Game.create(date: DateTime.strptime("06/28/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 3, visiting_team_id: 6)
+Game.create(date: DateTime.strptime("06/28/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 22, visiting_team_id: 25)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
