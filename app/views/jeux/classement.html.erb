@@ -1,2 +1,23 @@
-<h1>Jeux#classement</h1>
-<p>Find me in app/views/jeux/classement.html.erb</p>
+
+<table class="table">
+<thead>
+    <tr>
+        <th> N° </th>
+        <th>Drapeau</th>
+        <th>Equipe</th>
+        <th>Groupe</th>
+    </tr>
+</thead>
+<tbody>
+    <% @teams.each do |team| %>
+
+    <tr>
+        <td><%= team.id %></td>
+        <td><img style='width: 35px; height: auto' src="<%= team.flag %>"></td>
+        <td><%= team.name %></td>
+<td><%= team.group %></td>
+    </tr>
+    <% end %>
+  
+</tbody>
+</table>

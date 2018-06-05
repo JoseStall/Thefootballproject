@@ -3,29 +3,31 @@
 <thead>
     <tr>
         <th> N° </th>
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>Email</th>
+        <th>date</th>
+        <th>Drapeau</th>
+        <th>Equipe</th>
+        <th>Score</th>
+        <th>Equipe</th>
+        <th>Drapeau</th>
+
     </tr>
 </thead>
 <tbody>
+    <% @games.each do |game| %>
+
     <tr>
-        <td>1</td>
-        <td>Gerywa</td>
-        <td>Carabde</td>
-<td>GerywaCarabde@mail.com</td>
+        <td><%= game.id %></td>
+        <td><%= game.date %></td>
+        <td><img style='width: 35px; height: auto' src="<%= game.home_team.flag %>"></td>
+        <td><%= game.home_team.name %></td>
+        <td> 0 - 0 </td>
+        <td><%= game.visiting_team.name %></td>
+        <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
+
+
+
     </tr>
-    <tr>
-        <td>2</td>
-        <td>Rachid</td>
-        <td>Hadad</td>
-        <td>peterparker@mail.com</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>John</td>
-        <td>Rambo</td>
-        <td>johnrambo@mail.com</td>
-    </tr>
+    <% end %>
+  
 </tbody>
 </table>
