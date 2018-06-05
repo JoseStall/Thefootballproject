@@ -2,7 +2,6 @@
 <%= select("game.id", "game.date", Game.all.collect {|p| [ p.home_team.name, p.id ] }, {prompt: 'Selectioner une équipe'}) %>
 
 
-
 <table class="table">
     <thead>
         <tr>
@@ -16,6 +15,8 @@
 
         </tr>
     </thead>
+
+
     <tbody>
         <% @games.each do |game| %>
 
@@ -27,8 +28,9 @@
             <td> 0 - 0 </td>
             <td><%= game.visiting_team.name %></td>
             <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
+            <td> <%= link_to 'Créer un événement pour ce match', event_path(game.id) %> </td>
         </tr>
         <% end %>
-
     </tbody>
 </table>
+

@@ -1,7 +1,6 @@
 class JeuxController < ApplicationController
   def matchs
   	  	@games = Game.all
-  	  	@game = Game.first
 
   end
 
