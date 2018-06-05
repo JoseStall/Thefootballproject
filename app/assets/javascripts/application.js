@@ -13,4 +13,56 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.min.js
+//= require popper.min.js
+//= require bootstrap.min.js
+//= require slidebar.js
+//= require classie.js
+//= require bootstrap-growl.min.js
+//= require scrollpos-styler.js
+//= require adaptive-backgrounds.js
+//= require jquery.countdown.min.js
+//= require dropzone.min.js
+//= require jquery.easypiechart.min.js
+//= require jquery.fancybox.min.js
+//= require flatpickr.min.js
+//= require flip.min.js
+//= require footer-reveal.min.js
+//= require jquery.gradientify.min.js
+//= require headroom.min.js
+//= require jquery.headroom.min.js
+//= require input-mask.min.js
+//= require instafeed.js
+//= require jquery.countTo.js
+//= require nouislider.min.js
+//= require paraxify.min.js
+//= require select2.min.js
+//= require sticky-kit.min.js
+//= require swiper.min.js
+//= require autosize.min.js
+//= require typeahead.bundle.min.js
+//= require typed.min.js
+//= require vide.min.js
+//= require viewportchecker.min.js
+//= require wow.min.js
+//= require isotope.min.js
+//= require imagesloaded.pkgd.min.js
+//= require boomerang.min.js
 //= require_tree .
+
+
+<script src="../../assets/vendor/textarea-autosize/autosize.min.js"></script>
+<script src="../../assets/vendor/typeahead/typeahead.bundle.min.js"></script>
+<script src="../../assets/vendor/typed/typed.min.js"></script>
+<script src="../../assets/vendor/vide/vide.min.js"></script>
+<script src="../../assets/vendor/viewport-checker/viewportchecker.min.js"></script>
+<script src="../../assets/vendor/wow/wow.min.js"></script>
+
+<!-- Isotope -->
+<script src="../../assets/vendor/isotope/isotope.min.js"></script>
+<script src="../../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+
+
+
+<!-- App JS -->
+<script src="../../assets/js/boomerang.min.js"></script>
