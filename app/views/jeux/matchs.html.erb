@@ -1,3 +1,19 @@
+<div class="form-group">
+    <label for="chooseteam">Team</label>
+    <select class="form-control" id="chooseteam">
+        <option>Choisir une equipe</option>
+        <% @games.each do |game| %>
+        <option><%= game.home_team.name %></option>
+        <% end %>
+    </select>
+</div>
+
+<%= form_tag("/jeux/matchs", method: "get") do %>
+    <%= select_tag 'team', options_for_select(Game.all.collect{ |u| [u.home_team.name, u.id] }) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
+<div id="showteam"></div>
 
 <table class="table">
 <thead>
@@ -13,8 +29,9 @@
     </tr>
 </thead>
 <tbody>
-    <% @games.each do |game| %>
 
+    <% @games.each do |game| %>
+    
     <tr>
         <td><%= game.id %></td>
         <td><%= game.date %></td>
@@ -31,3 +48,12 @@
   
 </tbody>
 </table>
+
+<script>
+    $('#showteam').text('Portugal');
+    $("#chooseteam").click(function() {
+        $('#showteam').text($('#chooseteam').val());
+        console.log($('#chooseteam').val());
+    });
+</script>
+
