@@ -1,16 +1,23 @@
-
 <h1 style="text-align: center; font-size: 80px">The Football Project</h1>
+<!-- Formulaire Filtre equipe -->
+<%= form_tag("/jeux/matchs", method: "get") do %>
+    <div class="form-group">
+    <%= label_tag 'team', 'Choisir une équipe', class: 'small_label' %>
+    <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control' %>
+    </div>
+    <%= submit_tag("Search") %>
+<% end %>
+<!-- Fin Formulaire Filtre equipe -->
 
-
+<!-- Debut Tableau -->
 <div class="ftb-tabs-wrap">
-    <!--// MAIN TABS NAV //-->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a class="hire" href="/jeux#matchs" aria-controls="homeone" role="tab" data-toggle="tab">Matchs</a></li>
-        <li role="presentation"><a class="hire" href="/jeux/classement" aria-controls="profileone" role="tab" data-toggle="tab">Classement</a></li>
-        <li role="presentation"><a  class="hire" href="/jeux/actu" aria-controls="messagesone" role="tab" data-toggle="tab">Actu</a></li>
+
+        <li role="presentation" class="active"><a class="hire" href="jeux#matchs" aria-controls="homeone" role="tab" data-toggle="tab">Matchs</a></li>
+        <li role="presentation"><a class="hire" href="<%=jeux_classement_path %>" aria-controls="profileone" role="tab" data-toggle="tab">Classement</a></li>
+        <li role="presentation"><a  class="hire" href="#messagesone" aria-controls="messagesone" role="tab" data-toggle="tab">Actu</a></li>
+
     </ul>
-    <!--// MAIN TABS NAV //-->
-    <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="homeone">
             <!--// MAIN TABS TABLE //-->
@@ -34,14 +41,69 @@
                 </li>
                 <% end %>
             </ul>
-            <!--// MAIN TABS TABLE //-->
         </div>
     </div>
 </div>
 
-<%= select("game.id", "game.date", Game.all.collect {|p| [ p.date, p.id ] }, {prompt: 'Selectioner une date'}) %>
-<%= select("game.id", "game.date", Game.all.collect {|p| [ p.home_team.name, p.id ] }, {prompt: 'Selectioner une équipe'}) %>
+<!-- Fin Tableau -->
+
+
+<%= form_tag("/jeux/matchs", method: "get") do %>
+    <div class="form-group">
+    <%= label_tag 'team', 'Choisir une équipe', class: 'small_label' %>
+    <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control' %>
+    </div>
+    <%= submit_tag("Search") %>
+<% end %>
+
+
+<table class="table">
+<thead>
+    <tr>
+        <th> N° </th>
+        <th>date</th>
+        <th>Drapeau</th>
+        <th>Equipe</th>
+        <th>Score</th>
+        <th>Equipe</th>
+        <th>Drapeau</th>
+
+    </tr>
+</thead>
+<tbody>
+
+    <% @games.each do |game| %>
+
+    <% if @team == 0 %>
+         
+    <tr>
+        <td><%= game.id %></td>
+        <td><%= game.date %></td>
+        <td><img style='width: 35px; height: auto' src="<%= game.home_team.flag %>"></td>
+        <td><%= game.home_team.name %></td>
+        <td> 0 - 0 </td>
+        <td><%= game.visiting_team.name %></td>
+        <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
 
 
 
+    </tr>
+    
+    <% else %>
+        <% if game.home_team.id == @team || game.visiting_team.id == @team %>
 
+         <tr>
+            <td><%= game.id %></td>
+            <td><%= game.date %></td>
+            <td><img style='width: 35px; height: auto' src="<%= game.home_team.flag %>"></td>
+            <td><%= game.home_team.name %></td>
+            <td> 0 - 0 </td>
+            <td><%= game.visiting_team.name %></td>
+            <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
+        </tr>
+        <% end %>
+    <% end %>
+    <% end %>
+  
+</tbody>
+</table>
