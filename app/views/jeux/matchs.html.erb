@@ -10,6 +10,7 @@
 <!-- Fin Formulaire Filtre equipe -->
 
 <!-- Debut Tableau -->
+<section>
 <div class="ftb-tabs-wrap">
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a class="hire" href="jeux#matchs" aria-controls="homeone" role="tab" data-toggle="tab">Matchs</a></li>
@@ -21,6 +22,7 @@
             <!--// MAIN TABS TABLE //-->
             <ul class="ftb-main-table">
                 <% @games.each do |game| %>
+                <% if @team == 0 %>
                 <li>
                     <div class="ftb-date">
                         <%= game.date %>
@@ -37,12 +39,32 @@
                     </div>
                     <div class="ftb-ticket"><a class="hire" href="#">Créer un évent</a></div>
                 </li>
+                <% else %>
+                    <% if game.home_team.id == @team || game.visiting_team.id == @team %>
+                    <li>
+                    <div class="ftb-date">
+                        <%= game.date %>
+                    </div>
+                    <div class="ftb-compitatev">
+                        <div class="compitatev-team1">
+                            <img src="<%= game.home_team.flag %>" alt="flag">
+                            <a href="#"><%= game.home_team.name %></a>
+                        </div>
+                        <div class="compitatev-team1 compitatev-team2">
+                            <a href="#"><%= game.visiting_team.name %></a>
+                            <img src="<%= game.visiting_team.flag %>" alt="">
+                        </div>
+                    </div>
+                    <div class="ftb-ticket"><a class="hire" href="#">Créer un évent</a></div>
+                </li>
+                    <% end %>
+                <% end %>
                 <% end %>
             </ul>
         </div>
     </div>
 </div>
-
+</section>
 <!-- Fin Tableau -->
 
 

@@ -49,11 +49,12 @@
               <div class="row">
                 <div class="col-lg-12">
                   <div class="form-group has-feedback">
-                    <%= f.label :Nouveau_mot_de_passe %> <i>(si vous souhaitez changer de mot de passe)</i><br />
+                    <%= f.label :Nouveau_mot_de_passe %><br>
+                    <small>(si vous souhaitez changer de mot de passe)</small>
                     <%= f.password_field :password, autocomplete: "off", class: 'form-control form-control-lg'%>
                     <% if @minimum_password_length %>
                       <br />
-                      <em><%= @minimum_password_length %> characters minimum</em>
+                      <small><%= @minimum_password_length %> characters minimum</small>
                   <% end %>
                   </div>
                 </div>
@@ -68,8 +69,9 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="form-group has-feedback">
-                    <%= f.label :mot_de_passe_actuel %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i><br />
-                      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control form-control-lg' %>
+                    <%= f.label :mot_de_passe_actuel %><br>
+                    <small>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</small>
+                    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control form-control-lg' %>
               </div></div>
             </div>
               <%= f.submit "Enregistrer", class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
@@ -78,7 +80,7 @@
               <h4 class="heading heading-4 strong-400 mb-4 mt-4">Supprimer mon compte</h4>
             </div>
 
-            <%= button_to "Supprimer mon compte",registration_path(resource_name), class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4 btn-danger", data: { confirm: "Êtes-vous sûr?" }, method: :delete %>
+            <%= button_to "Supprimer mon compte",registration_path(resource_name), class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4 mb-4 btn-danger", data: { confirm: "Êtes-vous sûr?" }, method: :delete %>
 
             <%= link_to "Retour", :back %>
             </form>
