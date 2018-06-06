@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  capacity: 1
+  interested_people: 1
+  pint_price: 1.5
+
+two:
+  name: MyString
+  description: MyString
+  capacity: 1
+  interested_people: 1
+  pint_price: 1.5
