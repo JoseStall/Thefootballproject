@@ -1,3 +1,4 @@
+
 <h1 style="text-align: center; font-size: 80px">The Football Project</h1>
 
 
@@ -38,3 +39,10 @@
         </div>
     </div>
 </div>
+
+<%= select("game.id", "game.date", Game.all.collect {|p| [ p.date, p.id ] }, {prompt: 'Selectioner une date'}) %>
+<%= select("game.id", "game.date", Game.all.collect {|p| [ p.home_team.name, p.id ] }, {prompt: 'Selectioner une équipe'}) %>
+
+
+
+

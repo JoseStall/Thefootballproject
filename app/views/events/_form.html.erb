@@ -11,32 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+   <div class="field">
+    <%= form.label :Match %>
+    <%= form.select :match, options_for_select(@array_games, selected = @array_games[@game_id - 1]) %> <!-- @game_id à modifier-->
   </div>
+  
+
+  <br>
+  <br>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+
+<div class="field">
+    <%= form.label :description, :value => "On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?" %>
+    <%= form.text_field :description, :value => "Explique comment ça va se passer chez toi!" %>
   </div>
 
-  <div class="field">
-    <%= form.label :game_id %>
-    <%= form.text_field :game_id %>
-  </div>
+   <br>
+   <br>
+    
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
