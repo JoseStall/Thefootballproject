@@ -1,11 +1,7 @@
 class JeuxController < ApplicationController
   def matchs
   	  	@games = Game.all
-  	  	puts 'FORMULAIRE'
-  	  	@team = params[:team]
-  	  	p 'cool'
-  	  	p @team
-
+  	  	@team = params[:team].to_i
   end
 
   def actu

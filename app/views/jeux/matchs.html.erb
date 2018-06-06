@@ -1,19 +1,12 @@
-<div class="form-group">
-    <label for="chooseteam">Team</label>
-    <select class="form-control" id="chooseteam">
-        <option>Choisir une equipe</option>
-        <% @games.each do |game| %>
-        <option><%= game.home_team.name %></option>
-        <% end %>
-    </select>
-</div>
 
 <%= form_tag("/jeux/matchs", method: "get") do %>
-    <%= select_tag 'team', options_for_select(Game.all.collect{ |u| [u.home_team.name, u.id] }) %>
+    <div class="form-group">
+    <%= label_tag 'team', 'Choisir une équipe', class: 'small_label' %>
+    <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control' %>
+    </div>
     <%= submit_tag("Search") %>
 <% end %>
 
-<div id="showteam"></div>
 
 <table class="table">
 <thead>
@@ -31,7 +24,9 @@
 <tbody>
 
     <% @games.each do |game| %>
-    
+
+    <% if @team == 0 %>
+         
     <tr>
         <td><%= game.id %></td>
         <td><%= game.date %></td>
@@ -44,16 +39,22 @@
 
 
     </tr>
+    
+    <% else %>
+        <% if game.home_team.id == @team || game.visiting_team.id == @team %>
+
+         <tr>
+            <td><%= game.id %></td>
+            <td><%= game.date %></td>
+            <td><img style='width: 35px; height: auto' src="<%= game.home_team.flag %>"></td>
+            <td><%= game.home_team.name %></td>
+            <td> 0 - 0 </td>
+            <td><%= game.visiting_team.name %></td>
+            <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
+        </tr>
+        <% end %>
+    <% end %>
     <% end %>
   
 </tbody>
 </table>
-
-<script>
-    $('#showteam').text('Portugal');
-    $("#chooseteam").click(function() {
-        $('#showteam').text($('#chooseteam').val());
-        console.log($('#chooseteam').val());
-    });
-</script>
-
