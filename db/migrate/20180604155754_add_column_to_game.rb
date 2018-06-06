@@ -1,8 +1,12 @@
 class AddColumnToGame < ActiveRecord::Migration[5.2]
   def change
-  	change_table :games do |t|
-      t.belongs_to :home_team, foreign_key: true
-      t.belongs_to :visiting_team, foreign_key: true
+  	add_reference :games, :home_team, index: true
+  	add_reference :games, :visiting_team, index: true
+
+  	add_foreign_key :games, :teams, column: :home_team_id, primary_key: :id
+    add_foreign_key :games, :teams, column: :visiting_team_id, primary_key: :id
     end
-  end
 end
+
+
+
