@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = Event.create(user_id: current_user.id, game_id: @game_id)
     @array_games = []
     @games.each do |game|
-      @array_games << game.home_team.name + " VS " + game.visiting_team.name
+      @array_games << game.home_team.name + " VS " + game.visiting_team.name + " " + game.date.to_s
     end
   end
 
