@@ -1,22 +1,40 @@
-<table class="table">
-	<thead>
-		<tr>
-			<th> N° </th>
-			<th>Drapeau</th>
-			<th>Equipe</th>
-			<th>Groupe</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @teams.each do |team| %>
 
-		<tr>
-			<td><%= team.id %></td>
-			<td><img style='width: 35px; height: auto' src="<%= team.flag %>"></td>
-			<td><%= team.name %></td>
-			<td><%= team.group %></td>
-		</tr>
-		<% end %>
+<h1 style="text-align: center; font-size: 80px">The Football Project</h1>
 
-	</tbody>
-</table>
+
+<div class="ftb-tabs-wrap">
+    <!--// MAIN TABS NAV //-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a class="hire" href="jeux#matchs" aria-controls="homeone" role="tab" data-toggle="tab">Matchs</a></li>
+        <li role="presentation"><a class="hire" href="<%=jeux_classement_path %>
+" aria-controls="profileone" role="tab" data-toggle="tab">Classement</a></li>
+        <li role="presentation"><a  class="hire" href="#messagesone" aria-controls="messagesone" role="tab" data-toggle="tab">Actu</a></li>
+    </ul>
+
+
+  <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="homeone">
+            <!--// MAIN TABS TABLE //-->
+            <ul class="ftb-main-table">
+               <% @teams.each do |team| %>
+                <li>
+                    <div class="ftb-date">
+                        <%= team.id %>
+                    </div>
+                    <div class="ftb-compitatev">
+                        <div class="compitatev-team1">
+                            <img src="<%= team.flag %>" alt="flag">
+                            <a href="#"><%= team.name %></a>
+                        </div>
+                        <div class="compitatev-team1 compitatev-team2">
+                            <a href="#"><%= team.group %></a>
+                        </div>
+                    </div>
+                    <div class="ftb-ticket"><a class="hire" href="#">Créer un évent</a></div>
+                </li>
+                <% end %>
+            </ul>
+            <!--// MAIN TABS TABLE //-->
+        </div>
+    </div>
+</div>

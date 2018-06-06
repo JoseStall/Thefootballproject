@@ -12,9 +12,11 @@
 <!-- Debut Tableau -->
 <div class="ftb-tabs-wrap">
     <ul class="nav nav-tabs" role="tablist">
+
         <li role="presentation" class="active"><a class="hire" href="jeux#matchs" aria-controls="homeone" role="tab" data-toggle="tab">Matchs</a></li>
         <li role="presentation"><a class="hire" href="<%=jeux_classement_path %>" aria-controls="profileone" role="tab" data-toggle="tab">Classement</a></li>
         <li role="presentation"><a  class="hire" href="#messagesone" aria-controls="messagesone" role="tab" data-toggle="tab">Actu</a></li>
+
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="homeone">
@@ -35,7 +37,7 @@
                             <img src="<%= game.visiting_team.flag %>" alt="">
                         </div>
                     </div>
-                    <div class="ftb-ticket"><a class="hire" href="#">Créer un évent</a></div>
+                    <div class="ftb-ticket"><a class="hire" href="/events/new">Créer un évent</a></div>
                 </li>
                 <% end %>
             </ul>
