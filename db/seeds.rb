@@ -56,7 +56,7 @@ Game.create(date: DateTime.strptime("06/17/2018 20:00", "%m/%d/%Y %H:%M"),home_t
 Game.create(date: DateTime.strptime("06/17/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 2, visiting_team_id: 20)
 Game.create(date: DateTime.strptime("06/18/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 8, visiting_team_id: 28)
 Game.create(date: DateTime.strptime("06/18/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 6, visiting_team_id: 22)
-Game.create(date: DateTime.strptime("06/18/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 15, visiting_team_id: 9)
+Game.create(date: DateTime.strptime("06/18/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 25, visiting_team_id: 3)
 Game.create(date: DateTime.strptime("06/19/2018 14:00", "%m/%d/%Y %H:%M"),home_team_id: 18, visiting_team_id: 29)
 Game.create(date: DateTime.strptime("06/19/2018 17:00", "%m/%d/%Y %H:%M"),home_team_id: 10, visiting_team_id: 27)
 Game.create(date: DateTime.strptime("06/19/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 1, visiting_team_id: 26)
