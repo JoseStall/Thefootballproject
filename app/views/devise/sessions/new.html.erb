@@ -1,26 +1,57 @@
-<h2>Log in</h2>
+<section class="slice-lg has-bg-cover bg-size-cover" style="background-image: url(<%= asset_path 'soccer/stadium-510202_1920.jpg' %>); background-position: center center">
+  <div class="container">
+    <div class="row justify-content cols-xs-space">
+      <div class="col-lg-4">
+        <div class="form-card form-card--style-2 z-depth-2-top">
+          <div class="form-header text-center">
+            <div class="form-header-icon">
+              <i class="fa fa-user"></i>
+            </div>
+          </div>
+          <div class="form-body">
+            <div class="text-center px-2">
+              <h4 class="heading heading-4 strong-400 mb-4">Connecte toi</h4>
+            </div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <form class="form-default" role="form">
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control-lg' %>
+                  </div>
+                </div>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group has-feedback">
+                    <%= f.label :password %><br />
+                    <%= f.password_field :password, autocomplete: "off", class: 'form-control form-control-lg' %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <% if devise_mapping.rememberable? -%>
+                  <div class="checkbox">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </div>
+                  <% end -%>
+                </div>
+              </div>
+              <%= f.submit "Se connecter", class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
+              <%= f.submit "Facebook", class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
+              <%= f.submit "Google", class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
+              <small><%= link_to "S'inscrire'", new_registration_path(resource_name) %></small><br>   
+              <small><%= link_to "Mot de passe oublié?", new_password_path(resource_name) %></small>
+            <% end %>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
+<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
