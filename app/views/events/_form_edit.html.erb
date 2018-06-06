@@ -21,17 +21,28 @@
   <br>
 
   <div class="field">
-    <p>Quelques images de toi, ta passion pour le foot et ton installation de rêve pour mater le match? </p>
     <%= form.label :images %>
     <%= form.file_field :images, multiple: true %>
   </div>
-<br> <br>
+
+  <div style="width:400px; height:auto">
+<% if @event.images.attached? %>
+<p>
+  <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
+  <br>
+  <% @event.images.each do |image|  %>
+    <%= image_tag(image, style:'width:100%') %>
+  <% end %>
+</p>
+<% end %>
+</div>
+
 
 <div class="field">
-  <p> On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?</p> <%= form.label :description %>
+  <p> On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?</p><br>
+    <%= form.label :description %>
     <%= form.text_field :description, :value => @event.description %>
   </div>
-
 
    <br>
    <br>
@@ -39,7 +50,7 @@
 
 
   <div class="actions">
-    <%= form.submit value:"Crée ton event" %>
+    <%= form.submit value:"Mets à jour ton event" %>
   </div>
 <% end %>
 

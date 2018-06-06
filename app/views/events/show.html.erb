@@ -3,7 +3,11 @@
 <p>
   <strong>Description:</strong>
   <%= @event.description %>
-  
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @date %>
 </p>
 
 
@@ -19,10 +23,7 @@
 <% end %>
 </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
