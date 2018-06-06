@@ -1,11 +1,11 @@
 <h1 style="text-align: center; font-size: 80px">The Football Project</h1>
 <!-- Formulaire Filtre equipe -->
 <%= form_tag("/jeux/matchs", method: "get") do %>
-    <div class="form-group">
+<div class="form-group">
     <%= label_tag 'team', 'Choisir une équipe', class: 'small_label' %>
     <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control' %>
-    </div>
-    <%= submit_tag("Search") %>
+</div>
+<%= submit_tag("Search") %>
 <% end %>
 <!-- Fin Formulaire Filtre equipe -->
 
@@ -47,50 +47,50 @@
 
 
 <%= form_tag("/jeux/matchs", method: "get") do %>
-    <div class="form-group">
+<div class="form-group">
     <%= label_tag 'team', 'Choisir une équipe', class: 'small_label' %>
     <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control' %>
-    </div>
-    <%= submit_tag("Search") %>
+</div>
+<%= submit_tag("Search") %>
 <% end %>
 
 
 <table class="table">
-<thead>
-    <tr>
-        <th> N° </th>
-        <th>date</th>
-        <th>Drapeau</th>
-        <th>Equipe</th>
-        <th>Score</th>
-        <th>Equipe</th>
-        <th>Drapeau</th>
+    <thead>
+        <tr>
+            <th> N° </th>
+            <th>date</th>
+            <th>Drapeau</th>
+            <th>Equipe</th>
+            <th>Score</th>
+            <th>Equipe</th>
+            <th>Drapeau</th>
 
-    </tr>
-</thead>
-<tbody>
+        </tr>
+    </thead>
+    <tbody>
 
-    <% @games.each do |game| %>
+        <% @games.each do |game| %>
 
-    <% if @team == 0 %>
-         
-    <tr>
-        <td><%= game.id %></td>
-        <td><%= game.date %></td>
-        <td><img style='width: 35px; height: auto' src="<%= game.home_team.flag %>"></td>
-        <td><%= game.home_team.name %></td>
-        <td> 0 - 0 </td>
-        <td><%= game.visiting_team.name %></td>
-        <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
+        <% if @team == 0 %>
+        
+        <tr>
+            <td><%= game.id %></td>
+            <td><%= game.date %></td>
+            <td><img style='width: 35px; height: auto' src="<%= game.home_team.flag %>"></td>
+            <td><%= game.home_team.name %></td>
+            <td> 0 - 0 </td>
+            <td><%= game.visiting_team.name %></td>
+            <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
 
 
 
-    </tr>
-    
-    <% else %>
+        </tr>
+        
+        <% else %>
         <% if game.home_team.id == @team || game.visiting_team.id == @team %>
 
-         <tr>
+        <tr>
             <td><%= game.id %></td>
             <td><%= game.date %></td>
             <td><img style='width: 35px; height: auto' src="<%= game.home_team.flag %>"></td>
@@ -100,8 +100,8 @@
             <td><img style='width: 35px; height: auto' src="<%= game.visiting_team.flag %>"></td>
         </tr>
         <% end %>
-    <% end %>
-    <% end %>
-  
-</tbody>
+        <% end %>
+        <% end %>
+        
+    </tbody>
 </table>
