@@ -10,6 +10,29 @@
   <%= @bar.description %>
 </p>
 
+<div style="width:400px; height:auto">
+<% if @bar.images.attached? %>
+<p>
+  <strong>Images:</strong>
+  <br>
+  <% @bar.images.each do |image|  %>
+    <%= image_tag(image, style:'width:100%') %>
+  <% end %>
+</p>
+<% end %>
+</div>
+
+  <p>
+  <strong>Installation:</strong>
+  <%= @bar.screen %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @bar.address %>
+</p>
+
+
 <p>
   <strong>Capacity:</strong>
   <%= @bar.capacity %>

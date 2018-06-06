@@ -14,7 +14,9 @@ class BarsController < ApplicationController
 
   # GET /bars/new
   def new
-    @bar = Bar.new
+    puts params
+    puts current_user
+    @bar = Bar.create(user_id: current_user.id)
   end
 
   # GET /bars/1/edit
@@ -69,6 +71,6 @@ class BarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bar_params
-      params.require(:bar).permit(:name, :description, :capacity, :interested_people, :pint_price)
+      params.require(:bar).permit(:name, :description, :capacity, :interested_people, :pint_price, images: [])
     end
 end
