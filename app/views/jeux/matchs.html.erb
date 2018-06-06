@@ -2,7 +2,11 @@
 <%= select("game.id", "game.date", Game.all.collect {|p| [ p.home_team.name, p.id ] }, {prompt: 'Selectioner une équipe'}) %>
 
 
+<div id="my-signin2" class="g-signin" data-onsuccess="onSignIn">bouton</div>
+
 <table class="table">
+
+
     <thead>
         <tr>
             <th> N° </th>
@@ -33,4 +37,6 @@
         <% end %>
     </tbody>
 </table>
+ 
+
 
