@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'contact', to: 'home#contact'
   get 'mentions', to: 'home#mentions'
-  get 'home/test'
+  get 'search', to: 'home#search'
+
 end

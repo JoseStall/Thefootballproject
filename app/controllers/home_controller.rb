@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
+  	@bars = Bar.all
+
   end
 
   def contact
@@ -9,5 +11,6 @@ class HomeController < ApplicationController
   end
 
   def search
+  	@teams = Team.all
   end
 end
