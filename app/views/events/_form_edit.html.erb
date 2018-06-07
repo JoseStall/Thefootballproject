@@ -31,7 +31,9 @@
   <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
   <br>
   <% @event.images.each do |image|  %>
+  <%= link_to 'Remove image', image.purge, data: { confirm: 'Are you sure?' } %>
     <%= image_tag(image, style:'width:100%') %>
+
   <% end %>
 </p>
 <% end %>
