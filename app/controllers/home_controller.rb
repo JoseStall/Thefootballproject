@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def mentions
   end
+
+  def search
+  end
 end
