@@ -1,1 +1,55 @@
-<h1>Trouver un lieu</h1>
+<section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/cheering-crowd-event-17598.jpg' %>); background-position: bottom center;">
+	<span class="mask mask-dark--style-2"></span>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="py-5 text-center">
+					<h1 class="heading heading-1 c-white strong-400 text-normal">
+						 Trouver votre événement
+					</h1>
+
+					<span class="clearfix"></span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-10">
+				<div class="form-container">
+					<%= form_tag("", method: "get") do %>
+						<div class="form-group">
+							<div class="row justify-content-center">
+						    	<div class="col-md-10">
+									<label for="chooseTeam" class="title-form-search">Choisir une equipe</label>
+						    
+								    <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control' %>
+						    	</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row justify-content-center">
+						    	<div class="col-md-10">
+									<label for="chooseTeam" class="title-form-search">Entrer votre adresse</label>
+						    
+								    <input class="form-control" type="text" placeholder="Adresse">
+						    	</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row justify-content-center">
+						    	<div class="col-md-10">
+									<button type="submit" class="btn btn-primary btn-search">Chercher</button>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

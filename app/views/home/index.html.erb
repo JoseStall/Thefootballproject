@@ -83,16 +83,16 @@
                                 <div class="col-lg-4" id="div_properties_search">
                                     <div class="card no-radius no-border">
                                         <div class="card-title card-title-wrapped">
-                                            <h3 class="heading heading-5 strong-500 text-capitalize">Search properties</h3>
+                                            <h3 class="heading heading-5 strong-500 text-capitalize">Trouver un événement</h3>
                                         </div>
 
                                         <div class="card-body py-4 px-4">
-                                            <form class="form-default" data-toggle="validator" role="form">
+                                            <%= form_tag("", method: "get") do %>
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group has-feedback">
-                                                            <label>Location</label>
-                                                            <input class="form-control form-control-lg" type="text" placeholder="City, Country">
+                                                            <label>Sélectionner un pays</label>
+                                                            <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control form-control-lg selectpicker' %>
                                                             <span class="help-block with-errors"></span>
                                                         </div>
                                                     </div>
@@ -101,50 +101,15 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="form-group has-feedback">
-                                                            <label>Search radius</label>
-                                                            <select class="form-control form-control-lg selectpicker">
-                                                                <option>Any</option>
-                                                                <option>Within 1/4 miles</option>
-                                                                <option>Within 1/2 miles</option>
-                                                                <option>Within 1 mile</option>
-                                                                <option>Within 3 miles</option>
-                                                                <option>Within 5 miles</option>
-                                                            </select>
+                                                            <label>Entrez une adresse</label>
+                                                            <%= text_field_tag 'adress', nil, class: 'form-control form-control-lg' %>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group has-feedback">
-                                                            <label>Property type</label>
-                                                            <select class="form-control form-control-lg selectpicker">
-                                                                <option>All types</option>
-                                                                <option>Houses</option>
-                                                                <option>Flats/Apartments</option>
-                                                                <option>Bungalows</option>
-                                                                <option>Lands</option>
-                                                                <option>Other</option>
-                                                            </select>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group has-feedback">
-                                                            <label>I want</label>
-                                                            <select class="form-control form-control-lg selectpicker">
-                                                                <option>All</option>
-                                                                <option>To rent</option>
-                                                                <option>To buy</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-
-                                                <button type="submit" class="btn btn-styled btn-block btn-lg btn-base-1 mt-4">Search properties</button>
-                                            </form>
+                                                <%= submit_tag "Rechercher", class: "btn btn-styled btn-block btn-lg btn-base-1 mt-4" %>
+                                            <% end %>
                                         </div>
                                     </div>
                                 </div>
