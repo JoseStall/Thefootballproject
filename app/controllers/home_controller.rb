@@ -9,5 +9,6 @@ class HomeController < ApplicationController
   end
 
   def search
+  	@teams = Team.all
   end
 end
