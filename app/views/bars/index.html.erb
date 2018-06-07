@@ -123,32 +123,8 @@
       } 
 
     </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&callback=initMap&libraries=places">
+  </script>
     
 
-
-<!--geocoder.geocode( { 'address': addresses[i]}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        
-        var marker = new google.maps.Marker({
-          icon: image,
-          map: map,
-          title: 'A débug',
-          
-          position: results[0].geometry.location
-            
-        }); 
-
-        marker.addListener('click', function() {
-         map.setZoom(14);
-         map.setCenter(marker.getPosition());
-         
-       });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    })};
-
-        var infoWindow = new google.maps.InfoWindow({map: map});
-
-        -->
