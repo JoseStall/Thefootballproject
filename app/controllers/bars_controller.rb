@@ -5,6 +5,13 @@ class BarsController < ApplicationController
   # GET /bars.json
   def index
     @bars = Bar.all
+    @addresses = []
+    @description = []
+    @bars.each do |b|
+      @addresses << b.address 
+      @description << b.description
+    end
+
   end
 
   # GET /bars/1
