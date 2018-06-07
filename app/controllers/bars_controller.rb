@@ -7,12 +7,19 @@ class BarsController < ApplicationController
     @bars = Bar.all
     @addresses = []
     @description = []
+    @latitude = []
+    @longitude = []
+    
     @bars.each do |b|
+      if b.latitude != nil
       @addresses << b.address 
       @description << b.description
+      
+      @latitude << b.latitude
+      @longitude << b.longitude
     end
-
   end
+end
 
   # GET /bars/1
   # GET /bars/1.json

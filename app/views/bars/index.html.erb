@@ -2,11 +2,11 @@
 
 
 <style>
-  #map {
-    height: 500px;
-    width: 100%;
+#map {
+  height: 500px;
+  width: 100%;
 
-  }
+}
 </style>
 <h3>Essai google maps</h3>
 <div id="map"></div>
@@ -29,18 +29,18 @@
 
   <tbody>
     <% @bars.each do |bar| %>
-      <tr>
-        <td><%= bar.name %></td>
-        <td><%= bar.description %></td>
-        <td><%= bar.screen %></td>
-        <td><%= bar.address %></td>
-        <td><%= bar.capacity %></td>
-        <td><%= bar.interested_people %></td>
-        <td><%= bar.pint_price %></td>
-        <td><%= link_to 'Show', bar %></td>
-        <td><%= link_to 'Edit', edit_bar_path(bar) %></td>
-        <td><%= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= bar.name %></td>
+      <td><%= bar.description %></td>
+      <td><%= bar.screen %></td>
+      <td><%= bar.address %></td>
+      <td><%= bar.capacity %></td>
+      <td><%= bar.interested_people %></td>
+      <td><%= bar.pint_price %></td>
+      <td><%= link_to 'Show', bar %></td>
+      <td><%= link_to 'Edit', edit_bar_path(bar) %></td>
+      <td><%= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
@@ -55,15 +55,15 @@
   var geocoder;
   var map;
   function initMap() {
-    geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
-    var mapOptions = {
+      var mapOptions = {
       zoom: 14,
-      center: latlng
+    
     };
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
     var addresses = <%= @addresses.inspect.html_safe %>;
-    var desc = <%= @description.inspect.html_safe %>
+    var desc = <%= @description.inspect.html_safe %>;
+    var latitude = <%= @latitude.inspect.html_safe %>;
+    var longitude = <%= @longitude.inspect.html_safe %>;
     var image = {
     // Adresse de l'icône personnalisée
     url: 'https://s3.eu-west-3.amazonaws.com/rails-chaton/logo-cdm2018.png',
@@ -75,36 +75,24 @@
     anchor: new google.maps.Point(10, 20)
   };
   
-    for (var i = 0; i < addresses.length; i++){
 
-    geocoder.geocode(  { 'address': addresses[i]}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        
-        var marker = new google.maps.Marker({
-          icon: image,
-          map: map,
-          position: results[0].geometry.location
-            
-        });
-
-        var infowindow = new google.maps.InfoWindow({
-          content: desc[i]
-        });        
-
-        marker.addListener('click', function() {
+  for (i = 0; i < desc.length; i++) {
+    var marker = new google.maps.Marker({
+      position: {lat: latitude[i], lng: longitude[i]},
+      map: map,
+      title: desc[i]
+    });
+     marker.addListener('click', function() {
          map.setZoom(14);
          map.setCenter(marker.getPosition());
-         infowindow.open(map, marker);
+         
        });
-
-        
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
       }
-    })};
 
-        var infoWindow = new google.maps.InfoWindow({map: map});
+
+  
+
+  var infoWindow = new google.maps.InfoWindow({map: map});
 
 
         // Try HTML5 geolocation.
@@ -132,7 +120,35 @@
         infoWindow.setContent(browserHasGeolocation ?
           'Error: The Geolocation service failed.' :
           'Error: Your browser doesn\'t support geolocation.');
-      }
+      } 
 
     </script>
     
+
+
+<!--geocoder.geocode( { 'address': addresses[i]}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        
+        var marker = new google.maps.Marker({
+          icon: image,
+          map: map,
+          title: 'A débug',
+          
+          position: results[0].geometry.location
+            
+        }); 
+
+        marker.addListener('click', function() {
+         map.setZoom(14);
+         map.setCenter(marker.getPosition());
+         
+       });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    })};
+
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        -->
