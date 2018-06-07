@@ -81,9 +81,7 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Add Arrows -->
-                                            <div class="swiper-button--hover swiper-button-next"></div>
-                                            <div class="swiper-button--hover swiper-button-prev"></div>
+                                            <div class="swiper-pagination"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +108,8 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group has-feedback">
                                                             <label>Entrez une adresse</label>
-                                                            <%= text_field_tag 'adress', nil, class: 'form-control form-control-lg' %>
+                                                            <input id="autocomplete" name="adress" placeholder="Entrez une adresse" onFocus="geolocate()" type="text" class="form-control form-control-lg">
+                                                            </input>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -153,8 +152,10 @@
                                                         <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="190" class="img-responsive">
                                                     </a>
                                                 </div>
+
                                                 <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
-                                                <span class="block-price-over bg-base-4">Camden Bar</span>
+                                                <span class="block-price-over bg-base-4"><%= Bar.find(1).name %> </span>
+
                                             </div>
 
                                             <div class="block-body text-center mt-1">
@@ -175,13 +176,13 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 6€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(1).pint_price %>
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 80 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(1).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> 2 géants
+                                                        <i class="icon-hotel-restaurant-013"></i> <%= Bar.find(1).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -197,7 +198,7 @@
                                                         width="300" height="190"  class="img-responsive">
                                                     </a>
                                                 </div>
-                                                <span class="block-price-over bg-base-4">Queen Victoria</span>
+                                                <span class="block-price-over bg-base-4"><%= Bar.find(2).name %></span>
                                             </div>
 
                                             <div class="block-body text-center mt-1">
@@ -218,13 +219,13 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 6€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(2).pint_price %>€
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 80 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(2).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> 5 écrans
+                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(2).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -239,12 +240,12 @@
                                                         <img src="<%= image_path 'prv/real-estate/img-3.jpg' %>" width="300" height="190" class="img-responsive">
                                                     </a>
                                                 </div>
-                                                <span class="block-price-over bg-base-4">Au fût et à mesure</span>
+                                                <span class="block-price-over bg-base-4"><%= Bar.find(3).name %></span>
                                             </div>
 
                                             <div class="block-body text-center mt-1">
                                                 <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>5.1 km</strong>
+                                                    <strong>3.4 km</strong>
                                                     <span class="heading-6">de vous</span>
                                                 </h3>
                                                 <span class="star-rating">
@@ -260,13 +261,13 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 6€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(3).pint_price %>€
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 50 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(3).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> 4 écrans
+                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(3).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -282,13 +283,15 @@
                                                         width="300" height="190" class="img-responsive">
                                                     </a>
                                                 </div>
+
                                                 <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-green">Valeur sûre</span>
-                                                <span class="block-price-over bg-base-4">La biche et le renard</span>
+                                                <span class="block-price-over bg-base-4"><%= Bar.find(4).name %></span>
+
                                             </div>
 
                                             <div class="block-body text-center mt-1">
                                                 <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>2.3 km</strong>
+                                                    <strong>3.4 km</strong>
                                                     <span class="heading-6">de vous</span>
                                                 </h3>
                                                 <span class="star-rating">
@@ -304,19 +307,18 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 6€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(4).pint_price %>€
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 50 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(4).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> 3 écrans
+                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(4).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
                                 <div class="row cols-md-space">
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-12">
@@ -328,12 +330,12 @@
                                                         width="300" height="190" class="img-responsive">
                                                     </a>
                                                 </div>
-                                                <span class="block-price-over bg-base-4">La manufacture</span>
+                                                 <span class="block-price-over bg-base-4"><%= Bar.find(5).name %></span>
                                             </div>
 
                                             <div class="block-body text-center mt-1">
                                                 <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>11 km</strong>
+                                                    <strong>3.4 km</strong>
                                                     <span class="heading-6">de vous</span>
                                                 </h3>
                                                 <span class="star-rating">
@@ -349,13 +351,13 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 5€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(5).pint_price %>€
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 100 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(5).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> 5 écrans
+                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(5).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -371,13 +373,15 @@
                                                         width="300" height="190" class="img-responsive">
                                                     </a>
                                                 </div>
+
                                                 <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-purple">Super offre</span>
-                                                <span class="block-price-over bg-base-4">La resourcerie</span>
+                                                 <span class="block-price-over bg-base-4"><%= Bar.find(6).name %></span>
+
                                             </div>
 
                                             <div class="block-body text-center mt-1">
                                                 <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>0.5 km</strong>
+                                                    <strong>3.4 km</strong>
                                                     <span class="heading-6">de vous</span>
                                                 </h3>
                                                 <span class="star-rating">
@@ -393,13 +397,13 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 5€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(6).pint_price %>€
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 50 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(6).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> 1 géant
+                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(6).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -415,12 +419,12 @@
                                                         width="300" height="190" class="img-responsive">
                                                     </a>
                                                 </div>
-                                                <span class="block-price-over bg-base-4">BABE</span>
+                                                 <span class="block-price-over bg-base-4"><%= Bar.find(7).name %></span>
                                             </div>
 
                                             <div class="block-body text-center mt-1">
                                                 <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>10.5 km</strong>
+                                                    <strong>3.4 km</strong>
                                                     <span class="heading-6">de vous</span>
                                                 </h3>
                                                 <span class="star-rating">
@@ -436,13 +440,13 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 5€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(7).pint_price %>€
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 50 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(7).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> Géants
+                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(7).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -458,12 +462,12 @@
                                                         width="300" height="190" class="img-responsive">
                                                     </a>
                                                 </div>
-                                                <span class="block-price-over bg-base-4">Gastama</span>
+                                                 <span class="block-price-over bg-base-4"><%= Bar.find(8).name %></span>
                                             </div>
 
                                             <div class="block-body text-center mt-1">
                                                 <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>12 km</strong>
+                                                    <strong>3.4 km</strong>
                                                     <span class="heading-6">de vous</span>
                                                 </h3>
                                                 <span class="star-rating">
@@ -479,22 +483,18 @@
                                             <div class="aux-info-wrapper border-top">
                                                 <ul class="aux-info">
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> 6€
+                                                        <i class="icon-food-002"></i> <%= Bar.find(8).pint_price %>€
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i> 50 personnes
+                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(8).capacity %> personnes
                                                     </li>
                                                     <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> 2 écrans
+                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(8).screen %>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
 
                     <section class="slice sct-color-2 border-top border-bottom">
                         <div class="container">
@@ -528,9 +528,11 @@
                                                         <i class="fa fa-desktop"></i> 5 écrans
                                                     </li>
                                                 </ul>
+                                                
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="col-lg-6 order-lg-1">
@@ -762,6 +764,74 @@
 
 
 
+<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+</script>
 
 
 </body>
