@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
+  	@bars = Bar.all
+
   end
 
   def contact
