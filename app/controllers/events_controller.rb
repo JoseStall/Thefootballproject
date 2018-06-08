@@ -16,16 +16,18 @@ class EventsController < ApplicationController
    @date = Game.find(@event.game_id).date
  end
 
- # GET /events/new
- def new
-   @games = Game.all
-   @game_id = 4 #le temps qu'on réussisse l'ajax. On récupère le params game_id
-   @event = Event.create(user_id: current_user.id, game_id: @game_id)
-   @array_games = []
-   @games.each do |game|
-     @array_games << game.home_team.name + " VS " + game.visiting_team.name + ", date:  " + game.date.to_s
-   end
- end
+
+  # GET /events/new
+  def new
+    @games = Game.all
+    @game_id = 4 #le temps qu'on réussisse l'ajax. On récupère le params game_id
+    @event = Event.create(user_id: current_user.id, game_id: @game_id)
+    @array_games = []
+    @games.each do |game|
+      @array_games << game.home_team.name + " VS " + game.visiting_team.name + " - " + game.date.strftime("%d/%m/%Y à %H:%M")
+    end
+  end
+
 
  # GET /events/1/edit
  def edit
