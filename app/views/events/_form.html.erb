@@ -1,51 +1,59 @@
-<%= form_with(model: event, local: true) do |form| %>
- <% if event.errors.any? %>
-   <div id="error_explanation">
-     <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+     <%= form_with(model: event, local: true) do |form| %>
+     <% if event.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-     <ul>
-     <% event.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
+       <ul>
+         <% event.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+         <% end %>
+       </ul>
+     </div>
      <% end %>
-     </ul>
+
+     <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, class: 'form-control', placeholder: '12 rue de la coupe du monde', :required => true  %>
+    </div>
+    <div class="invalid-feedback">
+      Il te faut une adresse valide
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <%= form.label :game_id, 'Choisis ta rencontre' %>
+        <%= form.select :game_id, options_for_select(@array_games, selected = @array_games[@game_id - 1]),{} ,{:class => 'custom-select d-block w-100', :required => true} %>
+      </div>
+
+      <div class="col-md-7 mb-3">
+       <%= form.label :images, "Quelques photos de toi et de ton salon" %>
+       <%= form.file_field :images, multiple: true, direct_upload: true, class: 'form-control-file' %>
+
+     </div>
    </div>
- <% end %>
+   <%= form.hidden_field :user_id, :value => current_user.id %>
+   <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :description, 'On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?' %>
+        <%= form.text_area :description, :value => @event.description, rows: 3, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
 
 
+  <div >
+<%= form.check_box 'accept', class: 'checkbox' %>
+</div>
+<div class="checkbox">
+ <label><input type="checkbox" value="">Option 2</label>
+</div>
+<div class="checkbox disabled">
+ <label><input type="checkbox" value="" disabled>Option 3</label>
+</div>
 
-  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <hr class="mb-4">
+  <%= form.submit value:"Crée ton event", class: 'btn btn-primary btn-lg btn-block' %> 
 
-  
-  
- <%= form.label :game_id %>
-  <%= form.select :game_id, options_for_select(@array_games, selected = @array_games[@game_id - 1]) %>
-
-
-  
-
- <br>
- <br>
-
- <div class="field">
-   <p>Quelques images de toi, ta passion pour le foot et ton installation de rêve pour mater le match? </p>
-   <%= form.label :images %>
-   <%= form.file_field :images, multiple: true, direct_upload: true %>
- </div>
-<br> <br>
-
-<div class="field">
- <p> On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?</p> <%= form.label :description %>
-   <%= form.text_field :description, :value => @event.description %>
- </div>
-
-
-  <br>
-  <br>
-   
-
-
- <div class="actions">
-   <%= form.submit value:"Crée ton event" %>
- </div>
-<% end %>
-
+  <% end %>
