@@ -9,14 +9,34 @@ class BarsController < ApplicationController
     @description = []
     @latitude = []
     @longitude = []
+    @name = []
+    @bar = Bar.first
     
     @bars.each do |b|
       if b.latitude != nil
       @addresses << b.address 
       @description << b.description
-      
+      @name << b.name
       @latitude << b.latitude
       @longitude << b.longitude
+    end
+  end
+
+   @events = Event.all
+   p @events
+    @eaddresses = []
+    @edescription = []
+    @elatitude = []
+    @elongitude = []
+    @ename = []
+    @event = Event.first
+    
+    @events.each do |b|
+      if b.latitude != nil
+      @eaddresses << b.address 
+      @edescription << b.description
+      @elatitude << b.latitude
+      @elongitude << b.longitude
     end
   end
 end

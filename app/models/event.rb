@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-	geocoded_by :adress
+	geocoded_by :address
 	after_validation :geocode
 	has_and_belongs_to_many :users
 	belongs_to :user
