@@ -2,15 +2,15 @@
 <html>
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="robots" content="index, follow">
-<meta name="description" content="Boomerang is a responsive website template based on the well known Bootstrap framework. It's very well structured with lots of features and demos ready to be used.">
-<meta name="keywords" content="bootstrap, responsive, template, website, html, theme, ux, ui, web, design, developer, support, business, corporate, real estate, education, medical, school, education, demo, css, framework">
-<meta name="author" content="Webpixels">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Boomerang is a responsive website template based on the well known Bootstrap framework. It's very well structured with lots of features and demos ready to be used.">
+    <meta name="keywords" content="bootstrap, responsive, template, website, html, theme, ux, ui, web, design, developer, support, business, corporate, real estate, education, medical, school, education, demo, css, framework">
+    <meta name="author" content="Webpixels">
 
-<title>Boomerang - Multipurpose Bootstrap Theme</title>
+    <title>The Football Project</title>
 <!--  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </head>-->
 <body>
@@ -76,12 +76,14 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="swiper-pagination"></div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -117,6 +119,7 @@
 
                                                 <%= submit_tag "Rechercher", class: "btn btn-styled btn-block btn-lg btn-base-1 mt-4" %>
                                             <% end %>
+
                                         </div>
                                     </div>
                                 </div>
@@ -186,8 +189,10 @@
                                                     </li>
                                                 </ul>
                                             </div>
+
                                         </div>
                                     </div>
+                                </div>
 
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                                         <div class="block block--style-3">
@@ -229,8 +234,10 @@
                                                     </li>
                                                 </ul>
                                             </div>
+
                                         </div>
                                     </div>
+                                </div>
 
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                                         <div class="block block--style-3">
@@ -271,8 +278,11 @@
                                                     </li>
                                                 </ul>
                                             </div>
+
                                         </div>
+                                        <div class="help-block with-errors"></div>
                                     </div>
+                                </div>
 
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                                         <div class="block block--style-3">
@@ -533,7 +543,11 @@
                                         </div>
                                     </div>
 
+
                                 </div>
+                                <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-purple">Top offer</span>
+                                <span class="block-price-over bg-base-4">$35.000</span>
+                            </div>
 
                                 <div class="col-lg-6 order-lg-1">
                                     <div class="swiper-js-container">
@@ -554,20 +568,55 @@
                                         </div>
                                     </div>
                             	</div>
+
                             </div>
                         </div>
-                    </section>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="block block--style-3">
+                            <div class="block-image relative">
+                                <div class="view view-first">
+                                    <a href="#">
+                                        <img src="<%= image_path 'prv/real-estate/img-7.jpg' %>" class="img-responsive">
+                                    </a>
+                                </div>
+                                <span class="block-price-over bg-base-4">$105.000</span>
+                            </div>
 
                     <section class="slice sct-color-1 border-top border-bottom">
                         <div class="container">
                             <div class="section-title section-title--style-1 text-center mb-1">
                                 <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
                                     <span>Les événements</span>
+
                                 </h3>
-                                <span class="section-title-delimiter clearfix d-none"></span>
+                                <span class="star-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <span class="clearfix"></span>
                             </div>
 
-                            <span class="clearfix"></span>
+                            <div class="aux-info-wrapper border-top">
+                                <ul class="aux-info">
+                                    <li class="heading strong-400 text-center">
+                                        <i class="icon-real-estate-017"></i> 150 sqft
+                                    </li>
+                                    <li class="heading strong-400 text-center">
+                                        <i class="icon-hotel-restaurant-022"></i> 5
+                                    </li>
+                                    <li class="heading strong-400 text-center">
+                                        <i class="icon-hotel-restaurant-158"></i> Baths
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
 
                             <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
                                 Que ce soit chez vous ou à l'extérieur, organisez et participez à des événements de la coupe du monde. Voici les derniers événements créés par nos membres.
@@ -749,12 +798,41 @@
 
                                         
                                     </div>
+                                    <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-green">Best value</span>
+                                    <span class="block-price-over bg-base-4">$22.000</span>
+                                </div>
 
-                                    <div class="swiper-pagination"></div>
+                                <div class="block-body text-center mt-1">
+                                    <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                        <strong>2.3 km</strong>
+                                        <span class="heading-6">from you</span>
+                                    </h3>
+                                    <span class="star-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </span>
+                                    <span class="clearfix"></span>
+                                </div>
+
+                                <div class="aux-info-wrapper border-top">
+                                    <ul class="aux-info">
+                                        <li class="heading strong-400 text-center">
+                                            <i class="icon-real-estate-017"></i> 150 sqft
+                                        </li>
+                                        <li class="heading strong-400 text-center">
+                                            <i class="icon-hotel-restaurant-022"></i> 5
+                                        </li>
+                                        <li class="heading strong-400 text-center">
+                                            <i class="icon-hotel-restaurant-158"></i> Baths
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </section>
+
 
                 </div>
             </div>
@@ -832,7 +910,6 @@
         }
       }
 </script>
-
 
 
 </body>

@@ -1,58 +1,57 @@
 <%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+ <% if event.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-   <div class="field">
-    <%= form.label :Match %>
-    <%= form.select :match, options_for_select(@array_games, selected = @array_games[@game_id - 1]) %> <!-- @game_id à modifier-->
-  </div>
-  
-
-  <br>
-  <br>
+     <ul>
+     <% event.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
 
   <div class="field">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
+   <%= form.label :Match %>
+   <%= form.select :match, options_for_select(@array_games, selected = @array_games[@game_id - 1]) %> <!-- @game_id à modifier-->
+ </div>
+ 
 
-  <div style="width:400px; height:auto">
+ <br>
+ <br>
+
+ <div class="field">
+   <%= form.label :images %>
+   <%= form.file_field :images, multiple: true %>
+ </div>
+
+ <div style="width:400px; height:auto">
 <% if @event.images.attached? %>
 <p>
-  <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
-  <br>
-  <% @event.images.each do |image|  %>
-  <%= link_to 'Remove image', image.purge, data: { confirm: 'Are you sure?' } %>
-    <%= image_tag(image, style:'width:100%') %>
+ <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
+ <br>
+ <% @event.images.each do |image|  %>
+ <%= link_to 'Remove image', image.purge, data: { confirm: 'Are you sure?' } %>
+   <%= image_tag(image, style:'width:100%') %>
 
-  <% end %>
+ <% end %>
 </p>
 <% end %>
 </div>
 
 
 <div class="field">
-  <p> On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?</p><br>
-    <%= form.label :description %>
-    <%= form.text_field :description, :value => @event.description %>
-  </div>
+ <p> On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?</p><br>
+   <%= form.label :description %>
+   <%= form.text_field :description, :value => @event.description %>
+ </div>
 
-   <br>
-   <br>
-    
+  <br>
+  <br>
+   
 
 
-  <div class="actions">
-    <%= form.submit value:"Mets à jour ton event" %>
-  </div>
+ <div class="actions">
+   <%= form.submit value:"Mets à jour ton event" %>
+ </div>
 <% end %>
-
