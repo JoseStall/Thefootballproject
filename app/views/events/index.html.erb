@@ -19,7 +19,7 @@
         <td><%= Game.find(event.game_id).home_team.name %> VS <%= Game.find(event.game_id).visiting_team.name %></td>
         <td><%= User.find(event.user_id).email %> <%= User.find(event.user_id).lastname %></td>
         <td><%= event.description %></td>
-        <td><%= Game.find(event.game_id).date %></td>
+        <td><%= Game.find(event.game_id).date.strftime("%d/%m/%Y à %H:%M") %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
