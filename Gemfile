@@ -14,6 +14,7 @@ gem 'dotenv'
 gem "aws-sdk-s3", require: false
 gem 'puma', '~> 3.11'
 gem 'geocoder'
+gem 'mailjet'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

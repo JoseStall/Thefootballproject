@@ -11,11 +11,17 @@
    </div>
  <% end %>
 
-  <div class="field">
-   <%= form.label :Match %>
-   <%= form.select :match, options_for_select(@array_games, selected = @array_games[@game_id - 1]) %> <!-- @game_id à modifier-->
- </div>
- 
+
+
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  
+  
+ <%= form.label :game_id %>
+  <%= form.select :game_id, options_for_select(@array_games, selected = @array_games[@game_id - 1]) %>
+
+
+  
 
  <br>
  <br>
@@ -42,3 +48,4 @@
    <%= form.submit value:"Crée ton event" %>
  </div>
 <% end %>
+

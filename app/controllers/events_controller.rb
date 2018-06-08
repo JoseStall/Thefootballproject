@@ -13,6 +13,9 @@ class EventsController < ApplicationController
  # GET /events/1
  # GET /events/1.json
  def show
+  p '----------'
+  p params
+  p '----------'
   @event = Event.find(params[:id])
   @date = Game.find(@event.game_id).date
  end
@@ -22,6 +25,9 @@ class EventsController < ApplicationController
   puts params
   puts current_user.id
   @event = Event.find(params[:id])
+  puts 'email validator'
+  @validator_email = User.find(@event.user_id).email
+  ContactMailler.validation(@validator_email)
 
  end
 
@@ -30,10 +36,11 @@ class EventsController < ApplicationController
   def new
     @games = Game.all
     @game_id = 4 #le temps qu'on réussisse l'ajax. On récupère le params game_id
-    @event = Event.create(user_id: current_user.id, game_id: @game_id)
+    @event = Event.new
+    #@event = Event.create(user_id: current_user.id, game_id: @game_id)
     @array_games = []
     @games.each do |game|
-      @array_games << game.home_team.name + " VS " + game.visiting_team.name + " - " + game.date.strftime("%d/%m/%Y à %H:%M")
+      @array_games << game.id.to_s + " " + game.home_team.name + " VS " + game.visiting_team.name + " - " + game.date.strftime("%d/%m/%Y à %H:%M")
     end
   end
 
@@ -95,7 +102,7 @@ class EventsController < ApplicationController
  private
    # Use callbacks to share common setup or constraints between actions.
    def set_event
-     # => @event = Event.find(params[:id])
+      @event = Event.find(params[:id])
    end
 
    # Never trust parameters from the scary internet, only allow the white list through.
