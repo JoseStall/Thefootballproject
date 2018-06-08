@@ -4,4 +4,6 @@ class Event < ApplicationRecord
 	belongs_to :game
 	has_many_attached :images
 	scope :with_eager_loaded_images, -> { eager_load(images_attachments: :blob) }
+	geocoded_by :adress
+	after_validation :geocode
 end

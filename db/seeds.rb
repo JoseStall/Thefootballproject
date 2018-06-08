@@ -132,7 +132,7 @@ Le programme de la Coupe du Monde au BABE
 - Une petite sélection de bières du monde entier, ce sera la coupe du monde de la bière ! Il y aura même de la bière portugaise.
 
 - Une grande terrasse pour la mi-temps
-" , capacity:50,pint_price:5,user_id:1,address:"48 rue de l’Hôpital Militaire - Lille", screen:"Plusieurs écrans géants")
+" , capacity:50,pint_price:5,user_id:1,address:"48 rue hopital militaire lille", screen:"Plusieurs écrans géants")
 Bar.create(name: 'Gastama', description:"At first I was afraid, I was pretrified...🎵
 
 C'était il y a 20 ans et pourtant le souvenir et toujours aussi vif. On se souvient tous où l'on était le 12 Juillet 1998, qu'on avait 5, 20 ou 30 ans à l'époque ... ⚽🌍
