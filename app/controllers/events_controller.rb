@@ -21,6 +21,8 @@ class EventsController < ApplicationController
   puts "---------"
   puts params
   puts current_user.id
+  @event = Event.find(params[:id])
+
  end
 
 

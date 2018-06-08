@@ -1,0 +1,239 @@
+<section id='mapbar'>
+  <div id="map"></div>
+  <div id="bartender"> 
+    <div class="block-image relative">
+      <div class="view view-first">
+        <a href="#">
+          <img src="<%= image_path 'prv/real-estate/img-2.jpg' %>"
+          width="300" height="190"  class="img-responsive">
+        </a>
+      </div>
+      <span class="block-price-over bg-base-4"><%= Bar.find(2).name %></span>
+    </div>
+
+    <div class="block-body text-center mt-1">
+      <h3 class="heading heading-5 strong-400 text-normal mb-1">
+        <strong>3.4 km</strong>
+        <span class="heading-6">de vous</span>
+      </h3>
+      <span class="star-rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+      </span>
+      <span class="clearfix"></span>
+    </div>
+
+    <div class="aux-info-wrapper border-top">
+      <ul class="aux-info">
+        <li class="heading strong-400 text-center">
+          <i class="icon-food-002"></i> <%= Bar.find(2).pint_price %>€
+        </li>
+        <li class="heading strong-400 text-center">
+          <i class=" icon-real-estate-017"></i><%= Bar.find(2).capacity %> personnes
+        </li>
+        <li class="heading strong-400 text-center">
+          <i class="icon-hotel-restaurant-013"></i><%= Bar.find(2).screen %>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="slice sct-color-1" id="scrollToSection">
+  <div class="container">
+    <div class="section-title section-title--style-1 text-center mb-1">
+      <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
+        <span>Les bars</span>
+      </h3>
+      <span class="section-title-delimiter clearfix d-none"></span>
+    </div>
+
+    <span class="clearfix"></span>
+
+    <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
+      Ces bars diffuseront des matchs. Renseignez vous sur leur équipement, la capacité, ou encore le prix de la pinte !
+    </div>
+
+    <span class="space-xs-lg"></span>
+
+    <div class="row-wrapper">
+      <div class="row cols-md-space">
+        <% @bars.each do |bar| %>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+          <div class="block block--style-3">
+            <div class="block-image relative">
+              <div class="view view-first">
+                <a href="#">
+                  <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="190" class="img-responsive">
+                </a>
+              </div>
+
+              <span class="block-price-over bg-base-4"><%= bar.name %> </span>
+
+            </div>
+
+            <div class="block-body text-center mt-1">
+              <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                <strong>1.5 km</strong>
+                <span class="heading-6">de vous</span>
+              </h3>
+              <span class="star-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+              </span>
+              <span class="clearfix"></span>
+            </div>
+
+            <div class="aux-info-wrapper border-top">
+              <ul class="aux-info">
+                <li class="heading strong-400 text-center">
+                </i> <%= bar.pint_price %>
+              </li>
+              <li class="heading strong-400 text-center">
+                <%= bar.capacity %> personnes
+              </li>
+              <li class="heading strong-400 text-center">
+              </i> <%= bar.screen %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</section>
+
+<script>
+
+  var geocoder;
+  var map;
+  function initMap() {
+    var mapOptions = {
+      zoom: 14,
+
+    };
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var infoWindow = new google.maps.InfoWindow({map: map});
+    var addresses = <%= @addresses.inspect.html_safe %>;
+    var desc = <%= @description.inspect.html_safe %>;
+    var latitude = <%= @latitude.inspect.html_safe %>;
+    var longitude = <%= @longitude.inspect.html_safe %>;
+    var name = <%= @name.inspect.html_safe %>;
+    var eaddresses = <%= @eaddresses.inspect.html_safe %>;
+    var edesc = <%= @edescription.inspect.html_safe %>;
+    var elatitude = <%= @elatitude.inspect.html_safe %>;
+    var elongitude = <%= @elongitude.inspect.html_safe %>;
+
+    console.log(eaddresses)
+    var image = {
+    // Adresse de l'icône personnalisée
+    url: 'https://s3.eu-west-3.amazonaws.com/rails-chaton/logo-cdm2018.png',
+    // Taille de l'icône personnalisée
+    size: new google.maps.Size(50, 70),
+    // Origine de l'image, souvent (0, 0)
+    origin: new google.maps.Point(0,0),
+    // L'ancre de l'image. Correspond au point de l'image que l'on raccroche à la carte. Par exemple, si votre îcone est un drapeau, cela correspond à son mâts
+    anchor: new google.maps.Point(10, 20)
+  };
+  
+  for (i = 0; i < desc.length; i++) {
+    var infowindow = new google.maps.InfoWindow({
+      content: desc[i]
+    });
+
+
+    var marker = new google.maps.Marker({
+      position: {lat: latitude[i], lng: longitude[i]},
+      map: map,
+      title: name[i],
+      draggable: true,
+      animation: google.maps.Animation.DROP,
+    });
+
+    marker.addListener('click', function() {
+     map.setZoom(14);
+     map.setCenter(marker.getPosition());
+   });
+
+  }
+
+  function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  };
+
+
+  for (i = 0; i < edesc.length; i++) {
+    var infowindow = new google.maps.InfoWindow({
+      content: edesc[i]
+    });
+
+
+    var marker = new google.maps.Marker({
+      position: {lat: elatitude[i], lng: elongitude[i]},
+      map: map,
+      icon: image,
+      title: edesc[i],
+      draggable: true,
+      animation: google.maps.Animation.DROP,
+    });
+
+    marker.addListener('click', function() {
+     map.setZoom(14);
+     map.setCenter(marker.getPosition());
+   });
+
+  }
+
+  function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  };
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Tu es ici');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
+      } 
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&callback=initMap&libraries=places">
+  </script>
