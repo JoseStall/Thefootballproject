@@ -28,6 +28,11 @@
 </div>
 
 
+<div class="pl-4 d-none d-lg-inline-block">
+              <%= link_to "Participe à l'évènement chez #{User.find(@event.user_id).firstname}!", welcome_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
+            </div>
 
+
+<br>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get 'contact', to: 'home#contact'
   get 'mentions', to: 'home#mentions'
   get 'search', to: 'home#search'
+  get 'welcome/:id', to: 'events#welcome', as: 'welcome'
 
 end
