@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   get 'welcome/:id', to: 'events#welcome', as: 'welcome'
   get 'result', to: 'home#result', as: 'result'
+  get 'validation/:id', to: 'events#validatemail', as: 'validation'
 end
