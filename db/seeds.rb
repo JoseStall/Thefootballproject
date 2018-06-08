@@ -159,7 +159,8 @@ Event.create(description:"A Paris aussi on mate l'ouverture de la coupe du monde
 
 
 
-
+Bar.find(3).geocode
+Bar.find(3).save
 
 
 

@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get 'contact', to: 'home#contact'
   get 'mentions', to: 'home#mentions'
   get 'search', to: 'home#search'
-
+  get 'result', to: 'home#result', as: 'result'
 end
