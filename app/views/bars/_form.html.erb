@@ -27,7 +27,11 @@
     <%= form.label :images %>
     <%= form.file_field :images, multiple: true %>
   </div>
-  <!-- IMAGES A INTEGRER -->
+ 
+ <div class="field">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true, direct_upload: true %>
+  </div>
 
   <div class="field">
     <p>Quelle installation y a-t-il pour mater les matchs? Télé(s), vidéoproj(s)? </p>
