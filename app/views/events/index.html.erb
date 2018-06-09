@@ -44,10 +44,11 @@
               <% end %>
               <div class="mask mask-base-1--style-2">
                 <div class="view-buttons text-center">
-                  <div class="view-buttons-inner text-center">                                    <% if event.images.attached? %>
+                  <div class="view-buttons-inner text-center">        
+                                              <% if event.images.attached? %>
                     <a href="<%= event.images %>" class="c-white" data-fancybox>
                       <% else %>   
-                      <a href="<%= event.images %>" class="c-white" data-fancybox>
+                      <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
                         <%end %>
                         <i class="icon ion-plus"></i>
                       </a>
@@ -70,8 +71,7 @@
       </div>
     </section>
 
-    <!-- SCRIPTS -->
-    <a href="#" class="back-to-top btn-back-to-top"></a>
+ 
 
 
 
