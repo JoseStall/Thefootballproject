@@ -1,3 +1,47 @@
+  <style>
+  #map {
+    height: 500px;
+    width: 100%;
+  }
+
+  .marker{
+    transform: translate( 50%, calc(-100% - 10px));
+    white-space: nowrap;
+    font-size: 16px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+  }
+  .marker::after {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #FFF;
+  }
+
+  .marker.is-active {
+    background-color: #5069ff;
+    z-index: 300;
+    color: #FFF;
+  }
+
+  .marker.is-active::after {
+    border-top-color: #5069ff;
+  }
+
+
+</style>
+
+
+
 <section id='mapbar'>
   <div id="map"></div>
   <div id="bartender"> 
@@ -64,8 +108,7 @@
     <div class="row-wrapper">
       <div class="row cols-md-space">
         <% @bars.each do |bar| %>
-
-        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="item col-lg-3 col-md-6 col-sm-12 col-12" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
           <div class="block block--style-3">
             <div class="block-image relative">
               <div class="view view-first">
@@ -113,127 +156,6 @@
 </div>
 </div>
 </section>
+<script src='assets/script.js'></script>
+<script src='assets/app.js'></script>
 
-<script>
-
-  var geocoder;
-  var map;
-  function initMap() {
-    var mapOptions = {
-      zoom: 14,
-
-    };
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    var infoWindow = new google.maps.InfoWindow({map: map});
-    var addresses = <%= @addresses.inspect.html_safe %>;
-    var desc = <%= @description.inspect.html_safe %>;
-    var latitude = <%= @latitude.inspect.html_safe %>;
-    var longitude = <%= @longitude.inspect.html_safe %>;
-    var name = <%= @name.inspect.html_safe %>;
-    var eaddresses = <%= @eaddresses.inspect.html_safe %>;
-    var edesc = <%= @edescription.inspect.html_safe %>;
-    var elatitude = <%= @elatitude.inspect.html_safe %>;
-    var elongitude = <%= @elongitude.inspect.html_safe %>;
-
-    console.log(eaddresses)
-    var image = {
-    // Adresse de l'icône personnalisée
-    url: 'https://s3.eu-west-3.amazonaws.com/rails-chaton/logo-cdm2018.png',
-    // Taille de l'icône personnalisée
-    size: new google.maps.Size(50, 70),
-    // Origine de l'image, souvent (0, 0)
-    origin: new google.maps.Point(0,0),
-    // L'ancre de l'image. Correspond au point de l'image que l'on raccroche à la carte. Par exemple, si votre îcone est un drapeau, cela correspond à son mâts
-    anchor: new google.maps.Point(10, 20)
-  };
-  
-  for (i = 0; i < desc.length; i++) {
-    var infowindow = new google.maps.InfoWindow({
-      content: desc[i]
-    });
-
-
-    var marker = new google.maps.Marker({
-      position: {lat: latitude[i], lng: longitude[i]},
-      map: map,
-      title: name[i],
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-    });
-
-    marker.addListener('click', function() {
-     map.setZoom(14);
-     map.setCenter(marker.getPosition());
-   });
-
-  }
-
-  function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  };
-
-
-  for (i = 0; i < edesc.length; i++) {
-    var infowindow = new google.maps.InfoWindow({
-      content: edesc[i]
-    });
-
-
-    var marker = new google.maps.Marker({
-      position: {lat: elatitude[i], lng: elongitude[i]},
-      map: map,
-      icon: image,
-      title: edesc[i],
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-    });
-
-    marker.addListener('click', function() {
-     map.setZoom(14);
-     map.setCenter(marker.getPosition());
-   });
-
-  }
-
-  function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  };
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Tu es ici');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-          'Error: The Geolocation service failed.' :
-          'Error: Your browser doesn\'t support geolocation.');
-      } 
-
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&callback=initMap&libraries=places">
-  </script>
