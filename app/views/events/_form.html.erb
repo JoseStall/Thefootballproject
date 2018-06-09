@@ -27,12 +27,14 @@
       </div>
 
       <div class="col-md-7 mb-3">
-       <%= form.label :images, "Quelques photos de toi et de ton salon" %>
-       <%= form.file_field :images, multiple: true, direct_upload: true, class: 'form-control-file' %>
 
+       <%= form.label :images, "Quelques photos de toi et de ton salon" %>
+       <%= form.file_field :images, multiple: true, direct_upload: true, class: 'custom-file' %>
      </div>
    </div>
    <%= form.hidden_field :user_id, :value => current_user.id %>
+
+
    <div class="row">
     <div class="col-md-12">
       <div class="form-group">
@@ -42,16 +44,28 @@
     </div>
   </div>
 
+  
+        <div class="col-md-7 mb-3">
 
-  <div >
-<%= form.check_box 'accept', class: 'checkbox' %>
-</div>
-<div class="checkbox">
- <label><input type="checkbox" value="">Option 2</label>
-</div>
-<div class="checkbox disabled">
- <label><input type="checkbox" value="" disabled>Option 3</label>
-</div>
+  <%= form.label :invited, 'Nombre de personnes que tu peux inviter:' %>
+  <%= form.select :invited, 1..10,{} ,{:class => 'custom-select d-block w-100', :required => true} %>
+  </div>
+  <div>
+    <div class='check_box form-check-inline'>
+    <%= form.label :smoke, 'Fumeur'  %>
+    <%= form.check_box :smoke, { :value => 'Fumeur'}, "true"%>
+  </div>
+  <div class="check_box form-check-inline">
+    <%= form.label :food, 'Nourriture' %>
+    <%= form.check_box :food, { :value => 'Fumeur'}, "true"%>
+  </div>
+  <div class="check_box form-check-inline">
+    <%= form.label :drink, 'Boisson'  %>
+    <%= form.check_box :drink, { :value => 'Fumeur'}, "true" %>
+  </div class='row'>
+    
+
+  </div>
 
   <hr class="mb-4">
   <%= form.submit value:"Crée ton event", class: 'btn btn-primary btn-lg btn-block' %> 

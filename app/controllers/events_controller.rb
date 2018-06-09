@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @games = Game.all
-    @game_id = 4 #le temps qu'on réussisse l'ajax. On récupère le params game_id
+    @game_id = 1 #le temps qu'on réussisse l'ajax. On récupère le params game_id
     @event = Event.new
     #@event = Event.create(user_id: current_user.id, game_id: @game_id)
     @array_games = []
@@ -53,13 +53,16 @@ class EventsController < ApplicationController
    @game_id = Event.find(params[:id]).game_id
     @array_games = []
    @games.each do |game|
-     @array_games << game.home_team.name + " VS " + game.visiting_team.name + " " + game.date.to_s
+     @array_games << game.id.to_s + " " +game.home_team.name + " VS " + game.visiting_team.name + " " + game.date.to_s
    end
  end
 
  # POST /events
  # POST /events.json
  def create
+  p '##################################################"'
+  puts event_params
+  p '##################################################'
    @event = Event.new(event_params)
 
    respond_to do |format|
@@ -108,7 +111,7 @@ class EventsController < ApplicationController
    # Never trust parameters from the scary internet, only allow the white list through.
    def event_params
 
-     params.require(:event).permit(:description, :date, :user_id, :game_id, images: [])
+     params.require(:event).permit(:description, :date, :user_id, :game_id, :smoke, :address, :food, :drink, :invited, images: [])
 
    end
 end

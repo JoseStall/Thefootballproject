@@ -1,6 +1,32 @@
-<h1>Editing Event</h1>
+<section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/cheering-crowd-event-17598.jpg' %>); background-position: bottom center;">
+	<span class="mask mask-dark--style-2"></span>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="py-5 text-center">
+					<h1 class="heading heading-1 c-white strong-400 text-normal">
+						 C'est ici pour éditer ton évènement
+					</h1>
 
-<%= render 'form_edit', event: @event %>
+					<span class="clearfix"></span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>Regardes le match avec des personnes prés de chez toi!</h2>
+        <p class="lead">Parce que la coupe du monde est un moment de joie, de convivialité et de partage, invite des gens à venir voir le match chez toi et vivre un grand moment de football.</p>
+      </div>
+  </div>
+
+
+
+
+<div class="container"> <%= render 'form_edit', event: @event %>
 
 <%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %></div>

@@ -34,6 +34,9 @@ class HomeController < ApplicationController
 	      @name << b.name
 	      @latitude << b.latitude
 	      @longitude << b.longitude
+      else
+        b.geocode
+        b.save
     	end
   	end
   	p '------'
