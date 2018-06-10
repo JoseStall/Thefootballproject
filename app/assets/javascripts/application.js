@@ -49,5 +49,8 @@
 //= require imagesloaded.pkgd.min.js
 //= require boomerang.min.js
 //= require direct_uploads.js
+//= require_self
+//= require_tree .
+//*
 
 

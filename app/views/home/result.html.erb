@@ -1,7 +1,13 @@
   <style>
   #map {
+    position: sticky !important!;
     height: 500px;
     width: 100%;
+  }
+
+  .item {
+    cursor: pointer;
+
   }
 
   .marker{
@@ -13,6 +19,8 @@
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    cursor: pointer;
+
   }
   .marker::after {
   content: ' ';
@@ -42,51 +50,8 @@
 
 
 
-<section id='mapbar'>
+
   <div id="map"></div>
-  <div id="bartender"> 
-    <div class="block-image relative">
-      <div class="view view-first">
-        <a href="#">
-          <img src="<%= image_path 'prv/real-estate/img-2.jpg' %>"
-          width="300" height="190"  class="img-responsive">
-        </a>
-      </div>
-      <span class="block-price-over bg-base-4"><%= Bar.find(2).name %></span>
-    </div>
-
-    <div class="block-body text-center mt-1">
-      <h3 class="heading heading-5 strong-400 text-normal mb-1">
-        <strong>3.4 km</strong>
-        <span class="heading-6">de vous</span>
-      </h3>
-      <span class="star-rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-o"></i>
-        <i class="fa fa-star-o"></i>
-      </span>
-      <span class="clearfix"></span>
-    </div>
-
-    <div class="aux-info-wrapper border-top">
-      <ul class="aux-info">
-        <li class="heading strong-400 text-center">
-          <i class="icon-food-002"></i> <%= Bar.find(2).pint_price %>€
-        </li>
-        <li class="heading strong-400 text-center">
-          <i class=" icon-real-estate-017"></i><%= Bar.find(2).capacity %> personnes
-        </li>
-        <li class="heading strong-400 text-center">
-          <i class="icon-hotel-restaurant-013"></i><%= Bar.find(2).screen %>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
 
 <section class="slice sct-color-1" id="scrollToSection">
   <div class="container">
