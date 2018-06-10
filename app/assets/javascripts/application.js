@@ -50,7 +50,6 @@
 //= require boomerang.min.js
 //= require direct_uploads.js
 //= require script.js
-//= require app.js
 //= require_self
 //= require_tree .
 //*
