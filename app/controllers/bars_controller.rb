@@ -105,6 +105,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bar_params
-      params.require(:bar).permit(:name, :description, :capacity, :interested_people, :pint_price, images: [])
+      params.require(:bar).permit(:name, :description, :capacity, :address, :screen, :interested_people, :pint_price, images: [])
     end
 end
