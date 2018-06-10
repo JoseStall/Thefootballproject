@@ -50,7 +50,7 @@ end
   def new
     puts params
     puts current_user
-    @bar = Bar.create(user_id: current_user.id)
+    @bar = Bar.new
   end
 
   # GET /bars/1/edit

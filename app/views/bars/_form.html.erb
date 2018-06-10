@@ -1,63 +1,62 @@
 <%= form_with(model: bar, local: true) do |form| %>
-  <% if bar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bar.errors.count, "error") %> prohibited this bar from being saved:</h2>
+<% if bar.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(bar.errors.count, "error") %> prohibited this bar from being saved:</h2>
 
-      <ul>
-      <% bar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% bar.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+<div class="row">
+  <div class="col-md-5 mb-3">
+    <%= form.label :name, 'Nom du bar'%>
+    <%= form.text_field :name, class: 'form-control', :required => true  %>
+    <div class="invalid-feedback">
+      Il te faut un nom valide
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-  <br>
-  
+  <div class="col-md-7 mb-3">
+   <%= form.label :address, 'Adresse' %>
+   <%= form.text_field :address, class: 'form-control', placeholder: '12 rue de la coupe du monde', :required => true%>
+ </div>
+</div>
+
 <div class="field">
-    <p>Quelques images de toi, ta passion pour le foot et ton installation de rêve pour mater le match? </p>
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
- 
- <div class="field">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true, direct_upload: true %>
-  </div>
-
-  <div class="field">
-    <p>Quelle installation y a-t-il pour mater les matchs? Télé(s), vidéoproj(s)? </p>
-    <%= form.label :screen %>
-    <%= form.text_field :screen %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-  <br>
-
-  <div class="field">
-    <p>A combien estime-tu la capacité d'accueil du bar? </p>
-    <%= form.label :capacity %>
-    <%= form.number_field :capacity %>
-  </div>
+  <%= form.label :description %>
+  <%= form.text_area :description, :value => @bar.description, rows: 3, class: 'form-control' %>
+</div>
 <br>
-  <div class="field">
-    <p>Combien coûte la pinte? </p>
-    <%= form.label :pint_price %>
-    <%= form.text_field :pint_price %>
+<div class="row">
+  <div class="col-md-5 mb-3">
+    <%= form.label :images, 'Envoie nous des photos du bar' %>
+    <%= form.file_field :images, multiple: true, direct_upload: true, class: 'custom-file'  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit value: "Crée ton bar" %>
+  <div class="col-md-7 mb-3">
+    <%= form.label :screen, 'Quelle installation y a-t-il pour mater les matchs? Télé(s), vidéoproj(s)?' %>
+    <%= form.text_field :screen, class: 'form-control' %>
   </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <%= form.label :capacity, "A combien estime-tu la capacité d'accueil du bar?" %>
+    <%= form.number_field :capacity, class: 'form-control' %>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :pint_price, 'Combien coûte la pinte?' %>
+    <%= form.text_field :pint_price, class: 'form-control' %>
+  </div>
+</div>
+
+  <hr class="mb-4">
+  <%= form.submit value: "Crée ton bar", class: 'btn btn-primary btn-lg btn-block' %>
 <% end %>

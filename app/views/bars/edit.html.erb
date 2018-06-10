@@ -1,6 +1,30 @@
-<h1>Editing Bar</h1>
+<section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/cheering-crowd-event-17598.jpg' %>); background-position: bottom center;">
+	<span class="mask mask-dark--style-2"></span>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="py-5 text-center">
+					<h1 class="heading heading-1 c-white strong-400 text-normal">
+						Des changements ?			
+					</h1>
 
-<%= render 'form_edit', bar: @bar %>
+					<span class="clearfix"></span>
 
+					<div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center c-white mt-3">
+					Fais tourner l'info! Partage tes bons plans	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  <div class="container">
+      <div class="py-5 text-center">
+      	<h1>Renseigne les infos de ton bar préféré</h1>
+
+      </div>
+  </div>
+
+<div class="container"><%= render 'form_edit', bar: @bar %>
 <%= link_to 'Show', @bar %> |
-<%= link_to 'Back', bars_path %>
+<%= link_to 'Back', bars_path %> </div>

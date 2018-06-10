@@ -1,70 +1,74 @@
 <%= form_with(model: bar, local: true) do |form| %>
-  <% if bar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bar.errors.count, "error") %> prohibited this bar from being saved:</h2>
+<% if bar.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(bar.errors.count, "error") %> prohibited this bar from being saved:</h2>
 
-      <ul>
-      <% bar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-    <div class="field">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
-
-  <div style="width:400px; height:auto">
-<% if @bar.images.attached? %>
-<p>
-  <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
-  <br>
-  <% @bar.images.each do |image|  %>
-    <%= image_tag(image, style:'width:100%') %>
-  <% end %>
-</p>
+  <ul>
+    <% bar.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<div class="row">
+  <div class="col-md-5 mb-3">
+    <%= form.label :name, 'Nom du bar'%>
+    <%= form.text_field :name, class: 'form-control', :required => true  %>
+    <div class="invalid-feedback">
+      Il te faut un nom valide
+    </div>
+  </div>
+
+  <div class="col-md-7 mb-3">
+   <%= form.label :address, 'Adresse' %>
+   <%= form.text_field :address, class: 'form-control', placeholder: '12 rue de la coupe du monde', :required => true%>
+ </div>
 </div>
 
-
 <div class="field">
-    <%= form.label :screen %>
-    <%= form.text_field :screen %>
+  <%= form.label :description %>
+  <%= form.text_area :description, :value => @bar.description, rows: 3, class: 'form-control' %>
+</div>
+<br>
+<div class="field">
+  <%= form.label :images,'Envoie nous des photos du bar' %>
+  <%= form.file_field :images, multiple: true, class: 'custom-file' %>
+
+
+  <div style="width:400px; height:auto">
+    <% if @bar.images.attached? %>
+    <p>
+      <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
+      <br>
+      <% @bar.images.each do |image|  %>
+      <%= image_tag(image, style:'width:100%') %>
+      <% end %>
+    </p>
+    <% end %>
+  </div>
+</div>
+<%= form.hidden_field :user_id, :value => current_user.id %>
+
+<div class="row">
+
+  <div class="col-md-4 mb-3">
+    <%= form.label :screen, 'Installation télé(s), vidéoproj(s)?' %>
+    <%= form.text_field :screen, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+  <div class="col-md-4 mb-3">
+    <%= form.label :capacity, "A combien estime-tu la capacité d'accueil du bar?"  %>
+    <%= form.number_field :capacity, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :capacity %>
-    <%= form.number_field :capacity %>
-  </div>
 
-  <div class="field">
-    <%= form.label :interested_people %>
-    <%= form.number_field :interested_people %>
+  <div class="col-md-4 mb-3">
+    <%= form.label :pint_price, 'Combien coûte la pinte?'  %>
+    <%= form.text_field :pint_price, class: 'form-control' %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :pint_price %>
-    <%= form.text_field :pint_price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit value: "Update ton bar" %>
-  </div>
+  <hr class="mb-4">
+  <%= form.submit value: "Update ton bar", class: 'btn btn-primary btn-lg btn-block' %>
 <% end %>
