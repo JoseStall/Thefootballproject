@@ -16,7 +16,15 @@
 
   .item {
     cursor: pointer;
+    margin-bottom: 2rem;
+    transition: box-shadow .3s;
+    padding: 0 20px;
 
+  }
+  .item img {
+
+    width: calc(100% +40px)
+    display: block;
   }
   #map {
     position: sticky !important;
@@ -72,7 +80,7 @@
             <div class="block-image relative">
               <div class="view view-first">
                 <a href="#">
-                  <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="190" class="img-responsive">
+                  <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="210" class="img-responsive">
                 </a>
               </div>
 
