@@ -2,7 +2,7 @@
 
   .containermap {
     display: grid;
-    grid-template-columns: 7fr 3fr;
+    grid-template-columns: 5fr 4fr;
   }
   .listmap {
   display: grid;
@@ -11,9 +11,6 @@
   padding: 0 30px;
   }
  
-  
-  
-
   .item {
     cursor: pointer;
     margin-bottom: 2rem;
@@ -26,6 +23,7 @@
     width: calc(100% +40px)
     display: block;
   }
+
   #map {
     position: sticky !important;
     left: 0;
@@ -61,7 +59,7 @@
 
   .marker.is-active {
     background-color: #5069ff;
-    z-index: 300;
+    z-index: 600;
     color: #FFF;
   }
 
@@ -73,14 +71,14 @@
 </style>
 <div class="containermap">
   <div class='listmap'>
+
             <% @bars.each do |bar| %>
 
-    <div class="item" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
-    <div class="block block--style-3">
+          <div class="item block block--style-3"  data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
             <div class="block-image relative">
               <div class="view view-first">
                 <a href="#">
-                  <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="210" class="img-responsive">
+                  <img src="<%= bar.image_path %>" width="300" height="190" class="img-responsive">
                 </a>
               </div>
 
@@ -93,10 +91,30 @@
                 <strong>1.5 km</strong>
                 <span class="heading-6">de vous</span>
               </h3>
-              
-            </div>        
+              <span class="star-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+              </span>
+              <span class="clearfix"></span>
+            </div>
+
+            <div class="aux-info-wrapper border-top">
+              <ul class="aux-info">
+                <li class="heading strong-400 text-center">
+               <i class="fa fa-beer"> </i><%= bar.pint_price %> €
+              </li>
+              <li class="heading strong-400 text-center">
+                <%= bar.capacity %> personnes
+              </li>
+              <li class="heading strong-400 text-center">
+               <%= bar.screen %>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
   <div class='map' id="map"></div>
