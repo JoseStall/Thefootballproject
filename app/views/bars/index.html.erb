@@ -1,65 +1,58 @@
 <p id="notice"><%= notice %></p>
 <style>
-#mapbar {
-  display: flex;
-}
+
 #map {
   height: 500px;
-  width: 50%;
+  width: 100%;
   display: flex;
 
 }
-#bartender {
-  height: 500px;
-  width: 50%;
-  display: flex;
 
-}
+
+  .item {
+    cursor: pointer;
+
+  }
+
+
+  .marker{
+    transform: translate( 50%, calc(-100% - 10px));
+    white-space: nowrap;
+    font-size: 16px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    cursor: pointer;
+
+  }
+  .marker::after {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #FFF;
+  }
+
+  .marker.is-active {
+    background-color: #5069ff;
+    z-index: 300;
+    color: #FFF;
+  }
+
+  .marker.is-active::after {
+    border-top-color: #5069ff;
+  }
 </style>
-<section id='mapbar'>
   <div id="map"></div>
-  <div id="bartender"> 
-    <div class="block-image relative">
-      <div class="view view-first">
-        <a href="#">
-          <img src="<%= image_path 'prv/real-estate/img-2.jpg' %>"
-          width="300" height="190"  class="img-responsive">
-        </a>
-      </div>
-      <span class="block-price-over bg-base-4"><%= Bar.find(2).name %></span>
-    </div>
+ 
 
-    <div class="block-body text-center mt-1">
-      <h3 class="heading heading-5 strong-400 text-normal mb-1">
-        <strong>3.4 km</strong>
-        <span class="heading-6">de vous</span>
-      </h3>
-      <span class="star-rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-o"></i>
-        <i class="fa fa-star-o"></i>
-      </span>
-      <span class="clearfix"></span>
-    </div>
-
-    <div class="aux-info-wrapper border-top">
-      <ul class="aux-info">
-        <li class="heading strong-400 text-center">
-          <i class="fa fa-beer"></i> <%= Bar.find(2).pint_price %>€
-        </li>
-        <li class="heading strong-400 text-center">
-          <i class=" icon-real-estate-017"></i><%= Bar.find(2).capacity %> personnes
-        </li>
-        <li class="heading strong-400 text-center">
-          <i class="icon-hotel-restaurant-013"></i><%= Bar.find(2).screen %>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</section>
 
 
 <section class="slice sct-color-1" id="scrollToSection">
@@ -84,7 +77,7 @@
         <% @bars.each do |bar| %>
 
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-          <div class="block block--style-3">
+          <div class="item block block--style-3"  data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
             <div class="block-image relative">
               <div class="view view-first">
                 <a href="#">
@@ -174,127 +167,149 @@
 
 
 <script>
-
-  var geocoder;
-  var map;
-  function initMap() {
-    var mapOptions = {
-      zoom: 14,
-
-    };
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    var infoWindow = new google.maps.InfoWindow({map: map});
-    var addresses = <%= @addresses.inspect.html_safe %>;
-    var desc = <%= @description.inspect.html_safe %>;
-    var latitude = <%= @latitude.inspect.html_safe %>;
-    var longitude = <%= @longitude.inspect.html_safe %>;
-    var name = <%= @name.inspect.html_safe %>;
-    var eaddresses = <%= @eaddresses.inspect.html_safe %>;
-    var edesc = <%= @edescription.inspect.html_safe %>;
-    var elatitude = <%= @elatitude.inspect.html_safe %>;
-    var elongitude = <%= @elongitude.inspect.html_safe %>;
-
-    console.log(eaddresses)
-    var image = {
-    // Adresse de l'icône personnalisée
-    url: 'https://s3.eu-west-3.amazonaws.com/rails-chaton/logo-cdm2018.png',
-    // Taille de l'icône personnalisée
-    size: new google.maps.Size(50, 70),
-    // Origine de l'image, souvent (0, 0)
-    origin: new google.maps.Point(0,0),
-    // L'ancre de l'image. Correspond au point de l'image que l'on raccroche à la carte. Par exemple, si votre îcone est un drapeau, cela correspond à son mâts
-    anchor: new google.maps.Point(10, 20)
-  };
-  
-  for (i = 0; i < desc.length; i++) {
-    var infowindow = new google.maps.InfoWindow({
-      content: desc[i]
-    });
+let $map = document.querySelector('#map')
 
 
-    var marker = new google.maps.Marker({
-      position: {lat: latitude[i], lng: longitude[i]},
-      map: map,
-      title: name[i],
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-    });
+class GoogleMap {
 
-    marker.addListener('click', function() {
-     map.setZoom(14);
-     map.setCenter(marker.getPosition());
-   });
-
+  constructor () {
+    this.map = null
+    this.bounds = null
+    this.TextMarker = null
   }
 
-  function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  };
+  async load (element) {
+    return new Promise((resolve, reject) => {
 
+      $script("https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU", () => {
+        this.textMarker = class TextMarker extends google.maps.OverlayView {
 
-  for (i = 0; i < edesc.length; i++) {
-    var infowindow = new google.maps.InfoWindow({
-      content: edesc[i]
-    });
+          constructor (pos, map, text) {
+            super()
+            this.div = null
+            this.html = null
+            this.pos = pos
+            this.text = text
+            this.setMap(map)
+            this.onActivation = []
+          }
 
+          onAdd () {
+            this.div = document.createElement('div')
+            this.div.classList.add('marker')
+            this.div.style.position = 'absolute'
+            this.div.innerHTML = this.text
+            this.getPanes().overlayImage.appendChild(this.div)
+            this.div.addEventListener('click', (e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              this.activate()
+              
+            })
+          }
 
-    var marker = new google.maps.Marker({
-      position: {lat: elatitude[i], lng: elongitude[i]},
-      map: map,
-      icon: image,
-      title: edesc[i],
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-    });
+          draw () {
+            let position = this.getProjection().fromLatLngToDivPixel(this.pos)
+            this.div.style.left = position.x + "px"
+            this.div.style.top = position.y + "px"
+          }
 
-    marker.addListener('click', function() {
-     map.setZoom(14);
-     map.setCenter(marker.getPosition());
-   });
+          onRemove () {
+            this.div.parentNode.removeChild(this.div)
+          }
 
-  }
+          hover () {
+            if (this.div !== null) {
+              this.div.classList.add('is-active')
+            }
+          }
 
-  function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  };
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+          out () {
+            if (this.div !== null) {
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Tu es ici');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
+              this.div.classList.remove('is-active')
+            }
+          }
+
+          activate () {
+            if (this.div !== null) {
+              this.div.innerHTML = this.html
+            }
+            this.onActivation.forEach(function (cb) { cb() } )
+
+          }
+
+          deactivate () {
+            if (this.div !== null) {
+              this.div.innerHTML = this.text
+            }
+
+          }
+
+          setContent (html) {
+            this.html = html
+          }
+
         }
+        this.map = new google.maps.Map(element) 
+        this.bounds = new google.maps.LatLngBounds()
+        resolve ()
+      })
+      
+    })
+  }
+  addMarker (lat, lng, text) {
+    let point = new google.maps.LatLng(lat, lng)
+    let marker = new this.textMarker(point, this.map, text)
+    marker.onActivation.push( () => {
+      this.map.setCenter(marker.pos)
+    })
+    this.bounds.extend(point)
+    return marker
+
+  }
+  centerMap () {
+    this.map.panToBounds(this.bounds)
+    this.map.fitBounds(this.bounds)
+
+  }
+
+}
+
+const initMap = async function () {
+  let map = new GoogleMap()
+  let activeMarker = null
+  let enabledMarker = null
+  await map.load($map)
+  Array.from(document.querySelectorAll('.item')).forEach(function (item) {
+    let marker = map.addMarker(item.dataset.lat, item.dataset.lng, item.dataset.nom)
+    marker.setContent(item.innerHTML)
+    marker.onActivation.push(function () {
+      if (enabledMarker !== null) {
+        enabledMarker.deactivate()
       }
+      enabledMarker = marker
+    })
+    item.addEventListener('mouseover', function (){
+      marker.hover()
+      if (activeMarker !== null) {
+        activeMarker.out()
+      }
+      activeMarker = marker
+    })
+    item.addEventListener('mouseleave', function (){
+      if (activeMarker === marker) {
+        marker.out()
+        activeMarker = null
+      }
+    })
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-          'Error: The Geolocation service failed.' :
-          'Error: Your browser doesn\'t support geolocation.');
-      } 
+  })
+  map.centerMap()
+}
 
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&callback=initMap&libraries=places">
-  </script>
+if ($map !== null) {
+  initMap()
+} </script>
 
 

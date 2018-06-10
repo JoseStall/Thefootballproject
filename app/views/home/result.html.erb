@@ -1,13 +1,29 @@
   <style>
-  #map {
-    position: sticky !important!;
-    height: 500px;
-    width: 100%;
+
+  .containermap {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
   }
+  .listmap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 30px;
+  padding: 0 30px;
+  }
+ 
+  
+  
 
   .item {
     cursor: pointer;
 
+  }
+  #map {
+    position: sticky !important;
+    left: 0;
+    top: 0;
+    height: 100vh;  
+    width: 70vh;
   }
 
   .marker{
@@ -47,34 +63,12 @@
 
 
 </style>
+<div class="containermap">
+  <div class='listmap'>
+            <% @bars.each do |bar| %>
 
-
-
-
-  <div id="map"></div>
-
-<section class="slice sct-color-1" id="scrollToSection">
-  <div class="container">
-    <div class="section-title section-title--style-1 text-center mb-1">
-      <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
-        <span>Les bars</span>
-      </h3>
-      <span class="section-title-delimiter clearfix d-none"></span>
-    </div>
-
-    <span class="clearfix"></span>
-
-    <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
-      Ces bars diffuseront des matchs. Renseignez vous sur leur équipement, la capacité, ou encore le prix de la pinte !
-    </div>
-
-    <span class="space-xs-lg"></span>
-
-    <div class="row-wrapper">
-      <div class="row cols-md-space">
-        <% @bars.each do |bar| %>
-        <div class="item col-lg-3 col-md-6 col-sm-12 col-12" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
-          <div class="block block--style-3">
+    <div class="item" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
+    <div class="block block--style-3">
             <div class="block-image relative">
               <div class="view view-first">
                 <a href="#">
@@ -91,35 +85,18 @@
                 <strong>1.5 km</strong>
                 <span class="heading-6">de vous</span>
               </h3>
-              <span class="star-rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-              </span>
-              <span class="clearfix"></span>
-            </div>
-
-            <div class="aux-info-wrapper border-top">
-              <ul class="aux-info">
-                <li class="heading strong-400 text-center">
-                </i> <%= bar.pint_price %>
-              </li>
-              <li class="heading strong-400 text-center">
-                <%= bar.capacity %> personnes
-              </li>
-              <li class="heading strong-400 text-center">
-              </i> <%= bar.screen %>
-            </li>
-          </ul>
-        </div>
+              
+            </div>        
       </div>
     </div>
     <% end %>
   </div>
+  <div class='map' id="map"></div>
 </div>
-</div>
+
+
+
+
 </section>
 <script>
 let $map = document.querySelector('#map')
