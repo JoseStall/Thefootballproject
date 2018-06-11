@@ -16,12 +16,9 @@ class HomeController < ApplicationController
   end
 
   def result	
-  	@bars = Bar.all
-    p '------'
-  	p '------'
-  	p 'longitude'
-  	p @longitude
-   @events = Event.all
+    @bars = Bar.all
+    @events = Event.all
+
   end
   
 end
