@@ -6,9 +6,7 @@ class BarsController < ApplicationController
   def index
     @bars = Bar.all
     @bar = Bar.first
-  end
-
-   @events = Event.all
+    @events = Event.all
 end
 
   # GET /bars/1
