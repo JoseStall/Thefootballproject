@@ -46,7 +46,7 @@
                 <div class="view-buttons text-center">
                   <div class="view-buttons-inner text-center">        
                                               <% if event.images.attached? %>
-                    <a href="<%= event.images %>" class="c-white" data-fancybox>
+                    <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
                       <% else %>   
                       <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
                         <%end %>
