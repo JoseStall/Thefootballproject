@@ -1,2 +1,212 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+  <section class="slice-sm sct-color-1">
+                        <div class="profile">
+                            <div class="container">
+                                <div class="row cols-xs-space cols-sm-space cols-md-space">
+                                    <div class="col-lg-4">
+                                        <div class="sidebar sidebar--style-2 no-border stickyfill">
+                                                <div class="widget">
+        <!-- Profile picture -->
+        <div class="profile-picture profile-picture--style-2">
+            <img src="<%= asset_path('soccer/no_profile_image.png') %>" class="img-center">
+            <a href="<%= edit_user_registration_path %>" class="btn-aux">
+                <i class="ion ion-edit"></i>
+            </a>
+        </div>
+
+        <!-- Profile details -->
+        <div class="profile-details">
+            <h2 class="heading heading-4 strong-500 profile-name"><%= current_user.firstname %></h2>
+            <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><%= current_user.email %></h3>
+            <h3 class="heading heading-light heading-6 strong-400 profile-location">Supporter en herbe</h3>
+        </div>
+
+        <!-- Profile connect -->
+        <div class="profile-connect mt-4">
+            <a href="<%= new_bar_path %> " class="btn btn-styled btn-block btn-rounded btn-base-1">Ajouter un bar</a>
+            <a href="<%= new_event_path %>" class="btn btn-styled btn-block btn-rounded btn-base-2">Créer un Event</a>
+        </div>
+
+        <!-- Profile stats -->
+        <div class="profile-stats clearfix">
+            <div class="stats-entry">
+                <span class="stats-count"><%= Event.where(user_id: current_user.id).count %></span>
+                <span class="stats-label text-uppercase">Events</span>
+            </div>
+            <div class="stats-entry">
+                <span class="stats-count"><%= Bar.where(user_id: current_user.id).count %></span>
+                <span class="stats-label text-uppercase">Bars</span>
+            </div>
+        </div>
+    </div>
+                                        </div>
+                                    </div>
+
+                                      <div class="card no-border">
+                                                <div>
+                                                    <table class="table table-sm table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    <div class="checkbox">
+                                                                 
+                                                                    </div>
+                                                                </th>
+                                                                <th>Events</th>
+                                                                <th>Date</th>
+                                                                <th>Match</th>
+                                                                <th>Participants</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <% if @events.count == 0 %>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="checkbox">
+                                                                        <input type="checkbox" name="checkbox_example_1">
+                                                                        <label></label>
+                                                                    </div>
+                                                                </td>
+                                                          <td colspan= '3'>Vous n'avez pas encore crée d'évenements </td> 
+                                                           <% else %>
+                                                            <% @events.each do |event| %>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="checkbox">
+                                                                        <input type="checkbox" name="checkbox_example_1">
+                                                                        <label></label>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<%= event_path(event.id) %>">
+                                                                    <%= event.id %></a>
+                                                                </td>
+                                                                <td><%= event.game.date %></td>
+                                                                <td>
+                                                                    <%= event.game.home_team.name %> VS <%= event.game.visiting_team.name %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= event.users.count %>
+                                                                </td>
+                                                                
+                                                            </tr>
+                                                            <% end %>
+                                                            <%end %>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                    <table class="table table-sm table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    <div class="checkbox">
+                                                                 
+                                                                    </div>
+                                                                </th>
+                                                                <th>Bar</th>
+                                                                <th>Adresse</th>
+                                                               
+                                                                <th>Interessés</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody> 
+                                                            <% if @bars.count == 0 %>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="checkbox">
+                                                                        <input type="checkbox" name="checkbox_example_1">
+                                                                        <label></label>
+                                                                    </div>
+                                                                </td>
+                                                          <td colspan= '3'>Vous n'avez pas encore crée d'évenements </td> 
+                                                            <% else %>
+                                                            <% @bars.each do |bar| %>
+                                                            
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="checkbox">
+                                                                        <input type="checkbox" name="checkbox_example_1">
+                                                                        <label></label>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<%=bar_path(bar.id) %>"><%= bar.name %></a>
+                                                                </td>
+                                                                <td><%= bar.address %></td>
+                                                                
+                                                                <td>
+                                                                    <a href="#">10005-x</a>
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                            </tr>
+
+                                                            <%end%>
+                                                            <%end%>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                    <table class="table table-sm table-hover">
+                                                       <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    <div class="checkbox">
+                                                                 
+                                                                    </div>
+                                                                </th>
+                                                                <th>Events</th>
+                                                                <th>Date</th>
+                                                                <th>Match</th>
+                                                                <th>Participants</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            <% if @participate.count == 0 %>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="checkbox">
+                                                                        <input type="checkbox" name="checkbox_example_1">
+                                                                        <label></label>
+                                                                    </div>
+                                                                </td>
+                                                          <td colspan= '3'>Vous ne participez pas encore à un événenement </td> 
+                                                           <% else %>
+                                                            <% @participate.each do |event| %>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="checkbox">
+                                                                        <input type="checkbox" name="checkbox_example_1">
+                                                                        <label></label>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<%= event_path(event.id) %>">
+                                                                    <%= event.id %></a>
+                                                                </td>
+                                                                <td><%= event.game.date %></td>
+                                                                <td>
+                                                                    <%= event.game.home_team.name %> VS <%= event.game.visiting_team.name %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= event.users.count %>
+                                                                </td>
+                                                                
+                                                            </tr>
+                                                            <% end %>
+                                                            <%end %>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                    </section>

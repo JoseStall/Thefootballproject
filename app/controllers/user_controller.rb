@@ -1,6 +1,7 @@
 class UserController < ApplicationController
   def show
-  	puts "yo les params"
-  	puts current_user.id
+  	@bars = Bar.where(user_id: current_user.id)
+  	@events = Event.where(user_id: current_user.id)
+  	@participate = current_user.events
   end
 end
