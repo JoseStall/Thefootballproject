@@ -74,7 +74,7 @@
     <div class="row masonry">
         <% @events.each do |event| %>
 
-      <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= event.latitude %>' data-lng='<%= event.longitude %>' data-nom= '<%= event.description %>'>
+      <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= event.latitude %>' data-lng='<%= event.longitude %>' data-nom= "<%= event.game.home_team.name + ' - ' + event.game.visiting_team.name %>">
         <div class="block block--style-3 block--style-3-v2">
           <div class="block-image relative">
             <div class="view view-second view--rounded">
@@ -96,7 +96,7 @@
             </div>
             <div class="pt-4 text-center">
               <h3 class="heading heading-4 strong-500 mb-0">
-                <a href="<%= event_path(event.id) %>"><%= event.game_id %></a>
+                <a href="<%= event_path(event.id) %>"><%= event.game.home_team.name + ' - ' + event.game.visiting_team.name %></a>
               </h3>
               <p class="strong-300 c-gray-light">
                 <%= event.address %></p>
