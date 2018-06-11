@@ -72,6 +72,38 @@
 <section class="slice-sm sct-color-1">
   <div class="containermap">
     <div class="row masonry">
+        <% @events.each do |event| %>
+
+      <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= event.latitude %>' data-lng='<%= event.longitude %>' data-nom= '<%= event.description %>'>
+        <div class="block block--style-3 block--style-3-v2">
+          <div class="block-image relative">
+            <div class="view view-second view--rounded">
+              <% if event.images.attached? %>
+              <img src="<%= event.images(0) %>">
+              <% else %>
+              <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg">
+              <% end %>
+              <div class="mask mask-base-1--style-2">
+                <div class="view-buttons text-center">
+                  <div class="view-buttons-inner text-center">        
+                    <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
+                        <i class="icon ion-plus"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 text-center">
+              <h3 class="heading heading-4 strong-500 mb-0">
+                <a href="<%= event_path(event.id) %>"><%= event.game_id %></a>
+              </h3>
+              <p class="strong-300 c-gray-light">
+                <%= event.address %></p>
+              </div>
+            </div>
+          </div>
+          <% end %> 
       <% @bars.each do |bar| %>
 
       <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
