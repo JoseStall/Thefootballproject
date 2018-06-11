@@ -22,7 +22,7 @@ class HomeController < ApplicationController
     p '-----------------'
     p @todo
     p '-----------------'
-    @bars = @barsall.near(params[:adress] , 100)
-    @events = @eventsall.near(params[:adress], 100)
+    @bars = @barsall.near(params[:adress] , 50)
+    @events = @eventsall.near(params[:adress], 50)
   end
 end
