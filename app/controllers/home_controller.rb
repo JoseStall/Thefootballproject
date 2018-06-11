@@ -24,7 +24,5 @@ class HomeController < ApplicationController
     p '-----------------'
     @bars = @barsall #.near('Paris', 80)
     @events = @eventsall #.near('Paris', 80)
-
   end
-  
 end
