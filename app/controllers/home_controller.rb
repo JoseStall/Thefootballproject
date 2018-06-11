@@ -16,8 +16,14 @@ class HomeController < ApplicationController
   end
 
   def result	
-    @bars = Bar.all
-    @events = Event.all
+    @barsall = Bar.all
+    @eventsall = Event.all
+    @todo = Bar.all + Event.all
+    p '-----------------'
+    p @todo
+    p '-----------------'
+    @bars = @barsall #.near('Paris', 80)
+    @events = @eventsall #.near('Paris', 80)
 
   end
   
