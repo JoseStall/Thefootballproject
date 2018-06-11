@@ -1,9 +1,10 @@
 class ContactMailer < ApplicationMailer
-	def validation(creator, demandor)
+	def validation(creator, demandor, event)
 		p "------"
 		puts params
 		@creator = creator
 		@demandor = demandor
+		@event = event
 		#@event = Event.find(params[:id])
 		p "demandor"
 		p demandor.firstname
@@ -17,12 +18,17 @@ class ContactMailer < ApplicationMailer
       	)
 	end
 
-	def confirmation(user)
-		@client = user
+	def confirmation(creator, demandor, event, home, visiting)
+		@creator = creator
+		@demandor = demandor
+		@event = event
+		@home = home
+		@visiting = visiting
+		mail = [creator.email,demandor.email]
 		mail(
-      		to: 'thplille@gmail.com',
+      		to: mail,
       		from: 'thplille@gmail.com',
-      		subject: 'commande'
+      		subject: 'Confirmation'
       	)
 	end
 end
