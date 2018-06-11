@@ -17,7 +17,8 @@
  *= require animate.min.css
  *= require font-awesome.min.css
  *= require ionicons.min.css
- *= require line-icons.css
+ *= require line-icons.css.erb
+ *= require line-icons-pro.css.erb
  *= require linea-icons-arrows.css
  *= require linea-icons-basic.css
  *= require linea-icons-ecommerce.css
