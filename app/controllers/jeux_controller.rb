@@ -1,7 +1,7 @@
 class JeuxController < ApplicationController
   def matchs
-  	  	@games = Game.all
-  	  	@team = params[:team].to_i
+ 	@games = Game.all
+ 	@team = params[:team].to_i
   end
 
   def actu
