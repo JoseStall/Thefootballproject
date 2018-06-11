@@ -27,8 +27,7 @@
  *= require bootstrap.min.css
  *= require style.css
  *= require bootstrap.min.css
- *= require font-awesome.css
  *= require responsive.css
  *= require themetypo.css
- *require direct_uploads.css
+ *= require direct_uploads.css
  */
