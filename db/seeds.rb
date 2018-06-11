@@ -94,7 +94,7 @@ Game.create(date: DateTime.strptime("06/28/2018 20:00", "%m/%d/%Y %H:%M"),home_t
 
 
 User.create(email:"a@a.a",firstname:"test", password:"aaaaaa", password_confirmation:"aaaaaa")
-User.create(email:"ampuero.pierre@gmail.com",firstname:"pierre", password:"mdpmdp", password_confirmation:"mdpmd")
+User.create(email:"ampuero.pierre@gmail.com",firstname:"pierre", lastname:"ampuero", password:"mdpmdp", password_confirmation:"mdpmdp")
 
 Bar.create(name: 'Camden Bar', description: "Pour la Coupe du Monde 2018, le Camden Bar sort un deuxième grand écran et prépare une soirée spéciale Back to 98 !", capacity: 80,pint_price: 6,user_id:1,address:"106b Rue Saint-André, 59800 Lille", screen:"2 écrans géants")
 Bar.create(name: 'Queen Victoria', description:"Le bar propose également à une carte de fidélité spéciale foot. Avec 5 pintes achetées, la 6e est offerte ! Elle sera valable durant tous les matchs de la Coupe du Monde.
@@ -151,8 +151,8 @@ Si ton pronostic est bon, nous t'offrons un verre à la fin du match !
 Dès que tu as 10 tampons sur la carte, tu entres lices pour gagner des cadeaux ! Et bien sûr tu auras le droit à une autre carte pour multiplier tes chances ! 🤞🙏" , capacity:50,pint_price:6,user_id:1,address:"109 rue de Saint André - Lille", screen:"2 TV")
 
 
-Event.create(description:"Venez donc chez Masse y boire des bières",date:"2018-06-14",game_id:1,user_id:1, address:"79 rue Victor Hugo 59170 Croix")
-Event.create(description:"Russie-Arabie Saoudite chez Pedro",date:"2018-06-14",game_id:1,user_id:1, address:"33 rue de Jemmapes Lille")
+Event.create(description:"Venez donc chez Masse y boire des bières",date:"2018-06-14",game_id:1,user_id:2, address:"79 rue Victor Hugo 59170 Croix")
+Event.create(description:"Russie-Arabie Saoudite chez Pedro",date:"2018-06-14",game_id:1,user_id:2, address:"33 rue de Jemmapes Lille")
 Event.create(description:"Premier match de la CDM chez louloumdoubleZlatan à Rouen",date:"2018-06-14",game_id:1,user_id:1, address:"1 rue Lamartine Rouen")
 Event.create(description:"A Paris aussi on mate l'ouverture de la coupe du monde!",date:"2018-06-14",game_id:1,user_id:1, address:"12 boulevard du montparnasse Paris")
 

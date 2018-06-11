@@ -26,15 +26,27 @@ class EventsController < ApplicationController
   puts current_user.id
   @event = Event.find(params[:id])
   puts 'email validator'
-  creator = User.find(@event.user_id)
-  demandor = User.find(current_user.id)
+  @creator = User.find(@event.user_id)
+  @demandor = User.find(current_user.id)
   @nom = User.find(@event.user_id).firstname
   puts User.find(@event.user_id).email
-  ContactMailer.validation(creator, demandor).deliver_now
+  ContactMailer.validation(@creator, @demandor, @event).deliver_now
 
  end
 
  def validatemail
+  p 'Params validatemail'
+  puts params
+  @idevent = params[:event]
+  @iduser = params[:id]
+  @event = Event.find(@idevent)
+  @creator = User.find(@iduser)
+  @demandor = User.find(@iduser)
+  @home = Game.find(@event.game_id).home_team.name
+  @visiting = Game.find(@event.game_id).visiting_team.name
+  Event.find(@idevent).users << User.find(@iduser)
+  ContactMailer.confirmation(@creator, @demandor, @event, @home, @visiting).deliver_now
+
 
  end
 

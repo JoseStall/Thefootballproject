@@ -1,3 +1,5 @@
 <h1>Bonjour, <%= @creator.firstname %> </h1>
+<h1><%= @demandor.firstname %> <%= @demandor.lastname %></h1>
+<h1>id event : <%= @event.id %></h1>
 
-<a href="/validate#{@demandor.id}">Clique ici pour valider</a>
+<a href="http://localhost:3000/validation/<%=@demandor.id%>?event=<%=@event.id%>">Clique ici pour valider</a>
