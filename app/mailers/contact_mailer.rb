@@ -1,10 +1,19 @@
 class ContactMailer < ApplicationMailer
-	def validation(user)
-		
+	def validation(creator, demandor)
+		p "------"
+		puts params
+		@creator = creator
+		@demandor = demandor
+		#@event = Event.find(params[:id])
+		p "demandor"
+		p demandor.firstname
+		p 'hello'
+		p '-----'
+		puts 'ContactMailer def validation'
 		mail(
-      		to: user,
+      		to: creator.email,
       		from: 'thplille@gmail.com',
-      		subject: 'votre commande'
+      		subject: 'Un invité?'
       	)
 	end
 

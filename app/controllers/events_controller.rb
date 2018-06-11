@@ -26,8 +26,15 @@ class EventsController < ApplicationController
   puts current_user.id
   @event = Event.find(params[:id])
   puts 'email validator'
-  @validator_email = User.find(@event.user_id).email
-  ContactMailler.validation(@validator_email)
+  creator = User.find(@event.user_id)
+  demandor = User.find(current_user.id)
+  @nom = User.find(@event.user_id).firstname
+  puts User.find(@event.user_id).email
+  ContactMailer.validation(creator, demandor).deliver_now
+
+ end
+
+ def validatemail
 
  end
 
