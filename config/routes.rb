@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'note/:id', to: 'review#note', as:'note'
   resources :bars
   resources :events
   get 'jeux/matchs'
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
   get 'welcome/:id', to: 'events#welcome', as: 'welcome'
   get 'result', to: 'home#result', as: 'result'
   get 'validation/:id', to: 'events#validatemail', as: 'validation'
+
 end
