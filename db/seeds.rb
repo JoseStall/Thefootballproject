@@ -93,8 +93,12 @@ Game.create(date: DateTime.strptime("06/28/2018 20:00", "%m/%d/%Y %H:%M"),home_t
 Game.create(date: DateTime.strptime("06/28/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 22, visiting_team_id: 25)
 
 
-User.create(email:"a@a.a",firstname:"Test", password:"aaaaaa", password_confirmation:"aaaaaa")
-User.create(email:"ampuero.pierre@gmail.com",firstname:"Pierre", lastname:"Ampuero", password:"mdpmdp", password_confirmation:"mdpmdp")
+u1 = User.create(email:"masse.gauthier@gmail.com",firstname:"Gauthier", lastname: "Masse", password:"mdpmdp", password_confirmation:"mdpmdp", phone_number: "0606606006")
+u2 = User.create(email:"ampuero.pierre@gmail.com",firstname:"Pierre", lastname:"Ampuero", password:"mdpmdp", password_confirmation:"mdpmdp", phone_number: "0607700770")
+u3 = User.create(email:"g.delory62@gmail.com",firstname:"Guillaume", lastname:"Delory", password:"mdpmdp", password_confirmation:"mdpmdp", phone_number: "0608800880")
+u4 = User.create(email:"louiseliemaillard@gmail.com",firstname:"Louis Elie", lastname:"Maillard", password:"mdpmdp", password_confirmation:"mdpmdp", phone_number: "0601011001")
+u5 = User.create(email:"alejo_alvarez67@hotmail.com",firstname:"Alexandro", lastname:"Alvarez", password:"mdpmdp", password_confirmation:"mdpmdp", phone_number: "0602022002")
+
 
 Bar.create(name: 'Camden Bar', description: "Pour la Coupe du Monde 2018, le Camden Bar sort un deuxième grand écran et prépare une soirée spéciale Back to 98 !", capacity: 80,pint_price: 6,user_id:1,address:"106b Rue Saint-André, 59800 Lille", screen:"2 écrans géants")
 Bar.create(name: 'Queen Victoria', description:"Le bar propose également à une carte de fidélité spéciale foot. Avec 5 pintes achetées, la 6e est offerte ! Elle sera valable durant tous les matchs de la Coupe du Monde.
@@ -151,10 +155,23 @@ Si ton pronostic est bon, nous t'offrons un verre à la fin du match !
 Dès que tu as 10 tampons sur la carte, tu entres lices pour gagner des cadeaux ! Et bien sûr tu auras le droit à une autre carte pour multiplier tes chances ! 🤞🙏" , capacity:50,pint_price:6,user_id:1,address:"109 rue de Saint André - Lille", screen:"2 TV")
 
 
-Event.create(description:"Venez donc chez Masse y boire des bières",date:"2018-06-14",game_id:1,user_id:2, address:"79 rue Victor Hugo 59170 Croix")
-Event.create(description:"Russie-Arabie Saoudite chez Pedro",date:"2018-06-14",game_id:1,user_id:2, address:"33 rue de Jemmapes Lille")
-Event.create(description:"Premier match de la CDM chez louloumdoubleZlatan à Rouen",date:"2018-06-14",game_id:1,user_id:1, address:"1 rue Lamartine Rouen")
-Event.create(description:"A Paris aussi on mate l'ouverture de la coupe du monde!",date:"2018-06-14",game_id:1,user_id:1, address:"12 boulevard du montparnasse Paris")
+e1 = Event.create(description:"Venez donc chez Masse y boire des bières",date:"2018-06-14",game_id:1, user_id:1, address:"79 rue Victor Hugo 59170 Croix")
+e2 = Event.create(description:"Russie-Arabie Saoudite chez Pedro",date:"2018-06-14",game_id:1,user_id:2, address:"33 rue de Jemmapes Lille")
+e3 = Event.create(description:"Premier match de la CDM chez louloumdoubleZlatan à Rouen",date:"2018-06-14",game_id:1,user_id:4, address:"1 rue Lamartine Rouen")
+e4 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+
+e1.users << [u2, u3, u4]
+e2.users << [u1, u3, u4, u5]
+e3.users << [u1, u2]
+e4.users << [u1, u2, u4, u5]
+
+r1 = Review.create(user_id: 1, content: "Les bières étaient chaudes", stars: 2, author: "Pierre")
+r2 = Review.create(user_id: 1, content: "Enfin quelqu'un qui a des bières bien chaudes chez lui! Je recommande!", stars:5, author: "Guillaume")
+r3 = Review.create(user_id: 2, content: "Belle installation chez Pierre, on a bien rigolé, et puis voir un quadruplé de Kylian je m'en rappellerai.", stars:5, author: "Gauthier")
+r4 = Review.create(user_id: 2, content: "Pierre était cool mais les autres invités étaient bourrés. Allez chez lui il va vous rincer!", stars:5, author: "Louis")
+r5 = Review.create(user_id: 2, content: "Allez le Chili, on y sera à la prochaine", stars:5, author: "Alejo")
+r6 = Review.create(user_id: 3, content: "Les gros pixels sur la télé m'ont empêché de bien voir le match mais Guillaume était cool et accueillant", stars:4, author: "Gauthier")
+r7 = Review.create(user_id: 3, content: "Ils sont sympas ces lillois en fait!", stars:5, author: "Louis")
 
 
 
