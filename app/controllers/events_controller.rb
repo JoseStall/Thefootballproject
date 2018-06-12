@@ -26,6 +26,8 @@ class EventsController < ApplicationController
   p @secondreview
   p @organisateur.reviews.count
   @notemoyenne = 4
+  p 'yyyyyyyyyyyyyyyyyyyyyy'
+  p @organisateur.reviews
     if @organisateur.reviews != nil
       a = current_user.reviews
       b = 0
@@ -37,6 +39,13 @@ class EventsController < ApplicationController
       if c != 0 
         @notemoyenne = b/c
       end
+
+      p'+++++++++++'
+      p 'Les deux reviews'
+      @firstreview = @organisateur.reviews.pluck(:content)[0]
+      @secondreview = @organisateur.reviews.pluck(:content)[1]
+      p @firstreview
+
     else
     end
  end

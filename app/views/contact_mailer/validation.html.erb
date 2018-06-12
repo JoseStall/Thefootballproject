@@ -1,5 +1,14 @@
-<h1>Bonjour, <%= @creator.firstname %> </h1>
-<h1><%= @demandor.firstname %> <%= @demandor.lastname %></h1>
-<h1>id event : <%= @event.id %></h1>
+<h1>Bonjour, <%= @creator.firstname %>!</h1>
+<h1><%= @demandor.firstname %> <%= @demandor.lastname %>, un autre grand fan de foot, aimerais venir mater le match <%= Game.find(@event.game_id).home_team.name%> VS <%= Game.find(@event.game_id).visiting_team.name%> chez toi. </h1>
+
+<h1>Il a l'air super cool, sa note moyenne sur notre site est de <%= @notemoyenne %>/5.</h1> 
+<% if @demandor.reviews.count >= 1 %> 
+<h1>Voici les derniers avis qu'il a reçu:</h1>
+<ul> 
+	<li><%= @firstreview %></li>
+	<li><%= @secondreview %></li>
+</ul>
+<%else%>
+<%end%>
 
 <a href="http://localhost:3000/validation/<%=@demandor.id%>?event=<%=@event.id%>">Clique ici pour valider</a>
