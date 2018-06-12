@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :bars
   resources :events
   get 'jeux/matchs'
-  get 'jeux/actu'
+  get 'jeux/actu' , to: 'jeux#actu'
   get 'jeux/classement'
   get 'profil', to: 'user#show'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }

@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   def result	
     @barsall = Bar.all
     @eventsall = Event.all
-    @bars = @barsall.near(params[:adress] , 30)
-    @events = @eventsall.near(params[:adress], 30)
+    @bars = @barsall.near(params[:adress] , 20)
+    @events = @eventsall.near(params[:adress], 20)
   end
 end
