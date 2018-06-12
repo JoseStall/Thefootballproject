@@ -8,9 +8,9 @@ class JeuxController < ApplicationController
 		require 'rss'
 		require 'open-uri'
 		@rss_results = []
-		rss = RSS::Parser.parse(open('https://fr.fifa.com/worldcup/news/rss.xml').read, false).items[0..6]
-		rss1 = RSS::Parser.parse(open('http://www.sports.fr//fr/cmc/football/rss.xml').read, false).items[0..6]
-		rss2 = RSS::Parser.parse(open('https://www.lequipe.fr/rss/actu_rss_Football.xml').read, false).items[0..6]
+		rss = RSS::Parser.parse(open('https://fr.fifa.com/worldcup/news/rss.xml').read, false).items[0..5]
+		rss1 = RSS::Parser.parse(open('http://www.sports.fr//fr/cmc/football/rss.xml').read, false).items[0..5]
+		rss2 = RSS::Parser.parse(open('http://rss.maxifoot.com/football-general.xml').read, false).items[0..5]
 		rssall = rss + rss1 + rss2
 		rssall.each do |result|
 			result = { title: result.title, date: result.pubDate, image: result.enclosure, link: result.link, description: result.description }
