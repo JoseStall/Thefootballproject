@@ -69,9 +69,18 @@
 
 
 </style>
+
+<% if @events[0] == nil && @bars[0] == nil %>
+<section class="slice-sm sct-color-1">
+    <div> désolé! il n'y a pas encore de bars ou d'événements référencés dans ta zone, soit le premier à en créer un : <br>Pour créer un bar c'est <a href="<%= new_bar_path %>"> par ici</a> 
+              <br>Pour créer un événement chez toi c'est<a href="<%= new_event_path %>"> par ici</a> </div>
+            </section>
+              <% else %>
 <section class="slice-sm sct-color-1">
   <div class="containermap">
     <div class="row masonry">
+    
+
         <% @events.each do |event| %>
 
       <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= event.latitude %>' data-lng='<%= event.longitude %>' data-nom= "<%= event.game.home_team.name + ' - ' + event.game.visiting_team.name %>">
@@ -141,7 +150,8 @@
         </div>
           <div class='map' id="map"></div>
 
-    
+            <% end %>
+
     </section>
 <script>
 let $map = document.querySelector('#map')

@@ -9,16 +9,15 @@ class User < ApplicationRecord
 			user.provider = auth.provider 
 			user.uid = auth.uid user.email = auth.info.email 
 			user.password = Devise.friendly_token[0,20] 
-			
 		end 
 	end
 
 	before_save :capitalize_names
 
-  	def capitalize_names
-	    self.firstname = firstname.camelcase
-	    self.lastname = lastname.camelcase
- 	end
-
-
+	def capitalize_names
+		if self.firstname != nil || self.lastname != nil
+			self.firstname = firstname.camelcase
+			self.lastname = lastname.camelcase
+		end
+	end
 end
