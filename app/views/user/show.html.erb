@@ -16,6 +16,7 @@
         <!-- Profile details -->
         <div class="profile-details">
             <h2 class="heading heading-4 strong-500 profile-name"><%= current_user.firstname %></h2>
+            <h2 class="heading heading-4 strong-500 profile-name">note : <%= @notemoyenne.round %>/5</h2>
             <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><%= current_user.email %></h3>
             <h3 class="heading heading-light heading-6 strong-400 profile-location">Supporter en herbe</h3>
         </div>
