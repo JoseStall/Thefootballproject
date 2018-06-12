@@ -40,12 +40,10 @@ class EventsController < ApplicationController
       end
       p'+++++++++++'
     else
-    end
-    p 'Les deux reviews'
+       p 'Les deux reviews'
     @firstreview = @organisateur.reviews.last
     p @firstreview
-
-
+    end
  end
 
  def welcome
