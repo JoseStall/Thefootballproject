@@ -87,13 +87,14 @@ ActiveRecord::Schema.define(version: 2018_06_11_151502) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "for_user_id"
+    t.integer "by_user_id"
     t.text "content"
     t.integer "stars"
-    t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["by_user_id"], name: "index_reviews_on_by_user_id"
+    t.index ["for_user_id"], name: "index_reviews_on_for_user_id"
   end
 
   create_table "teams", force: :cascade do |t|

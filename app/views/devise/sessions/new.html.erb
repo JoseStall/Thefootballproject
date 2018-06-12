@@ -10,7 +10,7 @@
           </div>
           <div class="form-body">
             <div class="text-center px-2">
-              <h4 class="heading heading-4 strong-400 mb-4">Connecte toi</h4>
+              <h4 class="heading heading-4 strong-400 mb-4">Connexion</h4>
             </div>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <form class="form-default" role="form">
@@ -47,8 +47,8 @@
                   <%= link_to "Se connecter avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-styled btn-lg btn-block btn-base-1 mt-4' %>
                 <% end -%>
               <% end -%>
-              <small><%= link_to "S'inscrire'", new_registration_path(resource_name) %></small><br>   
-              <small><%= link_to "Mot de passe oublié?", new_password_path(resource_name) %></small>
+              <small><%= link_to "S'inscrire", new_registration_path(resource_name) %></small><br>   
+              <small><%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %></small>
             <% end %>
             </form>
           </div>
