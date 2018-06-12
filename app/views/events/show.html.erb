@@ -64,8 +64,8 @@
                         <p>Note moyenne : <%= @notemoyenne %>/5</p>
                         <p>Quelques avis reçus par <%= @organisateur.firstname %>:</p>
                         <ul>
-                            <li><%= @firstreview %></li>
-                            <li><%= @secondreview %></li>
+                            <li>Commentaire et note de <%= @firstreviewer %>: "<span><%= @firstreview %></span> -> <%= @firstgrade %>/5" </li>
+                            <li>Commentaire et note de <%= @secondreviewer %>: "<span><%= @secondreview %></span> -> <%= @secondgrade %>/5" </li>
                         </ul>
                             <%end%>
                         
@@ -117,7 +117,7 @@
 
                         <hr>
                         <!-- Quantity + Add to cart -->
-                        <% if @date< Time.now %>
+                        <% if @date < Time.now %>
 
                         <div class="d-table product-quantity width-100 mt-3">  
                             <div class="pl-4 d-none d-lg-inline-block">

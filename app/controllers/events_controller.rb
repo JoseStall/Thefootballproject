@@ -5,29 +5,28 @@ class EventsController < ApplicationController
  # GET /events.json
  def index
    @events = Event.all
-   puts @events
-   puts @events.first.game_id
-   puts Game.find(1).home_team.name
  end
 
  # GET /events/1
  # GET /events/1.json
  def show
-  p '----------'
-  p params
-  p '----------'
   @event = Event.find(params[:id])
   @date = Game.find(@event.game_id).date
   @participant = @event.users
-
-  p 'FORMULAIRE'
-  p params[:message]
-  p params[:note]
-
   @organisateur = User.find(@event.user_id)
+  puts "organisateur.reviews"
+  p 'Les deux reviews'
+  @firstreview = @organisateur.reviews.pluck(:content)[0]
+  @firstreviewer = Review.find_by_content(@firstreview).author
+  @firstgrade = Review.find_by_content(@firstreview).stars
+  @secondreview = @organisateur.reviews.pluck(:content)[1]
+  @secondreviewer = Review.find_by_content(@secondreview).author
+  @secondgrade = Review.find_by_content(@secondreview).stars
+  p @firstreview
+  p @secondreview
+  p @organisateur.reviews.count
   @notemoyenne = 4
     if @organisateur.reviews != nil
-      p'+++++++++++'
       a = current_user.reviews
       b = 0
       c = 0
@@ -38,33 +37,20 @@ class EventsController < ApplicationController
       if c != 0 
         @notemoyenne = b/c
       end
-      p'+++++++++++'
     else
-
-       p 'Les deux reviews'
-      @firstreview = @organisateur.reviews.pluck(:content)[0]
-      @secondreview = @organisateur.reviews.pluck(:content)[1]
-      p @firstreview
     end
  end
 
  def welcome
-  puts "---------"
-  puts params
-  puts current_user.id
   @event = Event.find(params[:id])
-  puts 'email validator'
   @creator = User.find(@event.user_id)
   @demandor = User.find(current_user.id)
   @nom = User.find(@event.user_id).firstname
-  puts User.find(@event.user_id).email
   ContactMailer.validation(@creator, @demandor, @event).deliver_now
 
  end
 
  def validatemail
-  p 'Params validatemail'
-  puts params
   @idevent = params[:event]
   @iduser = params[:id]
   @event = Event.find(@idevent)
@@ -107,9 +93,6 @@ class EventsController < ApplicationController
  # POST /events
  # POST /events.json
  def create
-  p '##################################################"'
-  puts event_params
-  p '##################################################'
    @event = Event.new(event_params)
 
    respond_to do |format|
