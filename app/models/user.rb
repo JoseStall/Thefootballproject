@@ -15,7 +15,7 @@ class User < ApplicationRecord
 	before_save :capitalize_names
 
 	def capitalize_names
-		if self.firstname != nil || self.lastname != nil
+		if self.firstname != nil && self.lastname != nil
 			self.firstname = firstname.camelcase
 			self.lastname = lastname.camelcase
 		end

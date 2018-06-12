@@ -93,8 +93,8 @@ Game.create(date: DateTime.strptime("06/28/2018 20:00", "%m/%d/%Y %H:%M"),home_t
 Game.create(date: DateTime.strptime("06/28/2018 20:00", "%m/%d/%Y %H:%M"),home_team_id: 22, visiting_team_id: 25)
 
 
-User.create(email:"a@a.a",firstname:"test", password:"aaaaaa", password_confirmation:"aaaaaa")
-User.create(email:"ampuero.pierre@gmail.com",firstname:"pierre", lastname:"ampuero", password:"mdpmdp", password_confirmation:"mdpmdp")
+User.create(email:"a@a.a",firstname:"Test", password:"aaaaaa", password_confirmation:"aaaaaa")
+User.create(email:"ampuero.pierre@gmail.com",firstname:"Pierre", lastname:"Ampuero", password:"mdpmdp", password_confirmation:"mdpmdp")
 
 Bar.create(name: 'Camden Bar', description: "Pour la Coupe du Monde 2018, le Camden Bar sort un deuxième grand écran et prépare une soirée spéciale Back to 98 !", capacity: 80,pint_price: 6,user_id:1,address:"106b Rue Saint-André, 59800 Lille", screen:"2 écrans géants")
 Bar.create(name: 'Queen Victoria', description:"Le bar propose également à une carte de fidélité spéciale foot. Avec 5 pintes achetées, la 6e est offerte ! Elle sera valable durant tous les matchs de la Coupe du Monde.
