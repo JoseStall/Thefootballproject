@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :bars
   resources :events
   get 'jeux/matchs'
-  get 'jeux/actu' , to: 'jeux#actu'
+  get 'actus' , to: 'jeux#actu', as: 'news'
   get 'jeux/classement'
-  get 'profil', to: 'user#show'
+  get 'profil', to: 'user#show', as: 'profil'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root 'home#index'
   get 'contact', to: 'home#contact'
