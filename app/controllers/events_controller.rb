@@ -42,7 +42,8 @@ class EventsController < ApplicationController
     else
     end
     p 'Les deux reviews'
-    @firstreview = @organisateur.reviews.last
+    @firstreview = @organisateur.reviews.pluck(:content)[0]
+    @secondreview = @organisateur.reviews.pluck(:content)[1]
     p @firstreview
 
 
