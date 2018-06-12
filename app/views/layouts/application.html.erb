@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 <meta name="google-signin-client_id" content="134000063532-ei8frfnr6jalc3qjg6eaqq7fseahrph7.apps.googleusercontent.com">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet"> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -65,7 +65,8 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                             <%= text_field_tag 'adress', nil, class: 'search-input', id: 'autocomplete' %>
-                                                            <%= submit_tag 'rechercher'%>
+        
+                                                            <a href="" class="close-search" data-toggle="global-search" title="Close search bar"></a>
                                                         </div>
                                                     </div>
                                                 </div>
