@@ -60,13 +60,15 @@
                         <hr>
                         
                         <h3>Organisé par <%= @organisateur.firstname %></h3>
-                        <% if @organisateur.reviews != nil %>
+                        <% if @organisateur.reviews.count >= 1 %>
                         <p>Note moyenne : <%= @notemoyenne %>/5</p>
                         <p>Quelques avis reçus par <%= @organisateur.firstname %>:</p>
                         <ul>
                             <li><%= @firstreview %></li>
                             <li><%= @secondreview %></li>
                         </ul>
+                        <% else %>
+                        <p>C'est son premier event bouoauoauoa</p>
                         <%end%>
                         
 
@@ -117,7 +119,7 @@
 
                         <hr>
                         <!-- Quantity + Add to cart -->
-                        <% if @date< Time.now %>
+                        <% if @date>Time.now %>
 
                         <div class="d-table product-quantity width-100 mt-3">  
                             <div class="pl-4 d-none d-lg-inline-block">

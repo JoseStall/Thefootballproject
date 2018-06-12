@@ -5,6 +5,28 @@ class ContactMailer < ApplicationMailer
 		@creator = creator
 		@demandor = demandor
 		@event = event
+		@notemoyenne = 4
+  p 'yyyyyyyyyyyyyyyyyyyyyy'
+  p @demandor.reviews
+    if @demandor.reviews != nil
+      p'+++++++++++'
+      a = @demandor.reviews
+      b = 0
+      c = 0
+        a.each do |a|
+          b+=a.stars
+          c+=1
+        end
+      if c != 0 
+        @notemoyenne = b/c
+      end
+      p'+++++++++++'
+       p 'Les deux reviews'
+      @firstreview = @demandor.reviews.pluck(:content)[0]
+      @secondreview = @demandor.reviews.pluck(:content)[1]
+      p @firstreview
+    else
+    end
 		#@event = Event.find(params[:id])
 		p "demandor"
 		p demandor.firstname

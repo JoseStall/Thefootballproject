@@ -31,6 +31,10 @@
 
 
 
-<div class="container"> <%= render 'form', event: @event %>
+<div class="container">
 
-<%= link_to 'Back', events_path %></div>
+	<%= render 'form', event: @event %>
+
+	<%= link_to 'Back', events_path, class:'d-block mt-3 mb-3' %>
+	
+</div>

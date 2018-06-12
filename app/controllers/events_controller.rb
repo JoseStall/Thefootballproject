@@ -26,6 +26,8 @@ class EventsController < ApplicationController
 
   @organisateur = User.find(@event.user_id)
   @notemoyenne = 4
+  p 'yyyyyyyyyyyyyyyyyyyyyy'
+  p @organisateur.reviews
     if @organisateur.reviews != nil
       p'+++++++++++'
       a = current_user.reviews
@@ -39,12 +41,11 @@ class EventsController < ApplicationController
         @notemoyenne = b/c
       end
       p'+++++++++++'
-    else
-
        p 'Les deux reviews'
       @firstreview = @organisateur.reviews.pluck(:content)[0]
       @secondreview = @organisateur.reviews.pluck(:content)[1]
       p @firstreview
+    else
     end
  end
 
