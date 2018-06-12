@@ -60,14 +60,19 @@
                         <hr>
                         
                         <h3>Organisé par <%= @organisateur.firstname %></h3>
-                            <% if @organisateur.reviews != nil %>
+
+                        <% if @organisateur.reviews.count >= 1 %>
                         <p>Note moyenne : <%= @notemoyenne %>/5</p>
                         <p>Quelques avis reçus par <%= @organisateur.firstname %>:</p>
                         <ul>
                             <li>Commentaire et note de <%= @firstreviewer %>: "<span><%= @firstreview %></span> -> <%= @firstgrade %>/5" </li>
                             <li>Commentaire et note de <%= @secondreviewer %>: "<span><%= @secondreview %></span> -> <%= @secondgrade %>/5" </li>
                         </ul>
-                            <%end%>
+
+                        <% else %>
+                        <p>C'est son premier event bouoauoauoa</p>
+                        <%end%>
+
                         
 
                         <table class="table table-specs">
@@ -117,7 +122,9 @@
 
                         <hr>
                         <!-- Quantity + Add to cart -->
+
                         <% if @date < Time.now %>
+
 
                         <div class="d-table product-quantity width-100 mt-3">  
                             <div class="pl-4 d-none d-lg-inline-block">

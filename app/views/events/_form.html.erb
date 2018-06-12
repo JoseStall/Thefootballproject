@@ -35,7 +35,7 @@
    <%= form.hidden_field :user_id, :value => current_user.id %>
 
 
-   <div class="row">
+  <div class="row">
     <div class="col-md-12">
       <div class="form-group">
         <%= form.label :description, 'On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?' %>
@@ -43,31 +43,58 @@
       </div>
     </div>
   </div>
-
   
-        <div class="col-md-7 mb-3">
+  <div class="row">
+    <div class="col-md-7 mb-3">
+      <%= form.label :invited, 'Nombre de personnes que tu peux inviter:' %>
+      <%= form.select :invited, 1..5,{} ,{:class => 'custom-select d-block w-100', :required => true} %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <%= form.label :smoke, 'Peut-on fumer :' %>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="smoke" id="smoke1" value="true">
+        <label class="form-check-label" for="smoke1">Oui</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="smoke" id="smoke2" value="false" checked>
+        <label class="form-check-label" for="smoke2">Non</label>
+      </div>
+    </div>
+  </div>
 
-  <%= form.label :invited, 'Nombre de personnes que tu peux inviter:' %>
-  <%= form.select :invited, 1..10,{} ,{:class => 'custom-select d-block w-100', :required => true} %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= form.label :food, 'Apporté à manger :' %>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="food" id="food1" value="true">
+        <label class="form-check-label" for="food1">Oui</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="food" id="food2" value="false" checked>
+        <label class="form-check-label" for="food2">Non</label>
+      </div>
+    </div>
   </div>
-  <div>
-    <div class='check_box form-check-inline'>
-    <%= form.label :smoke, 'Fumeur'  %>
-    <%= form.check_box :smoke, { :value => 'Fumeur'}, "true"%>
-  </div>
-  <div class="check_box form-check-inline">
-    <%= form.label :food, 'Nourriture' %>
-    <%= form.check_box :food, { :value => 'Fumeur'}, "true"%>
-  </div>
-  <div class="check_box form-check-inline">
-    <%= form.label :drink, 'Boisson'  %>
-    <%= form.check_box :drink, { :value => 'Fumeur'}, "true" %>
-  </div class='row'>
-    
 
+  <div class="row">
+    <div class="col-md-12">
+      <%= form.label :drink, 'Apporté à boire :' %>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="drink" id="drink1" value="true">
+        <label class="form-check-label" for="drink1">Oui</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="drink" id="drink2" value="false" checked>
+        <label class="form-check-label" for="drink2">Non</label>
+      </div>
+    </div>
   </div>
 
   <hr class="mb-4">
+
   <%= form.submit value:"Crée ton event", class: 'btn btn-primary btn-lg btn-block' %> 
 
   <% end %>
