@@ -5,17 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 <meta name="google-signin-client_id" content="134000063532-ei8frfnr6jalc3qjg6eaqq7fseahrph7.apps.googleusercontent.com">
+ <meta name="turbolinks-visit-control" content="reload">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet"> 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <!-- Favicon -->
 <link href="<%= asset_path('favicon.png') %>" rel="icon" type="image/png">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-
- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -116,7 +115,7 @@
 
               <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item">
-                  <li><a href="" class ="nav-link" data-toggle="global-search">
+                  <li><a href="#" class ="nav-link" data-toggle="global-search">
                     <span>
                     <i class="fa fa-search"></i></a></li>
                   </span>
