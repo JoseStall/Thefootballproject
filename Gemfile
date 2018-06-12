@@ -15,6 +15,7 @@ gem "aws-sdk-s3", require: false
 gem 'puma', '~> 3.11'
 gem 'geocoder'
 gem 'mailjet'
+gem 'feedjira', '~> 2.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

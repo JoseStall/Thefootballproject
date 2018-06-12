@@ -1,2 +1,21 @@
-<h1>Jeux#actu</h1>
-<p>Find me in app/views/jeux/actu.html.erb</p>
+<section class="slice-sm sct-color-1">
+	<div class="container">
+
+		<div class="row">
+
+		<% @rss_results.shuffle.each do |article| %>
+          <div class="col-md-4">
+			<img src="<% article[:image] %>" alt="" style="width: 100px; height: 100px">
+
+				<a href="<%= article[:link] %>""><h4><strong><%= article[:title] %></strong></h4></a>
+				
+				<small><p style='margin-top:-10px'> <%= article[:date].strftime('Publié le: %F') %>  <a href="<%= article[:link] %>"></a></p></small>
+				<p style='height: 200px; overflow: hidden;'>
+					<%= article[:description] %>
+				</p>
+			</div>
+		
+		<% end %>
+		</div>
+	</div>
+</section>
