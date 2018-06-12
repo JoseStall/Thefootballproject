@@ -18,6 +18,11 @@ class EventsController < ApplicationController
   p '----------'
   @event = Event.find(params[:id])
   @date = Game.find(@event.game_id).date
+  @participant = @event.users
+
+  p 'FORMULAIRE'
+  p params[:message]
+  p params[:note]
  end
 
  def welcome
@@ -40,7 +45,7 @@ class EventsController < ApplicationController
   @idevent = params[:event]
   @iduser = params[:id]
   @event = Event.find(@idevent)
-  @creator = User.find(@iduser)
+  @creator = User.find(@event.user_id)
   @demandor = User.find(@iduser)
   @home = Game.find(@event.game_id).home_team.name
   @visiting = Game.find(@event.game_id).visiting_team.name
