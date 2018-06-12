@@ -11,46 +11,42 @@
    </div>
  <% end %>
 
-   <div class="field">
-      <%= form.label :address %>
-      <%= form.text_field :address, class: 'form-control', value: @event.address, :required => true  %>
-    </div>
-    <div class="invalid-feedback">
-      Il te faut une adresse valide
-    </div>
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: 'form-control', value: @event.address, :required => true  %>
+  </div>
+  <div class="invalid-feedback">
+    Il te faut une adresse valide
+  </div>
     <br>
 
-    <div class="row">
-      <div class="col-md-5 mb-3">
-        <%= form.label :game_id, 'Choisis ta rencontre' %>
-        <%= form.select :game_id, options_for_select(@array_games, selected = @array_games[@game_id - 1]),{} ,{:class => 'custom-select d-block w-100', value: @event.game_id} %>
-      </div>
-    
+  <div class="row">
+    <div class="col-md-5 mb-3">
+      <%= form.label :game_id, 'Choisis ta rencontre' %>
+      <%= form.select :game_id, options_for_select(@array_games, selected = @array_games[@game_id - 1]),{} ,{:class => 'custom-select d-block w-100', value: @event.game_id} %>
+    </div>
+    <div class="col-md-7 mb-3">
+      <%= form.label :images %>
+      <%= form.file_field :images, multiple: true, class: 'custom-file' %>
+    </div>
+  </div>
 
+  <div style="width:400px; height:auto">
+    <% if @event.images.attached? %>
+      <p>
+        <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
+        
+         <% @event.images.each do |image|  %>
+           <p> <%= image_tag(image, style:'width:100%') %> <br> </p> 
+          
+         <% end %>
+      </p>
+    <% end %>
+  </div>
+  
+  <%= form.hidden_field :user_id, :value => current_user.id %>
 
-
-<div class="col-md-7 mb-3">
-   <%= form.label :images %>
-   <%= form.file_field :images, multiple: true, class: 'custom-file' %>
- </div>
-</div>
-
- <div style="width:400px; height:auto">
-<% if @event.images.attached? %>
-<p>
- <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
- <br>
- <% @event.images.each do |image|  %>
- <%= link_to 'Remove image', image.purge, data: { confirm: 'Are you sure?' } %>
-   <%= image_tag(image, style:'width:100%') %>
-
- <% end %>
-</p>
-<% end %>
-</div>
-   <%= form.hidden_field :user_id, :value => current_user.id %>
-
-<div class="row">
+  <div class="row">
     <div class="col-md-12">
       <div class="form-group">
         <%= form.label :description, 'On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?' %>
@@ -60,26 +56,25 @@
   </div>
 
 
-        <div class="col-md-7 mb-3">
+  <div class="col-md-7 mb-3">
+    <%= form.label :invited, 'Nombre de personnes que tu peux inviter:' %>
+    <%= form.select :invited, 1..10,{} ,{:class => 'custom-select d-block w-100', :required => true} %>
 
-  <%= form.label :invited, 'Nombre de personnes que tu peux inviter:' %>
-  <%= form.select :invited, 1..10,{} ,{:class => 'custom-select d-block w-100', :required => true} %>
-
-   <div class='check_box form-check-inline'>
-    <%= form.label :smoke, 'Fumeur'  %>
-    <%= form.check_box :smoke, { :value => @event.smoke}, "true"%>
-  </div>
-  <div class="check_box form-check-inline">
-    <%= form.label :food, 'Nourriture' %>
-    <%= form.check_box :food, { :value => @event.food}, "true"%>
-  </div>
-  <div class="check_box form-check-inline">
-    <%= form.label :drink, 'Boisson'  %>
-    <%= form.check_box :drink, { :value => @event.drink}, "true" %>
-  </div>
+      <div class='check_box form-check-inline'>
+        <%= form.label :smoke, 'Fumeur'  %>
+        <%= form.check_box :smoke, { :value => @event.smoke}, "true"%>
+      </div>
+      <div class="check_box form-check-inline">
+        <%= form.label :food, 'Nourriture' %>
+        <%= form.check_box :food, { :value => @event.food}, "true"%>
+      </div>
+      <div class="check_box form-check-inline">
+        <%= form.label :drink, 'Boisson'  %>
+        <%= form.check_box :drink, { :value => @event.drink}, "true" %>
+      </div>
   </div>
 
-   <hr class="mb-4">
+  <hr class="mb-4">
 
 
 
