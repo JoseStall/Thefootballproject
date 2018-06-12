@@ -23,6 +23,19 @@ class EventsController < ApplicationController
   p 'FORMULAIRE'
   p params[:message]
   p params[:note]
+
+  @organisateur = User.find(@event.user_id)
+  @notemoyenne = 4
+    p'+++++++++++'
+    a = current_user.reviews
+    b = 0
+    c = 0
+    a.each do |a|
+      b+=a.stars
+      c+=1
+    end
+    @notemoyenne = b/c
+    p'+++++++++++'
  end
 
  def welcome
