@@ -1,145 +1,138 @@
-  <!-- SHOP GRID WRAPPER -->
-                    <section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/cheering-crowd-event-17598.jpg' %>); background-position: bottom center;">
-                      <span class="mask mask-dark--style-2"></span>
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-12">
-                            <div class="py-5 text-center">
-                              <h1 class="heading heading-1 c-white strong-400 text-normal">
-                                 Inscris toi aux événements qui te chauffent !
-                              </h1>
 
-                              <span class="clearfix"></span>
+<section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/cheering-crowd-event-17598.jpg' %>); background-position: bottom center;">
+  <span class="mask mask-dark--style-2"></span>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="py-5 text-center">
+          <h1 class="heading heading-1 c-white strong-400 text-normal">
+           Inscris toi aux événements qui te chauffent !
+       </h1>
 
-                              
-                            </div>
-                          </div>
+       <span class="clearfix"></span>
+
+
+   </div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="slice sct-color-1">
+    <div class="container">
+        <!-- Product gallery and Description -->
+        <div class="row cols-xs-space cols-sm-space cols-md-space">
+            <div class="col-lg-6">
+                <div style="width:400px; height:auto">
+                    <% if @event.images.attached? %>
+                    <% @event.images.each do |image|  %>
+                    <div class="block-image mt-1">
+                        <%= image_tag(image, style:'width:100%') %>
+                    </div> 
+                    <% end %>      
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="px-2">
+                    <!-- Product description -->
+                    <div class="product-description-wrapper px-1">
+                        <!-- Product title -->
+                        <h2 class="product-title">
+                            Evénement particulier
+                        </h2>
+
+                        <hr>
+
+
+
+                        <!-- Product description -->
+                        <div class="product-short-text mt-3">
+                            <h3 class="heading heading-xs strong-500 text-uppercase">
+                                Description:
+                            </h3>
+                            <p>
+                                <%= @event.description %>
+                            </p>
                         </div>
-                      </div>
-                    </section>
 
-                    <section class="slice sct-color-1">
-                        <div class="container">
-                            <!-- Product gallery and Description -->
-                            <div class="row cols-xs-space cols-sm-space cols-md-space">
-                                <div class="col-lg-6">
-                                    <div style="width:400px; height:auto">
-                                        <% if @event.images.attached? %>
-                                          <% @event.images.each do |image|  %>
-                                          <div class="block-image mt-1">
-                                            <%= image_tag(image, style:'width:100%') %>
-                                            </div> 
-                                          <% end %>      
-                                        <% end %>
-                                    </div>
-                                </div>
+                        <hr>
 
-                                <div class="col-lg-6">
-                                    <div class="px-2">
-                                        <!-- Product description -->
-                                        <div class="product-description-wrapper px-1">
-                                            <!-- Product title -->
-                                            <h2 class="product-title">
-                                                Evénement particulier
-                                            </h2>
+                        <table class="table table-specs">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="c-gray-light strong-600">Date</span>
+                                    </td>
+                                    <td>
+                                        <%= @event.date %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="c-gray-light strong-600">Nombre d'invités</span>
+                                    </td>
+                                    <td>
+                                        <%= @event.invited %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="c-gray-light strong-600">Alcool</span>
+                                    </td>
+                                    <td>
+                                        <%= @event.drink %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="c-gray-light strong-600">Nourriture</span>
+                                    </td>
+                                    <td>
+                                        <%= @event.food %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="c-gray-light strong-600">Fumeur</span>
+                                    </td>
+                                    <td>
+                                        <%= @event.drink %>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                                            <hr>
+                        <hr>
+                        <!-- Quantity + Add to cart -->
+                        <% if @event.date < Time.now %>
 
-                                           
-
-                                            <!-- Product description -->
-                                            <div class="product-short-text mt-3">
-                                                <h3 class="heading heading-xs strong-500 text-uppercase">
-                                                    Description:
-                                                </h3>
-                                                <p>
-                                                    <%= @event.description %>
-                                                </p>
-                                            </div>
-
-                                            <hr>
-
-                                            <table class="table table-specs">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <span class="c-gray-light strong-600">Date</span>
-                                                        </td>
-                                                        <td>
-                                                            <%= @event.date %>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <span class="c-gray-light strong-600">Nombre d'invités</span>
-                                                        </td>
-                                                        <td>
-                                                            <%= @event.invited %>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <span class="c-gray-light strong-600">Alcool</span>
-                                                        </td>
-                                                        <td>
-                                                            <%= @event.drink %>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <span class="c-gray-light strong-600">Nourriture</span>
-                                                        </td>
-                                                        <td>
-                                                            <%= @event.food %>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <span class="c-gray-light strong-600">Fumeur</span>
-                                                        </td>
-                                                        <td>
-                                                            <%= @event.drink %>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <hr>
-                                                        <!-- Quantity + Add to cart -->
-                                                        <% if @event.date < Time.now %>
-
-                                                        <div class="d-table product-quantity width-100 mt-3">  
-                                                           <div class="pl-4 d-none d-lg-inline-block">
-                                                            <%= link_to "Participe à l'évènement chez #{User.find(@event.user_id).firstname}!", welcome_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
-                                                            </div>
-                                                        </div>
-                                                        <% else %>
-                                                            <div>hello 2 <%=current_user.id%> <%=@event.id%></div>
-                                                            <% if current_user.id == @event.user_id  %>
-                                                                <%= form_tag("/events/#{@event.id}", method: "get") do %>
-                                                                  <%= label_tag(:note, "Note:") %>
-                                                                  <%= number_field(:note, in: 1..5, step: 1) %>
-                                                                  <%= text_area_tag(:message, "Commentaire", size: "24x6") %>
-                                                                  <%= submit_tag("Envoyer") %>
-                                                                <% end %>
-                                                            <% elsif @event.user_ids.include?(current_user.id) %>
-                                                                    <div>Hello</div>
-                                                                    <% else %>
-                                                                    <div> MERDE</div>
-                                                            <% end %>
-                                                        <% end %>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div class="d-table product-quantity width-100 mt-3">  
+                            <div class="pl-4 d-none d-lg-inline-block">
+                                <%= link_to "Participe à l'évènement chez #{User.find(@event.user_id).firstname}!", welcome_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
                             </div>
                         </div>
-                    </section>
+                    <% else %>
+                        <div class="d-table product-quantity width-100 mt-3">  
+                            <div class="pl-4 d-none d-lg-inline-block">
+                                <%= link_to "Tu as participé à l'évenement? laisse un commentaire", note_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
+                            </div>
+                        </div>
+                    <% end %>
+
+                </div>
+            </div>
+            <%= link_to 'Modifier', edit_event_path(@event) %> |
+            <%= link_to 'Retour', events_path %>
+
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
 
 
-<%= link_to 'Modifier', edit_event_path(@event) %> |
-<%= link_to 'Retour', events_path %>
