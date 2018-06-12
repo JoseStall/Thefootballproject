@@ -38,10 +38,10 @@
         
          <% @event.images.each do |image|  %>
            <p> <%= image_tag(image, style:'width:100%') %> <br> </p> 
-           <p> hvh <%= form_for(image, :method => :delete, :remote => true) do  %>
+           <p> hvh <%= form_tag(image, :method => :delete, :remote => true)  %>
                 <%= submit_tag 'effacer cette photo' %></p>
           
-         <% end %>
+         
  
     <% end %>
   </div>
