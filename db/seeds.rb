@@ -124,6 +124,39 @@ Bar.create(name: 'La ressourcerie', description:"Pour la toute première fois, l
 
 Comme disait notre Johnny international : « Allez les bleus, on est tous avec vous » ! Et parce que vous étiez de grands joueurs. Le bar vous propose pour ce premier match de faire des pronostics. Vous pariez sur l’équipe gagnante à la mi-temps puis celle à la fin du match. D’une main innocente, il y a tirage au sort et le gagnant remportera la tournée des patronnes !
 " , capacity:50,pint_price:5,user_id:1,address:"73 rue de l'Hôpital Militaire - Lille", screen:"Grand écran")
+
+Bar.create(name: 'Les Fontaines', description:"La Coupe du Monde sur une terrasse en plein Paris, ca te tente ? 
+
+	- Les Fontaines, situé en plein Marais en face du centre Georges Pompidou et sur les fontaines de Nicki de Saint Phalle, propose de vous accueillir pour vous L'INTEGRALITE DES MATCHS sur leur terrasse accueillante.
+
+	- Des prix seront effectués sur les alcools durant tout le mondial, en plus du Happy Hour classique ! Et nous aurons une nouvelle création à base de rhum... aux couleurs de la France.
+
+	Venez tous encourager notre équipe et profiter du Mondial aux Fontaines !" , capacity:100,pint_price:5,user_id:1,address:"12 rue Brisemiche 75001 Paris", screen:"Plusieurs écrans géants")
+
+Bar.create(name: 'Le 17', description:"Bar Hipster branché
+	Le 17, petit bar de quartier dans le 11ème vous accueillera durant la Coupe du Monde. Vous pourrez regarder les matchs de tous les pays du monde dans une ambiance parisienne, simple et responsable. Des en-cas au quinoa seront préparés pour l'occasion. 
+
+	Retrouvez votre équipe préférée qui vous offrira des shots à chaque but marqué par l'équipe de France.
+
+	On vous attend nombreux ! Nous prenons les réservations", capacity:40,pint_price:4.5,user_id:1,address:"17 rue de la folie Méricourt 75011 Paris", screen:"2 TV")
+
+Bar.create(name: 'Indiana', description:" INDIANA, bar/restaurant mythique de Paris ouvrira ses portes à tous les supporters de football pour vibrer aux sons des buts lors de ce mondial ! 
+
+	- Indiana, présent dans plusieurs arrondissements parisiens sera votre partenaire pendant cette période excitante. Vous trouverez toujours un de nos bars près de chez vous !
+
+	- Nous appliquerons des prix préférentiels sur les soft/hard selon les matchs et les heures de la journée... restez connectés pour avoir les prochaines promotions ! 
+
+	- Votre restaurant continuera à vous accueillir avec une carte mondial revisitée, de la nourriture simple, pas chère et bonne ! De quoi sustenter tous les supporters." , capacity:80,pint_price:7,user_id:1,address:"1 place de la République 75003 Paris", screen:"Plusieurs écrans géants")
+
+Bar.create(name: 'Dernier Bar Avant La Fin Du Monde', description:"Le Dernier Bar avant la Fin du Monde est le premier espace d’expression des cultures de l’imaginaire en plein cœur de Paris, à deux pas du Théâtre du Châtelet. C’est un bar de plus de 400 m² pensé par des passionnés de science-fiction, de fantasy, de manga, de séries télévisées, de cinéma et de littérature fantastique. On peut s’y installer pour lire, partager un verre, jouer, se restaurer, partager sa passion pour les cultures de l’imaginaire.
+
+	Le bar s'habille aux couleurs du mondial ! 
+
+	Nous vous invitons à venir voir les matchs dans notre bar et de jouer au grand jeux des pronostics pour l'occasion ! De nombreux prix à gagner : pintes, planches apéros, et autres goodies.
+
+" , capacity:70,pint_price:6,user_id:1,address:"19 avenue Victoria Paris", screen:"7 TV")
+
+
 Bar.create(name: 'BABE', description:"La Coupe du Monde arrive à grands pas, et BABE va passer en mode Boire. Manger. Supporter ! pendant un mois. Mais concrètement une coupe du monde au BABE, ça va ressembler à quoi ?
 Le programme de la Coupe du Monde au BABE
 
@@ -137,28 +170,91 @@ Le programme de la Coupe du Monde au BABE
 
 - Une grande terrasse pour la mi-temps
 " , capacity:50,pint_price:5,user_id:1,address:"48 rue hopital militaire lille", screen:"Plusieurs écrans géants")
-Bar.create(name: 'Gastama', description:"At first I was afraid, I was pretrified...🎵
 
-C'était il y a 20 ans et pourtant le souvenir et toujours aussi vif. On se souvient tous où l'on était le 12 Juillet 1998, qu'on avait 5, 20 ou 30 ans à l'époque ... ⚽🌍
+Bar.create(name: 'Le Bisou', description:"L'équipe du Bespoke voisin remet le couvert avec ce petit bar tout en long venu égayer le boulevard du Temple de son auvent rose et de sa chaleureuse terrasse (agrémentée de plantes suspendues aux beaux jours). À l'intérieur, néon rose, playlist pop 90's (Britney Spears, Ace of Base) et tutoiement de rigueur. Installez-vous le long du beau bar en marbre gris pour mieux échanger avec les bartenders.
+	
+	Les cocktails, facturés au prix unique de 12 €, sont créés à la minute par les bartenders après recueil de vos préférences (amer, acide, fruits, alcool de prédilection…) ou de votre humeur. Mieux vaut bien connaître ses goûts ou aimer l'aventure, car les ingrédients ne sont révélés qu'après la dégustation.
 
-Cette année, la Russie accueille la 21ème édition de la coupe du monde de la Fifa, et le Gastama devient ton QG pour voir les matchs, sur la terrasse ou à l'intérieur !
+	Pour le mondial, le Bisou proposera exceptionnellement de la bière à la pression... Mais comme pour les cocktails, surprise ! Nos barmens sauront vous rincer de nos plus belles trouvailles, et bien-sûr selon vo goûts ;) 
+" , capacity:40,pint_price:9,user_id:1,address:"15 Boulevard du Temple 75003 Paris", screen:"1 écran géant")
 
-Tempête ou canicule, on est paré ! 👊
+Bar.create(name: 'International', description:"Café-concert présentant artistes français et internationaux de folk, pop, rock, électro et musique du monde.
 
-[JEU CONCOURS]
+	L'international se transforme pour la Coupe Du Monde 2018 ! Shows et artistes viendront vous rencontrer au rythme des matchs de l'équipe de France, avec des spectacles et performances réadaptées : format avant-match, mi-temps, after, etc.
 
-Parce qu'on est généreux avec ceux qu'on aime , on vous propose de gagner des cadeaux en participant à notre jeu concours ! 😘
+	Et surtout un tout nouveau concept... Les commentaires en live performés dans le bar ! Des commentateurs connus viendront vous accompagner en live durant les matchs de l'équipe de France.
 
-Dès le début du tournoi, ou la première fois que tu viens voir un match, nous te donnerons une carte de pronostic. Chaque fois que tu viens voir un match chez nous, fais ton pronostic et avant le match, fais tamponner la case par un membre du staff !
+	A très vite à l'International ! 
+" , capacity:70,pint_price:5,user_id:1,address:"5 rue Moret 75011 Paris", screen:"Ecran Cinéma")
 
-Si ton pronostic est bon, nous t'offrons un verre à la fin du match !
-Dès que tu as 10 tampons sur la carte, tu entres lices pour gagner des cadeaux ! Et bien sûr tu auras le droit à une autre carte pour multiplier tes chances ! 🤞🙏" , capacity:50,pint_price:6,user_id:1,address:"109 rue de Saint André - Lille", screen:"2 TV")
+Bar.create(name: 'Chez Jeannette', description:"Ambiance parisienne dans un immeuble Hausmannien, Chez Jeannette saura vous plonger dans une ambiance purement française à travers une sélection de plats, bières et vin de chez nous.
+
+	Institution parisienne, Jeannette vous offrira un lieu accueillant avec une terrasse pour profiter lors des mi-temps.
+
+	Les barmen vous prépareront des cocktails fruités durant la Coupe du Monde pour vous rafraichir lors des patchs. 
+
+	Venez nombreux ! 
+" , capacity:60,pint_price:6,user_id:1,address:"47 rue du faubourg Saint Denis 75010 Paris", screen:"4 TV")
+
+Bar.create(name: 'Le Syphax', description:"Si vous recherchez à passer un bon match et que vous avez un budget un peu serré, le Syphax Café est assurément l’endroit qu’il vous faut ! Situé juste à côté de la charmante station de métro Notre-Dame de Lorette, ce petit bar de quartier a su se faire une réputation et les parisiens s'y rendent en masse... Il vaut mieux alors débarquer très tôt pour être sur d'avoir une table !
+
+Ça se comprend, quand on sait que l’Happy Hour commence dès 16h et se prolonge jusqu'à 2h du matin, l'heure de fermeture !
+
+Dans cette petite ambiance sympa avec banquettes confortables, les pintes sont à 3 euros seulement, quand le pastis, la vodka ou le verre de vin ne sont qu'à 1,50 euros ! Pour les fans de cocktails, faites vous plaisir, ils ne vous seront facturés que 4 euros...
+En savoir plus sur https://www.sortiraparis.com/hotel-restaurant/bar-cafes/articles/18442-le-syphax-cafe-et-ses-pintes-a-3-euros#20GlOGky98IfFyw2.99
+" , capacity:50,pint_price:5,user_id:1,address:"26 rue de Chateaudun 75009 Paris", screen:"2 TV")
+
+Bar.create(name: 'Le Napoléon', description:"Afficionado du football ou supporter lors des rencontres internationales, nous vous accueillons tous au Napoléon pour partager ces moments extraordinaires ensemble, dès l'ouverture de la coupe du monde vendredi ! 
+
+	Pour l'occasion, nous installerons un écran géant dans le bar afin de pouvoir vivre au mieux chacun des matchs, autour de pintes de spécialités françaises.
+	
+
+	Reservations possibles, n'hésitez pas à nous appeler !
+" , capacity:50,pint_price:4,user_id:1,address:"73 rue du Faubourg Saint Denis", screen:"1 écran géant")
+
+
+Bar.create(name: 'Les Bancs Publics', description:"Un bistrot pied dans l’eau, en bordure du canal de l’Ourcq. Terrasse pour profiter du soleil, cocktails et vin pas chers... un petit paradis parisien ! 
+
+	- Formule pâté (14€) : association de charcut' et d'un beau ballon de pif de votre choix, cette planche saura vous accompagner durant tous les matchs. Mojitos, Ti-punch et autres coktails à 5€.
+
+	Finalement les bancs publics, c'est un bar raffiné au bord d'un cadre paradisiaque dans Paris. Ne cherchez plus, venez voir les matchs chez nous et vibrer devant les Bleus ! 
+" , capacity:50,pint_price:4,user_id:1,address:"2 rue de Nantes, 75019 Paris", screen:"Plusieurs TV")
+
+Bar.create(name: 'Café Oz', description:"Véritable institution parisiennes présente dans plusieurs arrondissements, terrasse, rooftops, le café OZ sortira le grand jeu pour vous accueillir durant la coupe du monde ! 
+
+	Ca fait le buzz et attire du monde… La Cité de la Mode et du Design accueille la célèbre enseigne australienne Café Oz. Rendez-vous dès à présent pour découvrir le Café Oz Rooftop!
+Si vous êtes un habitué de La Cité de La Mode et du Design alors préparez-vous à y découvrir une atmosphère très australienne…
+
+Et pour cause, la mythique enseigne Café Oz est installée dans le 13ème arrondissement de la capitale et, ce, depuis le mercredi 12 avril 2017.
+
+Café Oz Rooftop s'est en effet posé sur le toit de La Cité de La Mode et du Design avec son ambiance unique.
+
+Une fois le toit de la Cité de la Mode et du Design atteint, on en prend plein la vue ! Il y a tout d'abord cette belle superficie de 1200 m² et cette vue imprenable sur La Seine.
+
+
+En savoir plus sur https://www.sortiraparis.com/hotel-restaurant/bar-cafes/articles/134135-le-cafe-oz-rooftop-a-ouvert-ses-portes-sur-le-toit-de-la-cite-de-la-mode-et-du-d#6iYGZvACKlLxx1XO.99
+" , capacity:50,pint_price:7,user_id:1,address:"34 Quai d'Austerlitz 75013 Paris", screen:"Ecrans géants")
 
 
 e1 = Event.create(description:"Venez donc chez Masse y boire des bières",date:"2018-06-14",game_id:1, user_id:1, address:"79 rue Victor Hugo 59170 Croix")
 e2 = Event.create(description:"Russie-Arabie Saoudite chez Pedro",date:"2018-06-14",game_id:1,user_id:2, address:"33 rue de Jemmapes Lille")
 e3 = Event.create(description:"Premier match de la CDM chez louloumdoubleZlatan à Rouen",date:"2018-06-14",game_id:1,user_id:4, address:"1 rue Lamartine Rouen")
 e4 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e5 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e6 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e7 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e8 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e9 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e10 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e11 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e12 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e13 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e14 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e15 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e16 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e17 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e18 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+
 
 e1.users << [u2, u3, u4]
 e2.users << [u1, u3, u4, u5]
