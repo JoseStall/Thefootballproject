@@ -1,7 +1,7 @@
 <section class="slice-lg has-bg-cover bg-size-cover" style="background-image: url(<%= asset_path 'soccer/football-3373557_1920.jpg' %>); background-position:  right 85% bottom 85%">
   <div class="container">
-    <div class="row justify-content-left cols-xs-space">
-      <div class="col-lg-4">
+    <div class="row justify-content-center cols-xs-space">
+      <div class="col-lg-6">
         <div class="form-card form-card--style-2 z-depth-2-top">
           <div class="form-header text-center">
             <div class="form-header-icon">
@@ -17,16 +17,14 @@
             <%= devise_error_messages! %>
 
             <div class="row">
-              <div class="col-lg-12">
+              <div class="col-md-6">
                 <div class="form-group has-feedback">
                  <%= f.label :Prénom %>
                  <%= f.text_field :firstname, autocomplete: "off", placeholder: "Prénom",  class: 'form-control form-control-lg' %>
                </div>
              </div>
-           </div>
-
-           <div class="row">
-            <div class="col-lg-12">
+           
+            <div class="col-md-6">
               <div class="form-group has-feedback">
                <%= f.label :Nom %>
                <%= f.text_field :lastname, autocomplete: "off", placeholder: "Nom",  class: 'form-control form-control-lg' %>
@@ -35,17 +33,14 @@
          </div>
 
          <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-6">
               <div class="form-group has-feedback">
                <%= f.label :phone, 'Téléphone' %>
                <%= f.text_field :phone_number, placeholder: "Téléphone", class: 'form-control form-control-lg' %>
              </div>
            </div>
-         </div>
          
-
-         <div class="row">
-          <div class="col-12">
+          <div class="col-md-6">
             <div class="form-group">
               <%= f.label :email, class: "control-label" %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email ",class:"form-control form-control-lg" %>
@@ -54,21 +49,22 @@
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-md-6">
             <div class="form-group">
               <%= f.label :password, class: "control-label" %>
               <% if @minimum_password_length %>
-              <small>(<%= @minimum_password_length %> characters minimum)</small>
-              <% end %><br />
+              <small>(<%= @minimum_password_length %> caracteres minimum)</small>
+              <% end %>
               <%= f.password_field :password, autocomplete: "off", class:"form-control form-control-lg" %>
             </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
+      
+          <div class="col-md-6">
             <div class="form-group has-feedback">
               <%= f.label :password_confirmation, class: "control-label" %>
+              <% if @minimum_password_length %>
+              <small>(<%= @minimum_password_length %> caracteres minimum)</small>
+              <% end %>
               <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control form-control-lg" %>
             </div>
           </div>
@@ -77,7 +73,7 @@
               <div class="mt-1 ">
                 <small class="">En cliquant, vous acceptez les termes et conditions</small>
               </div>
-              <%= f.submit "Inscription", class:"btn btn-styled  btn-base-1 mt-2" %>
+              <%= f.submit "Inscription", class:"btn btn-styled  btn-base-1 mt-4" %>
             <% end %>
             <small><%= link_to "Se connecter", new_session_path(resource_name) %></small>
           </div>

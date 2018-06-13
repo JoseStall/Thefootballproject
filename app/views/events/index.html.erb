@@ -1,21 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<section class="slice-lg sct-color-1">
-  <div class="container">
     <div class="text-center">
       <h3 class="heading heading-1 strong-500 text-normal">
-        Trouver un
-        <span id="type_1" class="type-this c-base-1" data-type-this="match., écran., évenement."></span>
+        Trouver un évenement prés de chez vous.
       </h3>
-    </div>
-    <span class="clearfix"></span>
   </div>
-</section>
-<section>
-  <div class="container mt-5">
-    <span class="delimiter delimiter--style-1"></span>
-  </div>
-</section>
+
 
 <section class="slice-sm sct-color-1">
   <div class="container">
@@ -36,23 +26,23 @@
                 <div class="view-buttons text-center">
                   <div class="view-buttons-inner text-center">        
                     <% if event.images.attached? %>
-                      <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox></a>
+                    <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox></a>
                     <% else %>   
-                      <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox></a>
+                    <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox></a>
                     <% end %>
-                      <i class="icon ion-plus"></i>
+                    <i class="icon ion-plus"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="pt-4 text-center">
-              <h3 class="heading heading-4 strong-500 mb-0">
-                <a href="<%= event_path(event.id) %>"><%= event.description %></a>
-              </h3>
-              <p class="strong-300 c-gray-light">
-                <%= Game.find(event.game_id).home_team.name %> VS <%= Game.find(event.game_id).visiting_team.name %>
-              </p>
+            <h3 class="heading heading-4 strong-500 mb-0">
+              <a href="<%= event_path(event.id) %>"><%= event.description %></a>
+            </h3>
+            <p class="strong-300 c-gray-light">
+              <%= Game.find(event.game_id).home_team.name %> VS <%= Game.find(event.game_id).visiting_team.name %>
+            </p>
           </div>
         </div>
       </div>
@@ -65,11 +55,11 @@
 
 <section>
   <div class="container">
-      <%= link_to 'Créer un événement', new_event_path %>
+    <%= link_to 'Créer un événement', new_event_path %>
   </div>
 </section>
 
 
 
 
-    
+
