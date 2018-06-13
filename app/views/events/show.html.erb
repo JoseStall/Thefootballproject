@@ -82,7 +82,7 @@
                                         <span class="c-gray-light strong-600">Date</span>
                                     </td>
                                     <td>
-                                        <%= @event.date %>
+                                        <%= @date %>
                                     </td>
                                 </tr>
                                 <tr>
@@ -98,7 +98,11 @@
                                         <span class="c-gray-light strong-600">Alcool</span>
                                     </td>
                                     <td>
-                                        <%= @event.drink %>
+                                        <% if @event.drink == true %>
+                                        Ramène de quoi boire!
+                                        <% else %>
+                                        On ne boit pas chez <%=User.find(@event.user_id).firstname%>.
+                                        <%end%>
                                     </td>
                                 </tr>
                                 <tr>
@@ -106,7 +110,11 @@
                                         <span class="c-gray-light strong-600">Nourriture</span>
                                     </td>
                                     <td>
-                                        <%= @event.food %>
+                                        <% if @event.food == true %>
+                                        Ramène de quoi manger!
+                                        <% else %>
+                                        Rien à ramener chez <%=User.find(@event.user_id).firstname%>.
+                                        <%end%>
                                     </td>
                                 </tr>
                                 <tr>
@@ -114,7 +122,11 @@
                                         <span class="c-gray-light strong-600">Fumeur</span>
                                     </td>
                                     <td>
-                                        <%= @event.drink %>
+                                        <% if @event.smoke == true %>
+                                        C'est fumeur!
+                                        <% else %>
+                                        On ne fume pas chez <%=User.find(@event.user_id).firstname%>.
+                                        <%end%>
                                     </td>
                                 </tr>
                             </tbody>
@@ -127,13 +139,24 @@
 
                             <% if current_user != nil %>
 
-                                <div class="d-table product-quantity width-100 mt-3">  
-                                    <div class="pl-4 d-none d-lg-inline-block">
-                                        <%= link_to "Participe à l'évènement chez #{User.find(@event.user_id).firstname}!", welcome_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
-                                    </div>
-                                </div>
+                                    <% if @event.users.count == @event.invited %>
+                                            <div class="d-table product-quantity width-100 mt-3">  
+                                                <div class="pl-4 d-none d-lg-inline-block">
+                                                    <%= link_to "Désolé, l'événement est complet!", "/#", class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
+                                                </div>
+                                            </div>
 
-                            <% else %>
+                                    <% else %>
+
+                                            <div class="d-table product-quantity width-100 mt-3">  
+                                                <div class="pl-4 d-none d-lg-inline-block">
+                                                <%= link_to "Participe à l'évènement chez #{User.find(@event.user_id).firstname}!", welcome_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
+                                               </div>
+                                          </div>                     
+
+                                    <% end %>
+
+                             <% else %>
 
                                 <div class="d-table product-quantity width-100 mt-3">  
                                         <div class="pl-4 d-none d-lg-inline-block">
