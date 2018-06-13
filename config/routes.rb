@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'profil', to: 'user#show', as: 'profil'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root 'home#index'
-  get 'contact', to: 'home#contact'
+  get 'contact', to: 'home#contact', as: 'contact'
   get 'mentions', to: 'home#mentions', as: 'mentions'
   get 'search', to: 'home#search'
 

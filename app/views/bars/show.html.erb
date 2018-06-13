@@ -1,5 +1,5 @@
   <!-- SHOP GRID WRAPPER -->
-  <section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/maia-eli-233485-unsplash.jpg' %>); background-position: bottom center;">
+  <section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/pexels-photo-bar.jpeg' %>); background-position: bottom center;">
     <span class="mask mask-dark--style-2"></span>
     <div class="container">
       <div class="row">
@@ -107,6 +107,8 @@
               </tbody>
             </table>
       </div>
+      <%= link_to 'Edit', edit_bar_path(@bar) %> |
+      <%= link_to 'Back', bars_path %>
     </div>
   </div>
 </div>
@@ -114,5 +116,4 @@
 </section>
 
 
-<%= link_to 'Edit', edit_bar_path(@bar) %> |
-<%= link_to 'Back', bars_path %>
+
