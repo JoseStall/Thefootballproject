@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
 
     def sanitize_devise_params
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname] )
-        devise_parameter_sanitizer.permit(:edit, keys: [:firstname, :lastname])        
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :phone_number] )
+        devise_parameter_sanitizer.permit(:edit, keys: [:firstname, :lastname, :phone_number])        
     end
 
     
