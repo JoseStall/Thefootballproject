@@ -10,14 +10,12 @@ class EventsController < ApplicationController
  # GET /events/1
  # GET /events/1.json
  def show
-  p '2222222222'
-  p params
-  p '2222222222'
   @event = Event.find(params[:id])
-
   @date = Game.find(@event.game_id).date
   @participant = @event.users
+  if current_user != nil
   @connected = current_user.id
+  end
   @creator = Event.find(params[:id]).user_id
   @organisateur = User.find(@event.user_id)
   if @organisateur.reviews.count >= 1
