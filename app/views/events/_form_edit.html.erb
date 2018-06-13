@@ -34,7 +34,7 @@
   <div style="width:400px; height:auto">
     <% if @event.images.attached? %>
       <p>
-        <strong>Images déjà uploadées: (COMMENT RENDRE POSSIBLE LA SUPPRRESSION D'IMAGES?)</strong>
+        <strong>Images déjà uploadées :</strong>
         
          <% @event.images.each do |image|  %>
            <p> <%= image_tag(image, style:'width:100%') %> <br> </p> 
