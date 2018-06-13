@@ -10,9 +10,15 @@ class EventsController < ApplicationController
  # GET /events/1
  # GET /events/1.json
  def show
+  p '2222222222'
+  p params
+  p '2222222222'
   @event = Event.find(params[:id])
+
   @date = Game.find(@event.game_id).date
   @participant = @event.users
+  @connected = current_user.id
+  @creator = Event.find(params[:id]).user_id
   @organisateur = User.find(@event.user_id)
   if @organisateur.reviews.count >= 1
   @firstreview = @organisateur.reviews.pluck(:content)[0]
@@ -36,14 +42,11 @@ class EventsController < ApplicationController
  end
 
  def welcome
-
   @event = Event.find(params[:id])
   @creator = User.find(@event.user_id)
   @demandor = User.find(current_user.id)
   @nom = User.find(@event.user_id).firstname
-  @i = 0
   ContactMailer.validation(@creator, @demandor, @event).deliver_now unless @event.users.include?(@demandor)
-  @i =+ 1 #on utilise i pour empêcher qu'un user envoie plusieurs demandes pour le même event
 
  end
 
@@ -65,9 +68,9 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @games = Game.all
+    
     @game_id = 1 #le temps qu'on réussisse l'ajax. On récupère le params game_id
     @event = Event.new
-    #@event = Event.create(user_id: current_user.id, game_id: @game_id)
     @array_games = []
     @games.each do |game|
       @array_games << game.id.to_s + " " + game.home_team.name + " VS " + game.visiting_team.name + " - " + game.date.strftime("%d/%m/%Y à %H:%M")
@@ -77,14 +80,21 @@ class EventsController < ApplicationController
 
  # GET /events/1/edit
  def edit
-   puts "yo voici les params"
-   puts params
-   @games = Game.all
-   @game_id = Event.find(params[:id]).game_id
+
+  @connected = current_user.id
+  @creator = Event.find(params[:id]).user_id
+  if @connected == @creator
+    @games = Game.all
+    @game_id = Event.find(params[:id]).game_id
+
     @array_games = []
-   @games.each do |game|
-     @array_games << game.id.to_s + " " +game.home_team.name + " VS " + game.visiting_team.name + " " + game.date.to_s
-   end
+    @games.each do |game|
+      @array_games << game.id.to_s + " " +game.home_team.name + " VS " + game.visiting_team.name + " " + game.date.to_s
+    end
+  else
+    redirect_to events_path
+  end
+  
  end
 
  # POST /events
