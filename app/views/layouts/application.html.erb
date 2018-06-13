@@ -7,14 +7,10 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="robots" content="index, follow">
   <meta name="description" content="Site pour trouver un endroit ou organiser des événements pour regarder les matchs de la coupe du monde.">
   <meta name="keywords" content="football, coupe du monde, équipe de France, fanzone, match, russie 2018,  soccer, bar, supporter, ou voir le match, sortir lille">
 
 
-  <script>    $("form").html($("form", response).html())
-</script>
 <meta name="google-signin-client_id" content="134000063532-ei8frfnr6jalc3qjg6eaqq7fseahrph7.apps.googleusercontent.com">
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -90,6 +86,7 @@
         </ul>
 
         <ul class="navbar-nav ml-lg-auto col-lg-6">
+        </li>
           <div class="input-group">
             <%= form_tag result_path, method: 'get', class: 'navbar-form', role: 'search' do %>
           </div>
@@ -122,9 +119,6 @@
     <% end %>
   </ul>
 </div>
-
-
-
 </nav>
 <%= yield %>
 
@@ -255,8 +249,8 @@
         // Create the autocomplete object, restricting the search to geographical
         // location types.
         autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
+          /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+          {types: ['geocode']});
 
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
@@ -300,12 +294,12 @@
           });
         }
       }
-</script>
+    </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&libraries=places&callback=initAutocomplete" async defer">
-</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&libraries=places&callback=initAutocomplete" async defer">
+    </script>
 
 
-</body>
+  </body>
 
-</html>
+  </html>
