@@ -15,21 +15,14 @@ class EventsController < ApplicationController
   @participant = @event.users
   @organisateur = User.find(@event.user_id)
   if @organisateur.reviews.count >= 1
-  puts "organisateur.reviews"
-  p 'Les deux reviews'
   @firstreview = @organisateur.reviews.pluck(:content)[0]
   @firstreviewer = Review.find_by_content(@firstreview).author
   @firstgrade = Review.find_by_content(@firstreview).stars
   @secondreview = @organisateur.reviews.pluck(:content)[1]
   @secondreviewer = Review.find_by_content(@secondreview).author
   @secondgrade = Review.find_by_content(@secondreview).stars
-  p @firstreview
-  p @secondreview
-  p @organisateur.reviews.count
   @notemoyenne = 4
-  p 'yyyyyyyyyyyyyyyyyyyyyy'
-  p @organisateur.reviews
-      a = current_user.reviews
+      a = @organisateur.reviews
       b = 0
       c = 0
         a.each do |a|
@@ -39,12 +32,6 @@ class EventsController < ApplicationController
       if c != 0 
         @notemoyenne = b/c
       end
-
-      p'+++++++++++'
-      p 'Les deux reviews'
-      @firstreview = @organisateur.reviews.pluck(:content)[0]
-      @secondreview = @organisateur.reviews.pluck(:content)[1]
-      p @firstreview
   end
  end
 
