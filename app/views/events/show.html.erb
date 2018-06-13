@@ -6,14 +6,15 @@
       <div class="col-12">
         <div class="py-5 text-center">
           <h1 class="heading heading-1 c-white strong-400 text-normal">
+
            Inscrivez vous aux événements qui vous chauffent !
        </h1>
 
-       <span class="clearfix"></span>
+         <span class="clearfix"></span>
 
 
-   </div>
-</div>
+     </div>
+ </div>
 </div>
 </div>
 </section>
@@ -135,7 +136,7 @@
                                     <% if current_user.id == @event.user_id %>
 
                                             <div class="d-table product-quantity width-100 mt-3">  
-                                                <div class="pl-4 d-none d-lg-inline-block">
+                                                <div class="d-none d-lg-inline-block">
                                                     <%= link_to "C'est ton événement!", "/#", class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
                                                 </div>
                                             </div>
@@ -145,7 +146,7 @@
 
                                     <% elsif @event.users.count == @event.invited %>
                                             <div class="d-table product-quantity width-100 mt-3">  
-                                                <div class="pl-4 d-none d-lg-inline-block">
+                                                <div class="d-none d-lg-inline-block">
                                                     <%= link_to "Désolé, l'événement est complet!", "/#", class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
                                                 </div>
                                             </div>
@@ -153,7 +154,7 @@
                                     <% else %>
 
                                             <div class="d-table product-quantity width-100 mt-3">  
-                                                <div class="pl-4 d-none d-lg-inline-block">
+                                                <div class="d-none d-lg-inline-block">
                                                 <%= link_to "Participe à l'évènement chez #{User.find(@event.user_id).firstname}!", welcome_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
                                                </div>
                                           </div>                     
@@ -163,7 +164,7 @@
                              <% else %>
 
                                 <div class="d-table product-quantity width-100 mt-3">  
-                                        <div class="pl-4 d-none d-lg-inline-block">
+                                        <div class="d-none d-lg-inline-block">
                                             <%= link_to "Inscris toi pour participer à l'évènement chez #{User.find(@event.user_id).firstname}!", new_user_registration_path, class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
                                         </div>
                                     </div>
@@ -172,7 +173,7 @@
 
                         <% else %>
                                 <div class="d-table product-quantity width-100 mt-3">  
-                                    <div class="pl-4 d-none d-lg-inline-block">
+                                    <div class="d-none d-lg-inline-block">
                                         <%= link_to "Tu as participé à l'évenement? laisse un commentaire", note_path(@event.id), class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
                                     </div>
                                 </div>

@@ -71,11 +71,29 @@
 </style>
 
 <% if @events[0] == nil && @bars[0] == nil %>
-<section class="slice-sm sct-color-1">
-    <div> Désolé ! il n'y a pas encore de bars ou d'événements référencés dans ta zone, sois le premier à en créer un : <br>Pour créer un bar c'est <a href="<%= new_bar_path %>"> par ici</a> 
-              <br>Pour créer un événement chez toi c'est<a href="<%= new_event_path %>"> par ici</a> </div>
-            </section>
-              <% else %>
+<section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/cheering-crowd-event-17598.jpg' %>); background-position: bottom center;">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <div class="py-5 text-center">
+                <h1 class="heading heading-1 c-white strong-400 text-normal">
+                  Aucun bars ou événements proche d'ici, désolé 
+              </h1>
+          <span class="clearfix"></span>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container" style="margin-top: 30px;margin-bottom: 30px">
+    <p>Désolé ! il n'y a pas encore de bars ou d'événements référencés dans ta zone, sois le premier à en créer un : <br>
+      Pour créer un bar c'est <a href="<%= new_bar_path %>" style="color:blue"> par ici</a> 
+              <br>Pour créer un événement chez toi c'est<a href="<%= new_event_path %>" style="color:blue"> par ici</a></p>
+  </div>
+</section>
+
+<% else %>
 <section class="slice-sm sct-color-1">
   <div class="containermap">
     <div class="row masonry">
