@@ -45,9 +45,7 @@
 
       <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbar_main">
         <!-- Navbar search - For small resolutions -->
-        <div class="navbar-search-widget b-xs-bottom py-3 d-lg-none d-none">
-
-        </div>
+        
 
         
 
@@ -72,17 +70,15 @@
           </li>
         </ul>
 
-        <ul class="navbar-nav ml-lg-auto col-lg-6">
-          <li class="nav-item">
+        <ul class="navbar-nav ml-lg-auto col-lg-5">
+          <li class="nav-item d-flex align-items-center">
            <a class="nav-link">
             <div class="input-group">
               <%= form_tag result_path, method: 'get', class: 'navbar-form', role: 'search' do %>
             </div>
             <%= text_field_tag 'adress', nil, placeholder: 'Adresse', class: 'form-control', id: 'autocomplete', required: true %>
-            <div class="input-group-btn">
 
              <%= button_tag(type: "submit", class: "glyphicon glyphicon-search") do %>
-           </div>
            <% end %>
            <% end %>
          </a>
@@ -92,14 +88,14 @@
 
 
        <% if user_signed_in? %>
-       <li class="nav-item">
+       <li class="nav-item d-flex align-items-center">
         <a href="<%= profil_path %>" class="nav-link">Profil</a>
       </li>
       <li class="nav-item d-flex align-items-center">
         <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
       </li>
       <% else %>
-      <li class="nav-item">
+      <li class="nav-item d-flex align-items-center">
         <%= link_to "Inscription", new_user_registration_path, class: 'nav-link' %>
       </li>
       <li class="nav-item d-flex align-items-center">
