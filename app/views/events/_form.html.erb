@@ -1,3 +1,8 @@
+     <% if current_user == nil %>
+     <h1 style="color:red">Attention: tu dois t'inscrire pour pouvoir créer ton événement! </h1>
+     <% end %>
+
+
      <%= form_with(model: event, local: true) do |form| %>
      <% if event.errors.any? %>
      <div id="error_explanation">
@@ -13,32 +18,31 @@
 
      <div class="field">
       <%= form.label :address, 'Adresse' %>
-      <%= form.text_field :address, class: 'form-control', placeholder: '12 rue de la coupe du monde', :required => true  %>
+      <%= form.text_field :address, class: 'form-control', placeholder: '10 rue du 3-0', :required => true  %>
     </div>
     <div class="invalid-feedback">
-      Il te faut une adresse valide
+      Il te faut une adresse valide!
     </div>
     <br>
 
     <div class="row">
       <div class="col-md-5 mb-3">
-        <%= form.label :game_id, 'Choisis ta rencontre' %>
+        <%= form.label :game_id, 'Choisis ta rencontre:' %>
         <%= form.select :game_id, options_for_select(@array_games, selected = @array_games[@game_id - 1]),{} ,{:class => 'custom-select d-block w-100', :required => true} %>
       </div>
 
       <div class="col-md-7 mb-3">
 
-       <%= form.label :images, "Quelques photos de toi et de ton salon" %>
+       <%= form.label :images, "Quelques photos de toi et de ton salon?" %>
        <%= form.file_field :images, multiple: true, direct_upload: true, class: 'custom-file' %>
      </div>
    </div>
-   <%= form.hidden_field :user_id, :value => current_user.id %>
 
 
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
-        <%= form.label :description, 'On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la pierre menes?' %>
+        <%= form.label :description, 'On ramène des bières? On prépare les cordes vocales? On écrit en avance nos punchlines à la Pierre Menes?' %>
         <%= form.text_area :description, rows: 3, class: 'form-control' %>
       </div>
     </div>
@@ -46,14 +50,14 @@
   
   <div class="row">
     <div class="col-md-7 mb-3">
-      <%= form.label :invited, 'Nombre de personnes que tu peux inviter:' %>
+      <%= form.label :invited, 'Nombre de personnes que tu veux inviter:' %>
       <%= form.select :invited, 1..5,{} ,{:class => 'custom-select d-block w-100', :required => true} %>
     </div>
   </div>
   
   <div class="row">
     <div class="col-md-12">
-      <%= form.label :smoke, 'Peut-on fumer :' %>
+      <%= form.label :smoke, 'Peut-on fumer?' %>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="smoke" id="smoke1" value="true">
         <label class="form-check-label" for="smoke1">Oui</label>
@@ -67,7 +71,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <%= form.label :food, 'Apporté à manger :' %>
+      <%= form.label :food, 'Apporte-t-on à manger?' %>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="food" id="food1" value="true">
         <label class="form-check-label" for="food1">Oui</label>
@@ -81,7 +85,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <%= form.label :drink, 'Apporté à boire :' %>
+      <%= form.label :drink, 'Apporte-t-on à boire?' %>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="drink" id="drink1" value="true">
         <label class="form-check-label" for="drink1">Oui</label>
@@ -95,6 +99,17 @@
 
   <hr class="mb-4">
 
-  <%= form.submit value:"Crée ton event", class: 'btn btn-primary btn-lg btn-block' %> 
+      <% if current_user != nil %>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
 
-  <% end %>
+
+        <%= form.submit value:"Crée ton event!", class: 'btn btn-primary btn-lg btn-block' %> 
+
+
+      <% else %>
+
+        <%= link_to "Inscris-toi pour pouvoir créer des événements chez toi!", new_user_registration_path, class: 'btn btn-primary btn-lg btn-block' %>
+
+      <% end %>
+
+   <% end %>
