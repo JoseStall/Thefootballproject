@@ -55,10 +55,8 @@ class EventsController < ApplicationController
   @demandor = User.find(current_user.id)
   @nom = User.find(@event.user_id).firstname
   @i = 0
-  puts "YOLO"
-  puts "YOLOLO" unless @event.users.include?(@demandor)
   ContactMailer.validation(@creator, @demandor, @event).deliver_now unless @event.users.include?(@demandor)
-  @i =+ 1
+  @i =+ 1 #on utilise i pour empêcher qu'un user envoie plusieurs demandes pour le même event
 
  end
 
