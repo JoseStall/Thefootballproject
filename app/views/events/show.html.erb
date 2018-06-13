@@ -6,7 +6,7 @@
       <div class="col-12">
         <div class="py-5 text-center">
           <h1 class="heading heading-1 c-white strong-400 text-normal">
-           Inscris toi aux événements qui te chauffent !
+           Inscrivez vous aux événements qui vous chauffent !
        </h1>
 
        <span class="clearfix"></span>
@@ -50,7 +50,7 @@
                         <!-- Product description -->
                         <div class="product-short-text mt-3">
                             <h3 class="heading heading-xs strong-500 text-uppercase">
-                                Description:
+                                Description :
                             </h3>
                             <p>
                                 <%= @event.description %>
@@ -65,12 +65,12 @@
                         <p>Note moyenne : <%= @notemoyenne %>/5</p>
                         <p>Quelques avis reçus par <%= @organisateur.firstname %>:</p>
                         <ul>
-                            <li>Commentaire et note de <%= @firstreviewer %>: "<span><%= @firstreview %></span> -> <%= @firstgrade %>/5" </li>
-                            <li>Commentaire et note de <%= @secondreviewer %>: "<span><%= @secondreview %></span> -> <%= @secondgrade %>/5" </li>
+                            <li>Commentaire et note de <%= @firstreviewer %>: "<span><%= @firstreview %></span> -> <%= @firstgrade %>/5 </li>
+                            <li>Commentaire et note de <%= @secondreviewer %>: "<span><%= @secondreview %></span> -> <%= @secondgrade %>/5 </li>
                         </ul>
 
                         <% else %>
-                        <p>C'est son premier event!</p>
+                        <p>C'est son premier event !</p>
                         <%end%>
 
                         
@@ -96,7 +96,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="c-gray-light strong-600">Apporté à boire</span>
+                                        <span class="c-gray-light strong-600">Apporter à boire</span>
                                     </td>
                                     <td>
                                         <%if @event.drink == true %> Oui <%else%> Non <% end %>
@@ -105,7 +105,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="c-gray-light strong-600">Apporté des appéritifs</span>
+                                        <span class="c-gray-light strong-600">Apporter des apéritifs</span>
                                     </td>
                                     <td>
                                         <%if @event.food == true %> Oui <%else%> Non <% end %>

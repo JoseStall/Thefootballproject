@@ -1,9 +1,9 @@
 <% if @event.users.include?(@demandor) %>
 
-<p>Tu participes déjà à l'événement! </p>
+<p>Tu participes déjà à l'événement ! </p>
 
 <% else %>
 
-<p>Ta demande a bien été envoyée par mail à <%= User.find(@event.user_id).firstname %>, tu recevras un mail de confirmation dès qu'il ou elle validera ta demande! </p>
+<p>Ta demande a bien été envoyée par mail à <%= User.find(@event.user_id).firstname %>, tu recevras un mail de confirmation dès qu'il/elle validera ta demande ! </p>
 
 <%end%>

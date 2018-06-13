@@ -1,9 +1,9 @@
 <h1>Bonjour, <%= @creator.firstname %>!</h1>
-<h1><%= @demandor.firstname %> <%= @demandor.lastname %>, un autre grand fan de foot, aimerais venir mater le match <%= Game.find(@event.game_id).home_team.name%> VS <%= Game.find(@event.game_id).visiting_team.name%> chez toi. </h1>
+<h1><%= @demandor.firstname %> <%= @demandor.lastname %>, un autre grand fan de foot, aimerait venir mater le match <%= Game.find(@event.game_id).home_team.name%> VS <%= Game.find(@event.game_id).visiting_team.name%> chez toi. </h1>
 
-<h1>Il a l'air super cool, sa note moyenne sur notre site est de <%= @notemoyenne %>/5.</h1> 
+<h1>Voici sa note moyenne sur notre site est de <%= @notemoyenne %>/5.</h1> 
 <% if @demandor.reviews.count >= 1 %> 
-<h1>Voici les derniers avis qu'il a reçu:</h1>
+<h1>Voici les derniers avis qu'il a reçu :</h1>
 <ul> 
 	<li><%= @firstreview %></li>
 	<li><%= @secondreview %></li>
@@ -11,4 +11,9 @@
 <%else%>
 <%end%>
 
+<p>TTu as la possibilité de l'accepter ou non bien évidemment, c'est toi qui choisis. Souviens toi qu'après le match, <%= @demandor.firstname %> devra te noter ainsi que ton accueil. On compte sur toi pour envoyer du lourd ! </p>
+<br>
 <a href="http://localhost:3000/validation/<%=@demandor.id%>?event=<%=@event.id%>">Clique ici pour valider</a>
+<br>
+<p> Merci d'avoir organisé un événement sur notre plateforme, nous espérons que l'expérience te plaira et te disons à bientôt pour un nouvel événement ! </p>
+

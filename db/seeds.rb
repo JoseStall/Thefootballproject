@@ -175,7 +175,7 @@ Bar.create(name: 'Le Bisou', description:"L'équipe du Bespoke voisin remet le c
 	
 	Les cocktails, facturés au prix unique de 12 €, sont créés à la minute par les bartenders après recueil de vos préférences (amer, acide, fruits, alcool de prédilection…) ou de votre humeur. Mieux vaut bien connaître ses goûts ou aimer l'aventure, car les ingrédients ne sont révélés qu'après la dégustation.
 
-	Pour le mondial, le Bisou proposera exceptionnellement de la bière à la pression... Mais comme pour les cocktails, surprise ! Nos barmens sauront vous rincer de nos plus belles trouvailles, et bien-sûr selon vo goûts ;) 
+	Pour le mondial, le Bisou proposera exceptionnellement de la bière à la pression... Mais comme pour les cocktails, surprise ! Nos barmens sauront vous rincer de nos plus belles trouvailles, et bien-sûr selon vos goûts ;) 
 " , capacity:40,pint_price:9,user_id:1,address:"15 Boulevard du Temple 75003 Paris", screen:"1 écran géant")
 
 Bar.create(name: 'International', description:"Café-concert présentant artistes français et internationaux de folk, pop, rock, électro et musique du monde.
