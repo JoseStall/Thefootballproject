@@ -2,10 +2,6 @@
 
 <p>Tu participes déjà à l'événement! </p>
 
-<% elsif @i != 0%>
-
-<p>Ta demande de participation a déjà été envoyée à <%= User.find(@event.user_id).firstname %>!</p>
-
 <% else %>
 
 <p>Ta demande a bien été envoyée par mail à <%= User.find(@event.user_id).firstname %>, tu recevras un mail de confirmation dès qu'il ou elle validera ta demande! </p>

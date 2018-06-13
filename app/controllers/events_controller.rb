@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   p params
   p '2222222222'
   @event = Event.find(params[:id])
+
   @date = Game.find(@event.game_id).date
   @participant = @event.users
   @connected = current_user.id
@@ -41,14 +42,11 @@ class EventsController < ApplicationController
  end
 
  def welcome
-
   @event = Event.find(params[:id])
   @creator = User.find(@event.user_id)
   @demandor = User.find(current_user.id)
   @nom = User.find(@event.user_id).firstname
-  @i = 0
   ContactMailer.validation(@creator, @demandor, @event).deliver_now unless @event.users.include?(@demandor)
-  @i =+ 1 #on utilise i pour empêcher qu'un user envoie plusieurs demandes pour le même event
 
  end
 
