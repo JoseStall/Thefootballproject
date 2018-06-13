@@ -131,7 +131,19 @@
 
                             <% if current_user != nil %>
 
-                                    <% if @event.users.count == @event.invited %>
+
+                                    <% if current_user.id == @event.user_id %>
+
+                                            <div class="d-table product-quantity width-100 mt-3">  
+                                                <div class="pl-4 d-none d-lg-inline-block">
+                                                    <%= link_to "C'est ton événement!", "/#", class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
+                                                </div>
+                                            </div>
+
+
+
+
+                                    <% elsif @event.users.count == @event.invited %>
                                             <div class="d-table product-quantity width-100 mt-3">  
                                                 <div class="pl-4 d-none d-lg-inline-block">
                                                     <%= link_to "Désolé, l'événement est complet!", "/#", class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
