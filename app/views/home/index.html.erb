@@ -1,539 +1,33 @@
-<body>
+<section class="sct-color-1 border-bottom">
+    <div class="container-fluid no-padding">
+        <div class="row row-no-padding">
+            <div class="col-lg-8">
+                <div class="swiper-js-container background-image-holder">
+                    <div class="swiper-container" data-swiper-items="1" data-swiper-effect="coverflow" data-swiper-space-between="0" data-swiper-sm-items="1" data-swiper-sm-space-between="0" data-swiper-xs-items="1" data-swiper-xs-space-between="0">
+                        <div class="swiper-wrapper">
+                            <!-- Slide -->
+                            <div class="swiper-slide">
+                                <div class="slice holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="background-image: url(<%= asset_path 'prv/real-estate/img-slider-1.jpg' %>); background-position: bottom bottom;">
+                                    <span class="mask mask-dark--style-2"></span>
+                                    <div class="container d-flex align-items-center no-padding">
+                                        <div class="col">
+                                            <div class="row row-cols-xs-spaced align-items-center text-center text-md-left">
+                                                <div class="col-12 col-lg-9">
+                                                    <div class="px-5">
+                                                        <h2 class="heading heading-2 strong-500 c-white">
+                                                           Trouver un lieu pour regarder les matchs
 
-                    <section class="sct-color-1 border-bottom">
-                        <div class="container-fluid no-padding">
-                            <div class="row row-no-padding">
-                                <div class="col-lg-8">
-                                    <div class="swiper-js-container background-image-holder">
-                                        <div class="swiper-container" data-swiper-items="1" data-swiper-effect="coverflow" data-swiper-space-between="0" data-swiper-sm-items="1" data-swiper-sm-space-between="0" data-swiper-xs-items="1" data-swiper-xs-space-between="0">
-                                            <div class="swiper-wrapper">
-                                                <!-- Slide -->
-                                                <div class="swiper-slide">
-                                                    <div class="slice holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="background-image: url(<%= asset_path 'prv/real-estate/img-slider-1.jpg' %>); background-position: bottom bottom;">
-                                                        <span class="mask mask-dark--style-2"></span>
-                                                        <div class="container d-flex align-items-center no-padding">
-                                                            <div class="col">
-                                                                <div class="row row-cols-xs-spaced align-items-center text-center text-md-left">
-                                                                    <div class="col-12 col-lg-9">
-                                                                        <div class="px-5">
-                                                                            <h2 class="heading heading-2 strong-500 c-white">
-                                                                               Trouver un lieu pour regarder les matchs
+                                                       </h2>
+                                                       <p class="lead mt-4 c-white">
+                                                        Vous ne savez pas ou regarder le prochain match de la coupe du monde ? 
+                                                        <br>
+                                                        <br>
+                                                        Pas de problème, nous nous chargeons de vous proposer une liste des lieux d'accueil dans votre ville. 
+                                                        <br>
+                                                        Des bars, restaurants et particuliers vous proposeront de vous accueillir pour vibrer au son de la Coupe Du Monde !
+                                                    </p>
 
-                                                                            </h2>
-                                                                            <p class="lead mt-4 c-white">
-                                                                                Vous ne savez pas ou regarder le prochain match de la coupe du monde ? 
-                                                                                <br>
-                                                                                <br>
-                                                                                Pas de problème, nous nous chargeons de vous proposer une liste des lieux d'accueil dans votre ville. 
-                                                                                <br>
-                                                                                Des bars, restaurants et particuliers vous proposeront de vous accueillir pour vibrer au son de la Coupe Du Monde !
-                                                                            </p>
-
-                                                                            <a href="<% events_path %>" class="btn btn-styled btn-white btn-circle mt-4" data-scroll-to="#scrollToSection">Trouver un bar</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Slide -->
-                                                <div class="swiper-slide">
-                                                    <div class="slice holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="background-image: url(<%= asset_path 'prv/real-estate/img-slider-2.jpg' %>); background-position: bottom bottom;">
-                                                        <span class="mask mask-dark--style-2"></span>
-                                                        <div class="container d-flex align-items-center no-padding">
-                                                            <div class="col">
-                                                                <div class="row row-cols-xs-spaced align-items-center text-center text-md-left">
-                                                                    <div class="col-12 col-md-9">
-                                                                        <div class="px-5">
-                                                                            <h2 class="heading heading-2 strong-500 c-white">
-                                                                                Les événements 
-                                                                            </h2>
-                                                                            <p class="lead mt-4 c-white">
-                                                                                Vous souhaitez organiser un événement pour un bar, que ce soit chez vous ou dans un autre endroit ? 
-                                                                                <br>
-                                                                                Proposez votre event pour que les gens dans votre ville y participent ! 
-                                                                            </p>
-
-                                                                            <a href="<%= new_event_path %>" class="btn btn-styled btn-white btn-circle mt-4">Proposer un event</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="swiper-pagination"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4" id="div_properties_search">
-                                    <div class="card no-radius no-border">
-                                        <div class="card-title card-title-wrapped">
-                                            <h3 class="heading heading-5 strong-500 text-capitalize">Trouver un événement</h3>
-                                        </div>
-
-                                        <div class="card-body py-4 px-4">
-                                            <%= form_tag(result_path, method: "get") do %>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group has-feedback">
-                                                            <label>Sélectionner un pays</label>
-                                                            <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control form-control-lg selectpicker' %>
-                                                            <span class="help-block with-errors"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div  class="form-group has-feedback">
-                                                            <label>Entrez une adresse</label>
-                                                            <%= text_field_tag 'adress', nil, class: 'form-control form-control-lg', id: 'autocomplete' %>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <%= submit_tag "Rechercher", class: "btn btn-styled btn-block btn-lg btn-base-1 mt-4" %>
-                                            <% end %>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Properties listing -->
-                    <section class="slice sct-color-1" id="scrollToSection">
-                        <div class="container">
-                            <div class="section-title section-title--style-1 text-center mb-1">
-                                <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
-                                    <span>Les bars</span>
-                                </h3>
-                                <span class="section-title-delimiter clearfix d-none"></span>
-                            </div>
-
-                            <span class="clearfix"></span>
-
-                            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
-                                Ces bars diffuseront des matchs. Renseignez vous sur leur équipement, la capacité, ou encore le prix de la pinte !
-                            </div>
-
-                            <span class="space-xs-lg"></span>
-
-                            <div class="row-wrapper">
-                                <div class="row cols-md-space">
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="190" class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
-                                                <span class="block-price-over bg-base-4"><%= Bar.find(1).name %> </span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>1.5 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(1).pint_price %>
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(1).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i> <%= Bar.find(1).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-2.jpg' %>"
-                                                        width="300" height="190"  class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                <span class="block-price-over bg-base-4"><%= Bar.find(2).name %></span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>3.4 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(2).pint_price %>€
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(2).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(2).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-3.jpg' %>" width="300" height="190" class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                <span class="block-price-over bg-base-4"><%= Bar.find(3).name %></span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>3.4 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(3).pint_price %>€
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(3).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(3).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-4.jpg' %>"
-                                                        width="300" height="190" class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-green">Valeur sûre</span>
-                                                <span class="block-price-over bg-base-4"><%= Bar.find(4).name %></span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>3.4 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(4).pint_price %>€
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(4).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(4).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row cols-md-space">
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-5.jpg' %>"
-                                                        width="300" height="190" class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                 <span class="block-price-over bg-base-4"><%= Bar.find(5).name %></span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>3.4 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(5).pint_price %>€
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(5).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(5).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-6.jpg' %>"
-                                                        width="300" height="190" class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-purple">Super offre</span>
-                                                 <span class="block-price-over bg-base-4"><%= Bar.find(6).name %></span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>3.4 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(6).pint_price %>€
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(6).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(6).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-7.jpg' %>"
-                                                        width="300" height="190" class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                 <span class="block-price-over bg-base-4"><%= Bar.find(7).name %></span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>3.4 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(7).pint_price %>€
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(7).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(7).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                                        <div class="block block--style-3">
-                                            <div class="block-image relative">
-                                                <div class="view view-first">
-                                                    <a href="#">
-                                                        <img src="<%= image_path 'prv/real-estate/img-8.jpg' %>"
-                                                        width="300" height="190" class="img-responsive">
-                                                    </a>
-                                                </div>
-                                                 <span class="block-price-over bg-base-4"><%= Bar.find(8).name %></span>
-                                            </div>
-
-                                            <div class="block-body text-center mt-1">
-                                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                    <strong>3.4 km</strong>
-                                                    <span class="heading-6">de vous</span>
-                                                </h3>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-
-                                            <div class="aux-info-wrapper border-top">
-                                                <ul class="aux-info">
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-food-002"></i> <%= Bar.find(8).pint_price %>€
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class=" icon-real-estate-017"></i><%= Bar.find(8).capacity %> personnes
-                                                    </li>
-                                                    <li class="heading strong-400 text-center">
-                                                        <i class="icon-hotel-restaurant-013"></i><%= Bar.find(8).screen %>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                                
-                    <section class="slice sct-color-2 border-top border-bottom">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-lg-2">
-                                    <div class="sct-inner py-4">
-                                        <h3 class="heading heading-3 strong-400">
-                                            <a href="https://www.facebook.com/LaManufacture.Lille/">La manufacture</a>
-                                        </h3>
-                                        <h4 class="heading heading-sm strong-400">10 Rue du curé Saint-Etienne, Vieux-Lille</h4>
-                                        <h3 class="heading heading-3 strong-600 c-base-1 mt-4 mb-4">Le bar de la semaine</h3>
-
-                                        <p>
-                                            Venez découvrir votre nouveau bar au cœur de Lille, vous proposant une carte éclectique, le tout dans une ambiance industrielle.
-
-                                            Un babyfoot et des fléchettes seront également à votre disposition pour vous détendre ;)
-                                        </p>
-
-                                        <div class="row align-items-center mt-4">
-                                            <div class="col-12">
-                                                <ul class="inline-links inline-links--style-3">
-                                                    <li>
-                                                     
-                                                            <i class="fa fa-beer"></i> 5€
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa fa-home"></i> 100m2
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa fa-desktop"></i> 5 écrans
-                                                    </li>
-                                                </ul>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-lg-6 order-lg-1">
-                                    <div class="swiper-js-container">
-                                        <div class="swiper-container">
-                                            <div class="swiper-wrapper">
-                                                <!-- Slide item 1 -->
-                                                <div class="swiper-slide">
-                                                    <img src="<%= image_path 'prv/real-estate/img-9.jpg' %>"
-                                                    width="500" height="1000" class="img-fluid rounded">
-                                                </div>
-
-                                                <!-- Slide item 2 -->
-                                                <div class="swiper-slide">
-                                                    <img src="<%= image_path 'prv/real-estate/img-5.jpg' %>"
-                                                    width="500" height="1000" class="img-fluid rounded">
+                                                    <a href="<% events_path %>" class="btn btn-styled btn-white btn-circle mt-4" data-scroll-to="#scrollToSection">Trouver un bar</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -541,286 +35,709 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
 
-                    <section class="slice sct-color-1 border-top border-bottom">
-                        <div class="container">
-                            <div class="section-title section-title--style-1 text-center mb-1">
-                                <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
-                                    <span>Les événements</span>
-                                </h3>
-                                <span class="section-title-delimiter clearfix d-none"></span>
-                            </div>
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="slice holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="background-image: url(<%= asset_path 'prv/real-estate/img-slider-2.jpg' %>); background-position: bottom bottom;">
+                                <span class="mask mask-dark--style-2"></span>
+                                <div class="container d-flex align-items-center no-padding">
+                                    <div class="col">
+                                        <div class="row row-cols-xs-spaced align-items-center text-center text-md-left">
+                                            <div class="col-12 col-md-9">
+                                                <div class="px-5">
+                                                    <h2 class="heading heading-2 strong-500 c-white">
+                                                        Les événements 
+                                                    </h2>
+                                                    <p class="lead mt-4 c-white">
+                                                        Vous souhaitez organiser un événement pour un bar, que ce soit chez vous ou dans un autre endroit ? 
+                                                        <br>
+                                                        Proposez votre event pour que les gens dans votre ville y participent ! 
+                                                    </p>
 
-                            <span class="clearfix"></span>
-
-                            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
-                                Que ce soit chez vous ou à l'extérieur, organisez et participez à des événements de la coupe du monde. Voici les derniers événements créés par nos membres.
-                            </div>
-
-                            <span class="space-xs-lg"></span>
-
-                            <div class="swiper-js-container">
-                                <div class="swiper-container" data-swiper-autoplay="true" data-swiper-items="4" data-swiper-space-between="30" data-swiper-sm-items="2"  data-swiper-sm-space-between="20" data-swiper-xs-items="1"  data-swiper-xs-space-between="0">
-                                    <div class="swiper-wrapper mb-5">
-                                        <div class="swiper-slide" data-swiper-autoplay="5000">
-                                            <div class="block block--style-3">
-                                                <div class="block-image relative">
-                                                    <div class="view view-first">
-                                                        <a href="#">
-                                                            <img src="<%= image_path 'prv/real-estate/img-10.jpg'
-                                                             %>" width="300" height="190" class="img-responsive">
-
-                                                        </a>
-                                                    </div>
-                                                    <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
-                                                    <span class="block-price-over bg-base-4">Plein-air</span>
-                                                </div>
-
-                                                <div class="block-body text-center mt-1">
-                                                    <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                        <strong>Jardin</strong>
-                                                    </h3>
-                                                    <span class="star-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
-                                                    <span class="clearfix"></span>
+                                                    <a href="<%= new_event_path %>" class="btn btn-styled btn-white btn-circle mt-4">Proposer un event</a>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="swiper-slide" data-swiper-autoplay="5000">
-                                            <div class="block block--style-3">
-                                                <div class="block-image relative">
-                                                    <div class="view view-first">
-                                                        <a href="#">
-                                                            <img src="<%= image_path 'prv/real-estate/img-14.jpg' %>" width="300" height="190" class="img-responsive">
-                                                        </a>
-                                                    </div>
-                                                    <span class="block-price-over bg-base-4">Particulier</span>
-                                                </div>
-
-                                                <div class="block-body text-center mt-1">
-                                                    <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                        <strong>Appartement</strong>
-                                                    </h3>
-                                                    <span class="star-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
-                                                    <span class="clearfix"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="swiper-slide" data-swiper-autoplay="5000">
-                                            <div class="block block--style-3">
-                                                <div class="block-image relative">
-                                                    <div class="view view-first">
-                                                        <a href="#">
-                                                            <img src="<%= image_path 'prv/real-estate/img-11.jpg' %>" width="300" height="190" class="img-responsive">
-                                                        </a>
-                                                    </div>
-                                                    <span class="block-price-over bg-base-4">Particulier</span>
-                                                </div>
-
-                                                <div class="block-body text-center mt-1">
-                                                    <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                        <strong>Maison</strong>
-                                                    </h3>
-                                                    <span class="star-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
-                                                    <span class="clearfix"></span>
-                                                </div>
-
-                                                
-                                            </div>
-                                        </div>
-
-                                        <div class="swiper-slide" data-swiper-autoplay="5000">
-                                            <div class="block block--style-3">
-                                                <div class="block-image relative">
-                                                    <div class="view view-first">
-                                                        <a href="#">
-                                                            <img src="<%= image_path 'prv/real-estate/img-15.jpg' %>" width="300" height="190" class="img-responsive">
-                                                        </a>
-                                                    </div>
-                                                    <span class="block-price-over bg-base-4">Professionnel</span>
-                                                </div>
-
-                                                <div class="block-body text-center mt-1">
-                                                    <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                        <strong>Restaurant</strong>
-                                                    </h3>
-                                                    <span class="star-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
-                                                    <span class="clearfix"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="swiper-slide" data-swiper-autoplay="5000">
-                                            <div class="block block--style-3">
-                                                <div class="block-image relative">
-                                                    <div class="view view-first">
-                                                        <a href="#">
-                                                            <img src="<%= image_path 'prv/real-estate/img-12.jpg' %>" width="300" height="190" class="img-responsive">
-                                                        </a>
-                                                    </div>
-                                                    <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
-                                                    <span class="block-price-over bg-base-4">Plein-air</span>
-                                                </div>
-
-                                                <div class="block-body text-center mt-1">
-                                                    <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                        <strong>Ferme</strong>
-                                                    </h3>
-                                                    <span class="star-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
-                                                    <span class="clearfix"></span>
-                                                </div> 
-                                            </div>
-                                        </div>
-
-                                        <div class="swiper-slide" data-swiper-autoplay="5000">
-                                            <div class="block block--style-3">
-                                                <div class="block-image relative">
-                                                    <div class="view view-first">
-                                                        <a href="#">
-                                                            <img src="<%= image_path 'prv/real-estate/img-13.jpg' %>" width="300" height="190" class="img-responsive">
-                                                        </a>
-                                                    </div>
-                                                    <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-green">Valeur sûre</span>
-                                                    <span class="block-price-over bg-base-4">Plein-air</span>
-                                                </div>
-
-                                                <div class="block-body text-center mt-1">
-                                                    <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                                        <strong>Parc</strong>
-                                                    </h3>
-                                                    <span class="star-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
-                                                    <span class="clearfix"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        
                                     </div>
-
-                                    <div class="swiper-pagination"></div>
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
 
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
-        </div><!-- END: st-pusher -->
-    </div><!-- END: st-container -->
-</div><!-- END: body-wrap -->
+        </div>
 
-</body>
-</html>
+        <div class="col-lg-4" id="div_properties_search">
+            <div class="card no-radius no-border">
+                <div class="card-title card-title-wrapped">
+                    <h3 class="heading heading-5 strong-500 text-capitalize">Trouver un événement</h3>
+                </div>
 
-<script>
-      // This example displays an address form, using the autocomplete feature
-      // of the Google Places API to help users fill in the information.
+                <div class="card-body py-4 px-4">
+                    <%= form_tag(result_path, method: "get") do %>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group has-feedback">
+                                <label>Sélectionner un pays</label>
+                                <%= select_tag 'team', options_for_select(Team.all.collect{ |u| [u.name, u.id] }, :selected), class: 'form-control form-control-lg selectpicker' %>
+                                <span class="help-block with-errors"></span>
+                            </div>
+                        </div>
+                    </div>
 
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div  class="form-group has-feedback">
+                                <label>Entrez une adresse</label>
+                                <%= text_field_tag 'adress', nil, class: 'form-control form-control-lg', id: 'autocomplete' %>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
 
-      var placeSearch, autocomplete;
-      var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-      };
+                    <%= submit_tag "Rechercher", class: "btn btn-styled btn-block btn-lg btn-base-1 mt-4" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 
-      function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
+<!-- Properties listing -->
+<section class="slice sct-color-1" id="scrollToSection">
+    <div class="container">
+        <div class="section-title section-title--style-1 text-center mb-1">
+            <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
+                <span>Les bars</span>
+            </h3>
+            <span class="section-title-delimiter clearfix d-none"></span>
+        </div>
 
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
-      }
+        <span class="clearfix"></span>
 
-      function fillInAddress() {
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
+        <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
+            Ces bars diffuseront des matchs. Renseignez vous sur leur équipement, la capacité, ou encore le prix de la pinte !
+        </div>
 
-        for (var component in componentForm) {
-          document.getElementById(component).value = '';
-          document.getElementById(component).disabled = false;
-        }
+        <span class="space-xs-lg"></span>
 
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        for (var i = 0; i < place.address_components.length; i++) {
-          var addressType = place.address_components[i].types[0];
-          if (componentForm[addressType]) {
-            var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
-          }
-        }
-      }
+        <div class="row-wrapper">
+            <div class="row cols-md-space">
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="190" class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(1).name %> </span>
+                        </div>
 
-      // Bias the autocomplete object to the user's geographical location,
-      // as supplied by the browser's 'navigator.geolocation' object.
-      function geolocate() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var geolocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle({
-              center: geolocation,
-              radius: position.coords.accuracy
-            });
-            autocomplete.setBounds(circle.getBounds());
-          });
-        }
-      }
-</script>
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>1.5 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&libraries=places&callback=initAutocomplete" async defer">
-</script>
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(1).pint_price %>
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(1).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i> <%= Bar.find(1).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-</body>
-</html>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-2.jpg' %>"
+                                    width="300" height="190"  class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(2).name %></span>
+                        </div>
+
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>3.4 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(2).pint_price %>€
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(2).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(2).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-3.jpg' %>" width="300" height="190" class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(3).name %></span>
+                        </div>
+
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>3.4 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(3).pint_price %>€
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(3).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(3).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-4.jpg' %>"
+                                    width="300" height="190" class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-green">Valeur sûre</span>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(4).name %></span>
+                        </div>
+
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>3.4 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(4).pint_price %>€
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(4).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(4).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row cols-md-space">
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-5.jpg' %>"
+                                    width="300" height="190" class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(5).name %></span>
+                        </div>
+
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>3.4 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(5).pint_price %>€
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(5).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(5).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-6.jpg' %>"
+                                    width="300" height="190" class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-purple">Super offre</span>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(6).name %></span>
+                        </div>
+
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>3.4 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(6).pint_price %>€
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(6).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(6).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-7.jpg' %>"
+                                    width="300" height="190" class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(7).name %></span>
+                        </div>
+
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>3.4 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(7).pint_price %>€
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(7).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(7).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="block block--style-3">
+                        <div class="block-image relative">
+                            <div class="view view-first">
+                                <a href="#">
+                                    <img src="<%= image_path 'prv/real-estate/img-8.jpg' %>"
+                                    width="300" height="190" class="img-responsive">
+                                </a>
+                            </div>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(8).name %></span>
+                        </div>
+
+                        <div class="block-body text-center mt-1">
+                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                <strong>3.4 km</strong>
+                                <span class="heading-6">de vous</span>
+                            </h3>
+                            <span class="star-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="aux-info-wrapper border-top">
+                            <ul class="aux-info">
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-food-002"></i> <%= Bar.find(8).pint_price %>€
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(8).capacity %> personnes
+                                </li>
+                                <li class="heading strong-400 text-center">
+                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(8).screen %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slice sct-color-2 border-top border-bottom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="sct-inner py-4">
+                    <h3 class="heading heading-3 strong-400">
+                        <a href="https://www.facebook.com/LaManufacture.Lille/">La manufacture</a>
+                    </h3>
+                    <h4 class="heading heading-sm strong-400">10 Rue du curé Saint-Etienne, Vieux-Lille</h4>
+                    <h3 class="heading heading-3 strong-600 c-base-1 mt-4 mb-4">Le bar de la semaine</h3>
+
+                    <p>
+                        Venez découvrir votre nouveau bar au cœur de Lille, vous proposant une carte éclectique, le tout dans une ambiance industrielle.
+
+                        Un babyfoot et des fléchettes seront également à votre disposition pour vous détendre ;)
+                    </p>
+
+                    <div class="row align-items-center mt-4">
+                        <div class="col-12">
+                            <ul class="inline-links inline-links--style-3">
+                                <li>
+
+                                    <i class="fa fa-beer"></i> 5€
+                                </a>
+                            </li>
+                            <li>
+                                <i class="fa fa-home"></i> 100m2
+                            </li>
+                            <li>
+                                <i class="fa fa-desktop"></i> 5 écrans
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 order-lg-1">
+            <div class="swiper-js-container">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- Slide item 1 -->
+                        <div class="swiper-slide">
+                            <img src="<%= image_path 'prv/real-estate/img-9.jpg' %>"
+                            width="500" height="1000" class="img-fluid rounded">
+                        </div>
+
+                        <!-- Slide item 2 -->
+                        <div class="swiper-slide">
+                            <img src="<%= image_path 'prv/real-estate/img-5.jpg' %>"
+                            width="500" height="1000" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="slice sct-color-1 border-top border-bottom">
+    <div class="container">
+        <div class="section-title section-title--style-1 text-center mb-1">
+            <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
+                <span>Les événements</span>
+            </h3>
+            <span class="section-title-delimiter clearfix d-none"></span>
+        </div>
+
+        <span class="clearfix"></span>
+
+        <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
+            Que ce soit chez vous ou à l'extérieur, organisez et participez à des événements de la coupe du monde. Voici les derniers événements créés par nos membres.
+        </div>
+
+        <span class="space-xs-lg"></span>
+
+        <div class="swiper-js-container">
+            <div class="swiper-container" data-swiper-autoplay="true" data-swiper-items="4" data-swiper-space-between="30" data-swiper-sm-items="2"  data-swiper-sm-space-between="20" data-swiper-xs-items="1"  data-swiper-xs-space-between="0">
+                <div class="swiper-wrapper mb-5">
+                    <div class="swiper-slide" data-swiper-autoplay="5000">
+                        <div class="block block--style-3">
+                            <div class="block-image relative">
+                                <div class="view view-first">
+                                    <a href="#">
+                                        <img src="<%= image_path 'prv/real-estate/img-10.jpg'
+                                        %>" width="300" height="190" class="img-responsive">
+
+                                    </a>
+                                </div>
+                                <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
+                                <span class="block-price-over bg-base-4">Plein-air</span>
+                            </div>
+
+                            <div class="block-body text-center mt-1">
+                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                    <strong>Jardin</strong>
+                                </h3>
+                                <span class="star-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-swiper-autoplay="5000">
+                        <div class="block block--style-3">
+                            <div class="block-image relative">
+                                <div class="view view-first">
+                                    <a href="#">
+                                        <img src="<%= image_path 'prv/real-estate/img-14.jpg' %>" width="300" height="190" class="img-responsive">
+                                    </a>
+                                </div>
+                                <span class="block-price-over bg-base-4">Particulier</span>
+                            </div>
+
+                            <div class="block-body text-center mt-1">
+                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                    <strong>Appartement</strong>
+                                </h3>
+                                <span class="star-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-swiper-autoplay="5000">
+                        <div class="block block--style-3">
+                            <div class="block-image relative">
+                                <div class="view view-first">
+                                    <a href="#">
+                                        <img src="<%= image_path 'prv/real-estate/img-11.jpg' %>" width="300" height="190" class="img-responsive">
+                                    </a>
+                                </div>
+                                <span class="block-price-over bg-base-4">Particulier</span>
+                            </div>
+
+                            <div class="block-body text-center mt-1">
+                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                    <strong>Maison</strong>
+                                </h3>
+                                <span class="star-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <span class="clearfix"></span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-swiper-autoplay="5000">
+                        <div class="block block--style-3">
+                            <div class="block-image relative">
+                                <div class="view view-first">
+                                    <a href="#">
+                                        <img src="<%= image_path 'prv/real-estate/img-15.jpg' %>" width="300" height="190" class="img-responsive">
+                                    </a>
+                                </div>
+                                <span class="block-price-over bg-base-4">Professionnel</span>
+                            </div>
+
+                            <div class="block-body text-center mt-1">
+                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                    <strong>Restaurant</strong>
+                                </h3>
+                                <span class="star-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-swiper-autoplay="5000">
+                        <div class="block block--style-3">
+                            <div class="block-image relative">
+                                <div class="view view-first">
+                                    <a href="#">
+                                        <img src="<%= image_path 'prv/real-estate/img-12.jpg' %>" width="300" height="190" class="img-responsive">
+                                    </a>
+                                </div>
+                                <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
+                                <span class="block-price-over bg-base-4">Plein-air</span>
+                            </div>
+
+                            <div class="block-body text-center mt-1">
+                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                    <strong>Ferme</strong>
+                                </h3>
+                                <span class="star-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <span class="clearfix"></span>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-swiper-autoplay="5000">
+                        <div class="block block--style-3">
+                            <div class="block-image relative">
+                                <div class="view view-first">
+                                    <a href="#">
+                                        <img src="<%= image_path 'prv/real-estate/img-13.jpg' %>" width="300" height="190" class="img-responsive">
+                                    </a>
+                                </div>
+                                <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-green">Valeur sûre</span>
+                                <span class="block-price-over bg-base-4">Plein-air</span>
+                            </div>
+
+                            <div class="block-body text-center mt-1">
+                                <h3 class="heading heading-5 strong-400 text-normal mb-1">
+                                    <strong>Parc</strong>
+                                </h3>
+                                <span class="star-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

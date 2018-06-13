@@ -1,265 +1,311 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FootballProject</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>FootballProject</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="robots" content="index, follow">
-<meta name="description" content="Site pour trouver un endroit ou organiser des événements pour regarder les matchs de la coupe du monde.">
-<meta name="keywords" content="football, coupe du monde, équipe de France, fanzone, match, russie 2018,  soccer, bar, supporter, ou voir le match, sortir lille">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Site pour trouver un endroit ou organiser des événements pour regarder les matchs de la coupe du monde.">
+  <meta name="keywords" content="football, coupe du monde, équipe de France, fanzone, match, russie 2018,  soccer, bar, supporter, ou voir le match, sortir lille">
 
 
-
+  <script>    $("form").html($("form", response).html())
+</script>
 <meta name="google-signin-client_id" content="134000063532-ei8frfnr6jalc3qjg6eaqq7fseahrph7.apps.googleusercontent.com">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!-- Fonts -->
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <!-- Favicon -->
 <link href="<%= asset_path('favicon.png') %>" rel="icon" type="image/png">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
 
-<div class="container">
-  <p class="notice-flash"><%= notice %></p>
-  <p class="alert-flash"><%= alert %></p>
+  <div class="container">
+    <p class="notice-flash"><%= notice %></p>
+    <p class="alert-flash"><%= alert %></p>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar--bold navbar-light bg-default  navbar--bb-1px">
+    <div class="container navbar-container">
+      <!-- Brand/Logo -->
+      <a class="navbar-brand">
+        <img src="<%= image_path 'logo/logo-1-b.png' %>" style= "width: 2.5cm; height: 2.5cm" class="" alt="logo">
+      </a>
+
+      <div class="d-inline-block">
+        <!-- Navbar toggler  -->
+        <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbar_main">
+        <!-- Navbar search - For small resolutions -->
+        <div class="navbar-search-widget b-xs-bottom py-3 d-lg-none d-none">
+          <form class="" role="form">
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-base-3" type="button">Go!</button>
+              </span>
+            </div>
+          </form>
+        </div>
+
+        
+
+        <!-- Navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="<%= events_path %>">
+              Trouver
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= new_event_path %>">
+              Créer un événement
+            </a>
+          </li>
+          <li class="nav-item">
+
+            <a class="nav-link" href="<%= news_path %>">
+              Actus foot
+
+            </a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-lg-auto col-lg-6">
+          <div class="input-group">
+            <%= form_tag result_path, method: 'get', class: 'navbar-form', role: 'search' do %>
+          </div>
+          <%= text_field_tag 'adress', nil, placeholder: 'Adresse', class: 'form-control', id: 'autocomplete', required: true %>
+          <div class="input-group-btn">
+
+           <%= button_tag(type: "submit", class: "glyphicon glyphicon-search") do %>
+         </div>
+         <% end %>
+         <% end %>
+
+       </ul>
+
+     </li>
+
+     <% if user_signed_in? %>
+     <li class="nav-item">
+      <a href="<%= profil_path %>" class="nav-link">Profil</a>
+    </li>
+    <li class="nav-item d-flex align-items-center">
+      <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
+    </li>
+    <% else %>
+    <li class="nav-item">
+      <%= link_to "Inscription", new_user_registration_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item d-flex align-items-center">
+      <%= link_to "Se connecter", new_user_session_path, class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle ml-auto' %>
+    </li>
+    <% end %>
+  </ul>
 </div>
 
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar--bold navbar-light bg-default  navbar--bb-1px">
-          <div class="container navbar-container">
-            <!-- Brand/Logo -->
-            <a class="navbar-brand">
-              <img src="<%= image_path 'logo/logo-1-b.png' %>" style= "width: 2.5cm; height: 2.5cm" class="" alt="logo">
-            </a>
-            
-            <div class="d-inline-block">
-              <!-- Navbar toggler  -->
-              <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-                </span>
-              </button>
-            </div>
-
-            <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbar_main">
-              <!-- Navbar search - For small resolutions -->
-              <div class="navbar-search-widget b-xs-bottom py-3 d-lg-none d-none">
-                <form class="" role="form">
-                  <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-base-3" type="button">Go!</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-
-             <!-- Global Search -->
-    <section id="sctGlobalSearch" class="global-search global-search-overlay">
-      <div class="container">
-        <div class="global-search-backdrop mask-dark--style-2"></div>
-
- <%= form_tag(result_path, method: "get", class: 'form-horizontal form-global-search z-depth-2-top') do %>
-                                            <div class="px-4">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                            <%= text_field_tag 'adress', nil, class: 'search-input', id: 'autocomplete' %>
-        
-                                                            <a href="" class="close-search" data-toggle="global-search" title="Close search bar"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <%end %>
-
-        <!-- Search form 
-        <form class="form-horizontal form-global-search z-depth-2-top" role="form">
-            <div class="px-4">
-                <div class="row">
-                    <div class="col-12">
-                        <input type="text" class="search-input" placeholder="Adresse">
-                    </div>
-                </div>
-            </div>
-            <a href="" class="close-search" data-toggle="global-search" title="Close search bar"></a>
-        </form>
-      </div>-->
-    </section>
 
 
+</nav>
+<%= yield %>
+
+<!-- FOOTER -->
+<footer id="footer" class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row cols-xs-space cols-sm-space cols-md-space">
+        <div class="col-lg-5">
+          <div class="col">
+            <img src="<%= image_path 'logo/logo-1-b.png' %>" style= "width: 2.5cm; height: 2.5cm">
+            <span class="clearfix"></span>
+            <span class="heading heading-sm c-gray-light strong-400">Vivez la coupe du monde avec votre ville.</span>
 
 
-    
-
-              <!-- Navbar links -->
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="<%= events_path %>">
-                    Trouver
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<%= new_event_path %>">
-                    Créer un événement
-                  </a>
-                </li>
-                <li class="nav-item">
-
-                  <a class="nav-link" href="<%= news_path %>">
-                    Actus foot
-
-                  </a>
-                </li>
-              </ul>
-
-              <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item">
-                  <li><a href="#" class ="nav-link" data-toggle="global-search">
-                    <span>
-                    <i class="fa fa-search"></i></a></li>
-                  </span>
-                </li>
-              
-            <% if user_signed_in? %>
-             <li class="nav-item">
-              <a href="<%= profil_path %>" class="nav-link">Profil</a>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle' %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-              <%= link_to "Inscription", new_user_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <%= link_to "Se connecter", new_user_session_path, class: 'btn btn-styled btn-sm btn-base-1 text-uppercase btn-circle ml-auto' %>
-            </li>
-            <% end %>
-            </ul>
-          </div>
+            <div class="copyright mt-4">
+              <p>
+                Copyright &copy; 2018        <a href="https://webpixels.io" target="_blank">
+                  <strong>Webpixels</strong>
+                </a> -
 
 
-            
-        </nav>
-      </div>
-    <%= yield %>
-
-       <!-- FOOTER -->
-       <footer id="footer" class="footer">
-        <div class="footer-top">
-          <div class="container">
-            <div class="row cols-xs-space cols-sm-space cols-md-space">
-              <div class="col-lg-5">
-                <div class="col">
-                  <img src="<%= image_path 'logo/logo-1-b.png' %>" style= "width: 2.5cm; height: 2.5cm">
-                  <span class="clearfix"></span>
-                  <span class="heading heading-sm c-gray-light strong-400">Vivez la coupe du monde avec votre ville.</span>
-              
-
-                  <div class="copyright mt-4">
-                    <p>
-                      Copyright &copy; 2018        <a href="https://webpixels.io" target="_blank">
-                        <strong>Webpixels</strong>
-                      </a> -
-              
-
-                      All rights reserved
-                    </p>
-                    <p>
-                      <a href="https://fr.freepik.com/photos-vecteurs-libre/logo">Logo de vecteur conçu par Vectortwins - Freepik.com</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              
-
-            <div class="col-lg-4">
-              <div class="col">
-                <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
-                  Projet
-                </h4>
-
-                <ul class="footer-links">
-                 <li>
-                   <a href="<%= root_path %>" title="Home">
-                     Accueil
-                   </a>
-                 </li>
-                 <li>
-                   <a href="<%= bars_path %>" title="About us">
-                     Bars
-                   </a>
-                 </li>
-                 <li>
-                   <a href="<%= events_path %>" title="Services">
-                     Evenements
-                   </a>
-                 </li>
-                 <li>
-                   <a href="/" title="Blog">
-                     Articles
-                   </a>
-                 </li>
-               </ul>
-             </div>
-           </div>
-
-           <div class="col-lg-3">
-            <div class="col">
-              <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
-                Get in touch
-              </h4>
-
-              <ul class="social-media social-media--style-1-v4">
-                <li>
-                  <a href="#" class="facebook" target="_blank" data-toggle="tooltip" data-original-title="Facebook">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="instagram" target="_blank" data-toggle="tooltip" data-original-title="Instagram">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="dribbble" target="_blank" data-toggle="tooltip" data-original-title="Dribbble">
-                    <i class="fa fa-dribbble"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="dribbble" target="_blank" data-toggle="tooltip" data-original-title="Github">
-                    <i class="fa fa-github"></i>
-                  </a>
-                </li>
-              </ul>
+                All rights reserved
+              </p>
+              <p>
+                <a href="https://fr.freepik.com/photos-vecteurs-libre/logo">Logo de vecteur conçu par Vectortwins - Freepik.com</a>
+              </p>
             </div>
           </div>
         </div>
+
+
+
+        <div class="col-lg-4">
+          <div class="col">
+            <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
+              Projet
+            </h4>
+
+            <ul class="footer-links">
+             <li>
+               <a href="<%= root_path %>" title="Home">
+                 Accueil
+               </a>
+             </li>
+             <li>
+               <a href="<%= bars_path %>" title="About us">
+                 Bars
+               </a>
+             </li>
+             <li>
+               <a href="<%= events_path %>" title="Services">
+                 Evenements
+               </a>
+             </li>
+             <li>
+               <a href="/" title="Blog">
+                 Articles
+               </a>
+             </li>
+           </ul>
+         </div>
+       </div>
+
+       <div class="col-lg-3">
+        <div class="col">
+          <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
+            Get in touch
+          </h4>
+
+          <ul class="social-media social-media--style-1-v4">
+            <li>
+              <a href="#" class="facebook" target="_blank" data-toggle="tooltip" data-original-title="Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="instagram" target="_blank" data-toggle="tooltip" data-original-title="Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="dribbble" target="_blank" data-toggle="tooltip" data-original-title="Dribbble">
+                <i class="fa fa-dribbble"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="dribbble" target="_blank" data-toggle="tooltip" data-original-title="Github">
+                <i class="fa fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</div>
+</footer>
 
-  <script>(function(d, s, id) {
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) return;
-       js = d.createElement(s); js.id = id;
-       js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0&appId=1820262128031859&autoLogAppEvents=1';
-       fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-  </script>
-      
+<script>(function(d, s, id) {
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) return;
+ js = d.createElement(s); js.id = id;
+ js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0&appId=1820262128031859&autoLogAppEvents=1';
+ fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
-  </body>
-  
+<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&libraries=places&callback=initAutocomplete" async defer">
+</script>
+
+
+</body>
+
 </html>
