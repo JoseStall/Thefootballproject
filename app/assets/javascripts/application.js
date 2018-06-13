@@ -55,14 +55,3 @@
 //*
 
 
-formBindings = function() {
-  $('[data-behavior="turbolinks-form"').on("ajax:success", function(e, data, status, xhr) {
-    return;
-  }).on("ajax:error", function(e, xhr, status, error) {
-    form_id = "#form-horizontal form-global-search z-depth-2-top" + this.id;
-    $(form_id).html($(form_id, xhr.responseText).html());
-    return;
-  });
-};
-
-$(document).on('turbolinks:load', formBindings);
