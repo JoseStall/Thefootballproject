@@ -71,7 +71,7 @@
                     <div class="form-group has-feedback">
                     <%= f.label :mot_de_passe_actuel %><br>
                     <small>(Nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</small>
-                    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control form-control-lg' %>
+                    <%= f.password_field :current_password, autocomplete: "off", value: :current_password, class: 'form-control form-control-lg' %>
               </div></div>
             </div>
               <%= f.submit "Enregistrer", class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
