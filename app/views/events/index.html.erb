@@ -11,7 +11,7 @@
     <span class="clearfix"></span>
   </div>
 </section>
-
+<section>
   <div class="container mt-5">
     <span class="delimiter delimiter--style-1"></span>
   </div>
@@ -29,41 +29,47 @@
               <% if event.images.attached? %>
               <% image = event.images.first %>
               <%= image_tag(image, style:'width:100%') %>
-               <% else %>
+              <% else %>
               <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg">
               <% end %>
               <div class="mask mask-base-1--style-2">
                 <div class="view-buttons text-center">
                   <div class="view-buttons-inner text-center">        
-                                              <% if event.images.attached? %>
-                    <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
-                      <% else %>   
-                      <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
-                        <%end %>
-                        <i class="icon ion-plus"></i>
-                      </a>
-                    </div>
+                    <% if event.images.attached? %>
+                      <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox></a>
+                    <% else %>   
+                      <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox></a>
+                    <% end %>
+                      <i class="icon ion-plus"></i>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pt-4 text-center">
+          </div>
+          <div class="pt-4 text-center">
               <h3 class="heading heading-4 strong-500 mb-0">
                 <a href="<%= event_path(event.id) %>"><%= event.description %></a>
               </h3>
               <p class="strong-300 c-gray-light">
-                <%= Game.find(event.game_id).home_team.name %> VS <%= Game.find(event.game_id).visiting_team.name %>                                            </p>
-              </div>
-            </div>
+                <%= Game.find(event.game_id).home_team.name %> VS <%= Game.find(event.game_id).visiting_team.name %>
+              </p>
           </div>
-          <% end %>                               
         </div>
       </div>
-    </section>
 
- 
+      <% end %>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+      <%= link_to 'Créer un événement', new_event_path %>
+  </div>
+</section>
 
 
 
 
-    <%= link_to 'New Event', new_event_path %>
+    
