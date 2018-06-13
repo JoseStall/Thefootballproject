@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   @date = Game.find(@event.game_id).date
   @participant = @event.users
   @organisateur = User.find(@event.user_id)
+  if @organisateur.reviews.count >= 1
   puts "organisateur.reviews"
   p 'Les deux reviews'
   @firstreview = @organisateur.reviews.pluck(:content)[0]
@@ -28,7 +29,6 @@ class EventsController < ApplicationController
   @notemoyenne = 4
   p 'yyyyyyyyyyyyyyyyyyyyyy'
   p @organisateur.reviews
-    if @organisateur.reviews != nil
       a = current_user.reviews
       b = 0
       c = 0
@@ -45,9 +45,7 @@ class EventsController < ApplicationController
       @firstreview = @organisateur.reviews.pluck(:content)[0]
       @secondreview = @organisateur.reviews.pluck(:content)[1]
       p @firstreview
-
-    else
-    end
+  end
  end
 
  def welcome
