@@ -44,12 +44,16 @@
 
                 <div class="card no-border">
                     <div>
+                        <div class= "text-center"> Voici les événements que tu as créé:
+                        </div>
                         <table class="table table-sm table-hover">
+
                             <thead>
                                 <tr>
+
                                     <th>
                                         <div class="checkbox">
-                                           
+
                                         </div>
                                     </th>
                                     <th>Events</th>
@@ -58,8 +62,9 @@
                                     <th>Participants</th>
                                 </tr>
                             </thead>
-
+                            
                             <tbody>
+                              
 
                                 <% if @events.count == 0 %>
                                 <tr>
@@ -93,24 +98,26 @@
                                         <td>
                                             <%= event.users.count %>
                                         </td>
-                                        
+
                                     </tr>
                                     <% end %>
                                     <%end %>
-                                    
+
                                 </tbody>
                             </table>
                             <table class="table table-sm table-hover">
+                                <div class= "text-center"> Voici les bars que tu as créé:
+                                </div>
                                 <thead>
                                     <tr>
                                         <th>
                                             <div class="checkbox">
-                                               
+
                                             </div>
                                         </th>
                                         <th>Bar</th>
                                         <th>Adresse</th>
-                                        
+
                                         <th>Interessés</th>
                                     </tr>
                                 </thead>
@@ -127,7 +134,7 @@
                                         <td colspan= '3'>Vous n'avez pas encore créé d'évenements </td> 
                                         <% else %>
                                         <% @bars.each do |bar| %>
-                                        
+
 
                                         <tr>
                                             <td>
@@ -141,47 +148,39 @@
                                             </td>
                                             <td><a href="<%=bar_path(bar.id) %>">
                                                 <%= bar.address %></a></td>
-                                                
+
                                                 <td>
                                                     <%= bar.pint_price %>
                                                 </td>
                                                 <td>
-                                                    
+
                                                 </td>
                                             </tr>
 
                                             <%end%>
                                             <%end%>
-                                            
+
                                         </tbody>
                                     </table>
                                     <table class="table table-sm table-hover">
-                                     <thead>
-                                        <tr>
-                                            <th>
-                                                <div class="checkbox">
-                                                   
-                                                </div>
-                                            </th>
-                                            <th>Events</th>
-                                            <th>Date</th>
-                                            <th>Match</th>
-                                            <th>Participants</th>
-                                        </tr>
-                                    </thead>
+                                        <div class= "text-center"> Voici les événements auxquels tu participes:
+                                        </div>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="checkbox">
 
-                                    <tbody>
-                                        <% if @participate.count == 0 %>
-                                        <tr>
-                                            <td>
-                                                <div class="checkbox">
-                                                    <input type="checkbox" name="checkbox_example_1">
-                                                    <label></label>
-                                                </div>
-                                            </td>
-                                            <td colspan= '3'>Vous ne participez pas encore à un événenement </td> 
-                                            <% else %>
-                                            <% @participate.each do |event| %>
+                                                    </div>
+                                                </th>
+                                                <th>Events</th>
+                                                <th>Date</th>
+                                                <th>Match</th>
+                                                <th>Participants</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <% if @participate.count == 0 %>
                                             <tr>
                                                 <td>
                                                     <div class="checkbox">
@@ -189,30 +188,46 @@
                                                         <label></label>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <a href="<%= event_path(event.id) %>">
-                                                        <%= event.id %></a>
+                                                <td colspan= '3'>Vous ne participez pas encore à un événenement </td> 
+                                                <% else %>
+                                                <% @participate.each do |event| %>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox" name="checkbox_example_1">
+                                                            <label></label>
+                                                        </div>
                                                     </td>
-                                                    <td><%= event.game.date.strftime("%d/%m/%Y à %H:%M") %></td>
                                                     <td>
                                                         <a href="<%= event_path(event.id) %>">
-                                                            <%= event.game.home_team.name %> VS <%= event.game.visiting_team.name %></a>
+                                                            <%= event.id %></a>
                                                         </td>
+                                                        <td><%= event.game.date.strftime("%d/%m/%Y à %H:%M") %></td>
                                                         <td>
-                                                            <%= event.users.count %>
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                    <% end %>
-                                                    <%end %>
-                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                                            <a href="<%= event_path(event.id) %>">
+                                                                <%= event.game.home_team.name %> VS <%= event.game.visiting_team.name %></a>
+                                                            </td>
+                                                            <td>
+                                                                <%= event.users.count %>
+                                                            </td>
 
+                                                        </tr>
+                                                        <% end %>
+                                                        <%end %>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
-                        
-                    </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
