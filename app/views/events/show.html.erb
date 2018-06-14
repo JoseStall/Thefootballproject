@@ -87,7 +87,7 @@
                                         <span class="c-gray-light strong-600">Apporter à boire</span>
                                     </td>
                                     <td>
-                                        <%if @event.drink == true %> Oui <%else%> Non <% end %>
+                                        <%if @event.drink == true %> C'est fourni <%else%> À ramener <% end %>
 
                                     </td>
                                 </tr>
@@ -96,13 +96,13 @@
                                         <span class="c-gray-light strong-600">Apporter des apéritifs</span>
                                     </td>
                                     <td>
-                                        <%if @event.food == true %> Oui <%else%> Non <% end %>
+                                        <%if @event.food == true %> C'est fourni <%else%> À ramener <% end %>
 
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="c-gray-light strong-600">Fumeur</span>
+                                        <span class="c-gray-light strong-600">Fumer à l'intérieur</span>
                                     </td>
                                     <td>
                                         <%if @event.smoke == true %> Oui <%else%> Non <% end %>

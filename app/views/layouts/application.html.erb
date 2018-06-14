@@ -70,18 +70,14 @@
           </li>
         </ul>
 
-        <ul class="navbar-nav ml-lg-auto col-lg-5">
+        <ul class="navbar-nav ml-lg-auto">
           <li class="nav-item d-flex align-items-center">
-           <a class="nav-link">
-            <div class="input-group">
-              <%= form_tag result_path, method: 'get', class: 'navbar-form', role: 'search' do %>
-            </div>
-            <%= text_field_tag 'adress', nil, placeholder: 'Adresse', class: 'form-control', id: 'autocomplete', required: true %>
-
-             <%= button_tag(type: "submit", class: "glyphicon glyphicon-search") do %>
-           <% end %>
-           <% end %>
-         </a>
+         <%= form_tag result_path, method: 'get', class: 'form-inline', role: 'search' do %>
+          <%= text_field_tag 'adress', nil, placeholder: 'Entrez une adresse', class: 'form-control mr-sm-2', id: 'autocomplete', required: true %>
+          <%= button_tag(type: "submit", class: "btn btn-outline-success my-2 my-sm-0") do %>
+            <i class='fa fa-search'></i>
+          <% end %>        
+        <% end %>
        </li>
        
 
