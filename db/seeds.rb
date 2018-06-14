@@ -237,7 +237,7 @@ En savoir plus sur https://www.sortiraparis.com/hotel-restaurant/bar-cafes/artic
 
 Bar.create(name: 'Le Solférino', description:"Bar mythique du quartier étudiant, véritable institution. Le Solférino continue de vous accueillir pour tous les événements sportifs. 
 
-	EVENEMENT SPECIAL : COUPE DU MONDE 2018-06-14
+	EVENEMENT SPECIAL : COUPE DU MONDE 2018
 
 	Pour supporter notre magnifique équipe de France le bar a été redécoré aux couleurs du mondial et des Bleus ! Alors venez lers encourager dans notre bar, prix avantageux sur les boissons ! 
 
