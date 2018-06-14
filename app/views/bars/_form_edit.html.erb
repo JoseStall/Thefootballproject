@@ -28,12 +28,12 @@
 
 <div class="field">
   <%= form.label :description %>
-  <%= form.text_area :description, value: @bar.description, rows: 3, class: 'form-control' %>
+  <%= form.text_area :description, value: @bar.description, rows: 3, class: 'form-control', :required => true %>
 </div>
 <br>
 <div class="field">
   <%= form.label :images,'Envoie nous des photos du bar' %>
-  <%= form.file_field :images, multiple: true, class: 'custom-file' %>
+  <%= form.file_field :images, multiple: true, class: 'custom-file', :required => true %>
 
 
   <div style="width:400px; height:auto">
@@ -54,18 +54,18 @@
 <div class="row">
   <div class="col-md-4 mb-3">
     <%= form.label :screen, 'Installation télé(s), vidéoproj(s)?' %>
-    <%= form.text_field :screen, value: @bar.screen, class: 'form-control' %>
+    <%= form.text_field :screen, value: @bar.screen, class: 'form-control', :required => true %>
   </div>
 
   <div class="col-md-4 mb-3">
     <%= form.label :capacity, "A combien estimes-tu la capacité d'accueil du bar?"  %>
-    <%= form.number_field :capacity, value: @bar.capacity, class: 'form-control' %>
+    <%= form.number_field :capacity, value: @bar.capacity, class: 'form-control', :required => true %>
   </div>
 
 
   <div class="col-md-4 mb-3">
     <%= form.label :pint_price, 'Combien coûte la pinte?'  %>
-    <%= form.text_field :pint_price, value: @bar.pint_price, class: 'form-control' %>
+    <%= form.text_field :pint_price, value: @bar.pint_price, class: 'form-control', :required => true %>
   </div>
 </div>
 

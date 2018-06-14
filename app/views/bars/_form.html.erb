@@ -34,7 +34,7 @@
 
 <div class="field">
   <%= form.label :description %>
-  <%= form.text_area :description, :value => @bar.description, rows: 3, class: 'form-control' %>
+  <%= form.text_area :description, :value => @bar.description, :required => true, rows: 3, class: 'form-control' %>
 </div>
 <br>
 <div class="row">
@@ -45,7 +45,7 @@
 
   <div class="col-md-7 mb-3">
     <%= form.label :screen, 'Quelle installation y a-t-il pour mater les matchs? Télé(s), vidéoproj(s)?' %>
-    <%= form.text_field :screen, class: 'form-control' %>
+    <%= form.text_field :screen, :required => true, class: 'form-control' %>
   </div>
 </div>
 
@@ -54,11 +54,11 @@
 <div class="row">
   <div class="col-md-6 mb-3">
     <%= form.label :capacity, "A combien estime-tu la capacité d'accueil du bar?" %>
-    <%= form.number_field :capacity, class: 'form-control' %>
+    <%= form.number_field :capacity, :required => true, class: 'form-control' %>
   </div>
   <div class="col-md-6 mb-3">
     <%= form.label :pint_price, 'Combien coûte la pinte?' %>
-    <%= form.text_field :pint_price, class: 'form-control' %>
+    <%= form.text_field :pint_price, :required => true, class: 'form-control' %>
   </div>
 </div>
 
