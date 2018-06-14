@@ -236,24 +236,10 @@ En savoir plus sur https://www.sortiraparis.com/hotel-restaurant/bar-cafes/artic
 " , capacity:50,pint_price:7,user_id:1,address:"34 Quai d'Austerlitz 75013 Paris", screen:"Ecrans géants")
 
 
-e1 = Event.create(description:"Venez donc chez Masse y boire des bières",date:"2018-06-14",game_id:1, user_id:1, address:"79 rue Victor Hugo 59170 Croix")
-e2 = Event.create(description:"Russie-Arabie Saoudite chez Pedro",date:"2018-06-14",game_id:1,user_id:2, address:"33 rue de Jemmapes Lille")
-e3 = Event.create(description:"Premier match de la CDM chez louloumdoubleZlatan à Rouen",date:"2018-06-14",game_id:1,user_id:4, address:"1 rue Lamartine Rouen")
-e4 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e5 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e6 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e7 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e8 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e9 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e10 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e11 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e12 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e13 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e14 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e15 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e16 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e17 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
-e18 = Event.create(description:"Guigui vous invite mater le match, ramenez des bibines",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
+e1 = Event.create(title:"Venez donc chez Masse y boire des bières",description:"Passez acheter des bières au carrefour en bas! On va baptiser ma nouvelle télé toute fraîche pour le CDM",date:"2018-06-14",game_id:1, user_id:1, address:"79 rue Victor Hugo 59170 Croix")
+e2 = Event.create(title:"Russie-Arabie Saoudite chez Pedro", description: "J'ai toute la panoplie du parfait supporter russe. On pourra casser plein de trucs ensemble, venez!",date:"2018-06-14",game_id:1,user_id:2, address:"33 rue de Jemmapes Lille")
+e3 = Event.create(title:"Premier match de la CDM chez louloumdoubleZlatan à Rouen",description:"Poutine a toujours suscité mon admiration profonde. http://scd.observers.france24.com/files/obs_article_images/403973_3173821723972_117409638_n.jpg",date:"2018-06-14",game_id:1,user_id:4, address:"1 rue Lamartine Rouen")
+e4 = Event.create(title:"Guigui vous invite mater le match, ramenez des bibines",description: "M'en branle du score, c'est parti pour 1 mois complet de bières et de foot alors fêtons ça!",date:"2018-06-14",game_id:1,user_id:3, address:"1 rue françois de badts, La Madeleine")
 
 
 e1.users << [u2, u3, u4]
