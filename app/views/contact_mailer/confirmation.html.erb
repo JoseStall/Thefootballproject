@@ -17,28 +17,15 @@
                         <h2>Bonjour <%= @creator.firstname %> et <%= @demandor.firstname %></h2>
 
                         <p>Préparez vous car vous allez pouvoir mater le match <%= @home %> VS  <%= @visiting %> chez <%= @creator.firstname %>
-                        <br>
-						On compte bien évidemment sur vous pour donner le meilleur et supporter votre équipe à 100%. On vous laisse vous contacter pour définir les détails ensemble.
+                        </p>
+						<p>On compte bien évidemment sur vous pour donner le meilleur et supporter votre équipe à 100%. On vous laisse vous contacter pour définir les détails ensemble.
 						Souvenez vous qu'une fois l'événement déroulé, vous devrez noter votre hôte et son accueil.</p>
 
-						<% if @demandor.reviews.count >= 1 %> 
 						<p>Voici vos moyens de communication :</p>
 						<ul> 
 							<li>Numero de <%= @creator.firstname %> : <%= @creator.phone_number %> ou <%= @creator.email %></li>
 							<li>Numero de <%= @demandor.firstname %> : <%= @demandor.phone_number %> ou <%= @demandor.email %></li>
 						</ul>
-						<%else%>
-						<%end%>
-
-                        <table>
-                            <tr>
-                                <td align="center">
-                                    <p>
-                                        <a href="https://thefootballproject.herokuapp.com/validation/<%=@demandor.id%>?event=<%=@event.id%>" class="button">Clique ici pour valider</a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
 
                         <p>Nous espérons que votre expérience sur notre site web vous a plu et nous vous souhaitons une excellente Coupe du Monde ! A très bientôt pour un prochain événement sportif</p>
 
