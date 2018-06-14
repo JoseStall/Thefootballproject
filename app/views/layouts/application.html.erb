@@ -77,9 +77,7 @@
               <%= form_tag result_path, method: 'get', class: 'navbar-form', role: 'search' do %>
             </div>
             <%= text_field_tag 'adress', nil, placeholder: 'Adresse', class: 'form-control', id: 'autocomplete', required: true %>
-
-             <%= button_tag(type: "submit", class: "glyphicon glyphicon-search") do %>
-           <% end %>
+            <% end %>
            <% end %>
          </a>
        </li>
