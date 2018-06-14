@@ -2,11 +2,7 @@ class ReviewController < ApplicationController
   def note
   	@event = Event.find(params[:id])
   	@participant = @event.users
-  	p '*********'
-  	p params
-  	p '*********'
-
-  	if @participant.include?(current_user)
+   	if @participant.include?(current_user)
   		if params[:utf8] != nil
   			Review.create(user_id: @event.user_id, author:current_user.firstname , stars: params[:note], content: params[:message])
   			redirect_to profil_path
@@ -19,10 +15,7 @@ class ReviewController < ApplicationController
 		  	params.each do |params|
 		  	tab << params
 		  	end
-		  	puts "tab"
-		  	p tab
 		  	i=0
-		  	p @participant
 		  	@participant.each do |p|
 		  		i+=1
 		  		Review.create(user_id: p.id, author:current_user.firstname , stars: tab[i][1].to_i, content: tab[i+1][1])	

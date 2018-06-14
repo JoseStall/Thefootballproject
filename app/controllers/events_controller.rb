@@ -25,10 +25,10 @@ class EventsController < ApplicationController
   @creator = Event.find(params[:id]).user_id
   @organisateur = User.find(@event.user_id)
   if @organisateur.reviews.count >= 1
-  @firstreview = @organisateur.reviews.pluck(:content)[0]
+  @firstreview = @organisateur.reviews.first.content
   @firstreviewer = Review.find_by_content(@firstreview).author
   @firstgrade = Review.find_by_content(@firstreview).stars
-  @secondreview = @organisateur.reviews.pluck(:content)[1]
+  @secondreview = @organisateur.reviews.last.content
   @secondreviewer = Review.find_by_content(@secondreview).author
   @secondgrade = Review.find_by_content(@secondreview).stars
   @notemoyenne = 4

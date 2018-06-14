@@ -4,10 +4,8 @@ class UserController < ApplicationController
   	@bars = Bar.where(user_id: current_user.id)
   	@events = Event.where(user_id: current_user.id)
   	@participate = current_user.events
-
   	@notemoyenne = 4
   	if current_user.reviews != nil
-  		p'+++++++++++'
   		a = current_user.reviews
   		b = 0
   		c = 0
@@ -18,7 +16,6 @@ class UserController < ApplicationController
   		if c != 0 
   			@notemoyenne = b/c
   		end
-  		p'+++++++++++'
   	else
   	end
 end
