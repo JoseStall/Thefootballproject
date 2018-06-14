@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'actus' , to: 'jeux#actu', as: 'news'
   get 'jeux/classement'
   get 'profil', to: 'user#show', as: 'profil'
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" },:controllers => { registrations: "registrations" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" , registrations: "registrations" }
   root 'home#index'
   get 'contact', to: 'home#contact', as: 'contact'
   get 'mentions', to: 'home#mentions', as: 'mentions'
