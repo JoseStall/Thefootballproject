@@ -14,7 +14,7 @@
 <div class="row">
   <div class="col-md-5 mb-3">
     <%= form.label :name, 'Nom du bar'%>
-    <%= form.text_field :name, class: 'form-control', :required => true  %>
+    <%= form.text_field :name, class: 'form-control', value: @bar.name, :required => true  %>
     <div class="invalid-feedback">
       Il te faut un nom valide
     </div>
@@ -22,13 +22,13 @@
 
   <div class="col-md-7 mb-3">
    <%= form.label :address, 'Adresse' %>
-   <%= form.text_field :address, class: 'form-control', placeholder: '12 rue de la coupe du monde', :required => true%>
+   <%= form.text_field :address, class: 'form-control', value: @bar.address, placeholder: '12 rue de la coupe du monde', :required => true%>
  </div>
 </div>
 
 <div class="field">
   <%= form.label :description %>
-  <%= form.text_area :description, :value => @bar.description, rows: 3, class: 'form-control' %>
+  <%= form.text_area :description, value: @bar.description, rows: 3, class: 'form-control' %>
 </div>
 <br>
 <div class="field">
@@ -55,18 +55,18 @@
 <div class="row">
   <div class="col-md-4 mb-3">
     <%= form.label :screen, 'Installation télé(s), vidéoproj(s)?' %>
-    <%= form.text_field :screen, class: 'form-control' %>
+    <%= form.text_field :screen, value: @bar.screen, class: 'form-control' %>
   </div>
 
   <div class="col-md-4 mb-3">
     <%= form.label :capacity, "A combien estimes-tu la capacité d'accueil du bar?"  %>
-    <%= form.number_field :capacity, class: 'form-control' %>
+    <%= form.number_field :capacity, value: @bar.capacity, class: 'form-control' %>
   </div>
 
 
   <div class="col-md-4 mb-3">
     <%= form.label :pint_price, 'Combien coûte la pinte?'  %>
-    <%= form.text_field :pint_price, class: 'form-control' %>
+    <%= form.text_field :pint_price, value: @bar.pint_price, class: 'form-control' %>
   </div>
 </div>
 
