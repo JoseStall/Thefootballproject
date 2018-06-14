@@ -51,15 +51,27 @@
 
         <!-- Navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_event_path %>">
-              Créer un événement
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="<%= new_event_path %>" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Evénement
             </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="<%= new_event_path %>">Créer</a>
+              <a class="dropdown-item" href="<%= events_path %>">Voir tous</a>
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_bar_path %>">
-              Partager un bar
+        
+
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="<%= new_bar_path %>" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Bar
             </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="<%= new_bar_path %>">Partager</a>
+              <a class="dropdown-item" href="<%= bars_path %>">Voir tous</a>
+            </div>
           </li>
           <li class="nav-item">
 
