@@ -235,6 +235,78 @@ Une fois le toit de la Cité de la Mode et du Design atteint, on en prend plein 
 En savoir plus sur https://www.sortiraparis.com/hotel-restaurant/bar-cafes/articles/134135-le-cafe-oz-rooftop-a-ouvert-ses-portes-sur-le-toit-de-la-cite-de-la-mode-et-du-d#6iYGZvACKlLxx1XO.99
 " , capacity:50,pint_price:7,user_id:1,address:"34 Quai d'Austerlitz 75013 Paris", screen:"Ecrans géants")
 
+Bar.create(name: 'Le Solférino', description:"Bar mythique du quartier étudiant, véritable institution. Le Solférino continue de vous accueillir pour tous les événements sportifs. 
+
+	EVENEMENT SPECIAL : COUPE DU MONDE 2018-06-14
+
+	Pour supporter notre magnifique équipe de France le bar a été redécoré aux couleurs du mondial et des Bleus ! Alors venez lers encourager dans notre bar, prix avantageux sur les boissons ! 
+
+	Et comme d'habitude, une cerceuil pour fêter la victoire ;)
+
+	Le Solférino vous accueillera tous les jours de la semaine jusqu'à 1h du matin et le vendredi jusqu'à 3h du matin. 
+
+	Nous vous attendons nombreux !
+
+	L'équipe
+" , capacity:60,pint_price:3.5,user_id:1,address:"156 Rue Solférino, 59000 Lille", screen:"4 TV")
+
+Bar.create(name: 'La Pirogue', description:"Spécialités de cocktails pour ce bar à l'ambiance tropicale avec mobilier en bambou et plantes exotiques. Nous n'avons plus besoin de vanter le célèbre Zazou, cocktail mythique de la Pirogue qui vous emmène directement dans les îles. 
+
+	Rien de mieux que la terrasse du bar pour se rafraichir les esprits après avoir dansé sur des sons caribéens.
+
+	Pour le mondial, la Pirogue se transforme en supporter des Bleus ! des écrans seront installés pour suivre les matchs, dont un sur la terrasse. 
+
+	Et bien évidemment, des zazous seront préparés en masse pour désaltérer vos ardeurs supportrices ! 
+
+" , capacity:40,pint_price:6,user_id:1,address:"16 Rue Jean Jacques Rousseau, 59800 Lille", screen:"3 TV")
+
+Bar.create(name: 'Le Razorback', description:" Le Razorback est un bar des plus classiques. Néanmoins, à la carte, il y a l'embarras du choix : bières et cocktails en tout genre, à des prix plus qu'abordables. Le bar est adapté aux sorties étudiantes. À l'intérieur il y a suffisamment de place pour que, même nombreux, on soit bien installé. Bien mieux installé qu'aux tables et chaises hautes de la terrasse, bancales pour la plupart. Pas mal pour un apéro entre amis à petit budget !
+
+	Le Razorback est le bar idéal pour suivre le mondial avec un budget serré. Son écran géant saura tous vous satisfaire, mêmes les chanceux qui ont réussi à avoir une place en terrasse ! 
+
+	Vibrez en regardant les Bleus à moindre coût au Razorback ! 
+
+" , capacity:80,pint_price:3,user_id:1,address:"9 rue Masséna, 59000 Lille", screen:"1 écran géant")
+
+Bar.create(name: 'La Taberna Latina', description:" Parce que Lille est une ville qui accueille des gens du monde entier, La Taberna Latina ouvre ses portes pour supporter les équipes latino-américaines ! 
+
+	Que vous soyez : 
+	- Péruvien 
+	- Colombien
+	- Costa Ricain 
+	- Panaméen
+	- Mexicain
+	- Uruguayen
+	- Brésilien
+	- Argentin
+
+	Venez supporter votre équipe en masse, venez vous replonger dans l'ambiance et la culture de votre pays pour vivre ce moment fort, même à distance.
+
+	Réductions spéciales sur les plats et les boissons pour l'occasion, voir les conditions sur place.
+
+" , capacity:40,pint_price:6,user_id:1,address:"12 rue d'inkermann, 59000 Lille", screen:"2 TV 1 géant")
+
+Bar.create(name: 'La Luck', description:" La Luck est une place où l’on te sert de bonnes bières, des plats maisons et des centaines de jeux de société.
+
+Une équipe d’animateurs passionnés, vient à ta table pour cerner tes envies et t’expliquer les règles des jeux qu’ils te suggèrent. Ce sont ​nos sommeliers du jeu.
+
+Tu veux jouer? Pose toi à l’étage et on s’occupe de tout. On te sert à table plats maison, bières, vins, cocktails et jeux. Tu peux jouer et manger en même temps. Évite juste les jeux de réflexes quand ton plat est servi 🙂
+
+Pas envie de jouer? More a foodie than a player? Installe toi au rez-de-chaussée, profite du lieu, de tes amis et de notre carte. La Luck n’est pas juste un bar à jeux. 
+
+La Luck se transforme pour le mondial. Nous organisons des paris sur les matchs avec à gagner des réductions sur les verres et le restaurant ! N'hésitez pas à venir pour renseigner sur place.
+
+A très vite !  
+" , capacity:90,pint_price:5,user_id:1,address:"1 rue Princesse, 59800 Lille", screen:"Plusieurs TV")
+
+Bar.create(name: 'Au Boudin Bar', description:" Situé place Maurice Schuman dans le Vieux Lille, le Boudin Bar est un bar à vin servant également bières et cocktails et vous ouvrant ses portes à partir de 16h toute la semaine excepté le dimanche.
+
+Le Boudin Bar saura vous accueillir avec sa sélection de charcuteries espagnoles et ses meilleurs fromages. Ce bar dispose d’équipements TV et de la WIFI pour vous permettre de suivre vos rencontres sportives favorites.
+
+Le Boudin Bar vous séduira avec sa terrasse arborée en plein cœur de Lille, ses plats faits maisons et ses planches variées proposés chaque soir. Vous pourrez ainsi déguster des quiches ou tapas autour d’un verre dans une ambiance conviviale.
+
+Pour vous réunir entre amis ou collègues lors d’un afterwork ou pour organiser un pot de départ, le Boudin Bar vous propose plusieurs espaces. Un sous-sol et deux salles pourront vous permettre d’organiser votre anniversaire ou tout autre évènement jusqu’à 150 invités.
+" , capacity:150,pint_price:5,user_id:1,address:"6 Place Maurice Schumann, 59800 Lille", screen:"Plusieurs TV")
 
 e1 = Event.create(title:"Venez donc chez Masse y boire des bières",description:"Passez acheter des bières au carrefour en bas! On va baptiser ma nouvelle télé toute fraîche pour le CDM",date:"2018-06-14",game_id:1, user_id:1, address:"79 rue Victor Hugo 59170 Croix")
 e2 = Event.create(title:"Russie-Arabie Saoudite chez Pedro", description: "J'ai toute la panoplie du parfait supporter russe. On pourra casser plein de trucs ensemble, venez!",date:"2018-06-14",game_id:1,user_id:2, address:"33 rue de Jemmapes Lille")
