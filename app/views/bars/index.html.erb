@@ -69,7 +69,7 @@
     <div class="row masonry">
       <% @bars.each do |bar| %>
 
-      <div class="masonry-item col-md-6 col-lg-4 design">
+      <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= "<%= bar.name %>">
         <div class="block block--style-3 block--style-3-v2">
           <div class="block-image relative">
             <div class="view view-second view--rounded" style="width: 300px; height: 220px">

@@ -6,6 +6,12 @@ class BarsController < ApplicationController
   def index
     @bars = Bar.all
     @events = Event.all
+    @bars.each do |bar|
+      if bar.latitude == nil
+        bar.geocode
+        bar.save
+      end
+    end
 end
 
   # GET /bars/1
