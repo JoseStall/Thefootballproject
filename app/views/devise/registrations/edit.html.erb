@@ -80,16 +80,14 @@
        <div class="col-md-6">
         <div class="form-group has-feedback">
           <%= f.label :mot_de_passe_actuel %><br>
-          <small>(Nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</small>
+          <small>Nécessaire pour changer votre mot de passe actuel</small>
           <%= f.password_field :current_password, autocomplete: "off", value: :current_password, class: 'form-control form-control-lg' %>
         </div>
       </div>
     </div>
     <%= f.submit "Enregistrer", class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
     <% end %>
-    <div class="text-center px-2">
-      <h4 class="heading heading-4 strong-400 mb-4 mt-4">Supprimer mon compte</h4>
-    </div>
+
 
     <%= button_to "Supprimer mon compte",registration_path(resource_name), class:"btn btn-styled btn-lg btn-block btn-base-1 mt-4 mb-4 btn-danger", data: { confirm: "Êtes-vous sûr?" }, method: :delete %>
 
