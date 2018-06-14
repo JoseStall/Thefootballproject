@@ -1,16 +1,8 @@
   <style>
 
-  .containermap {
-    display: grid;
-    grid-template-columns: 6fr 4fr;
-  }
-  .listmap {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 30px;
-  padding: 0 30px;
-  }
- 
+
+
+
   .item {
     cursor: pointer;
     margin-bottom: 2rem;
@@ -24,6 +16,20 @@
     display: block;
   }
 
+@media only screen and (min-width: 1100px) {
+
+    .containermap {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+  }
+
+  .listmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+    padding: 0 30px;
+  }
+
   #map {
     position: sticky !important;
     left: 0;
@@ -31,6 +37,16 @@
     height: 100vh;  
     width: 75vh;
   }
+
+
+}
+
+@media(max-width: 1100px){
+#map {
+  height: 200vh;
+  width: 100%;
+  }
+}
 
   .marker{
     transform: translate( 50%, calc(-100% - 10px));
@@ -45,16 +61,16 @@
 
   }
   .marker::after {
-  content: ' ';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -8px;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid #FFF;
+    content: ' ';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -8px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #FFF;
   }
 
   .marker.is-active {
@@ -68,19 +84,21 @@
   }
 
 
+
+
 </style>
 
 <% if @events[0] == nil && @bars[0] == nil %>
 <section class="slice-xl" style="background-image: url(<%= asset_path 'soccer/cheering-crowd-event-17598.jpg' %>); background-position: bottom center;">
   <div class="container">
-      <div class="row">
-          <div class="col-12">
-            <div class="py-5 text-center">
-                <h1 class="heading heading-1 c-white strong-400 text-normal">
-                  Aucun bars ou événements proche d'ici, désolé 
-              </h1>
+    <div class="row">
+      <div class="col-12">
+        <div class="py-5 text-center">
+          <h1 class="heading heading-1 c-white strong-400 text-normal">
+            Aucun bars ou événements proche d'ici, désolé 
+          </h1>
           <span class="clearfix"></span>
-          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -89,31 +107,31 @@
   <div class="container" style="margin-top: 30px;margin-bottom: 30px">
     <p>Désolé ! il n'y a pas encore de bars ou d'événements référencés dans ta zone, sois le premier à en créer un : <br>
       Pour créer un bar c'est <a href="<%= new_bar_path %>" style="color:blue"> par ici</a> 
-              <br>Pour créer un événement chez toi c'est<a href="<%= new_event_path %>" style="color:blue"> par ici</a></p>
-  </div>
-</section>
+      <br>Pour créer un événement chez toi c'est<a href="<%= new_event_path %>" style="color:blue"> par ici</a></p>
+    </div>
+  </section>
 
-<% else %>
-<section class="slice-sm sct-color-1">
-  <div class="containermap">
-    <div class="row masonry">
-    
+  <% else %>
+  <section class="slice-sm sct-color-1">
+    <div class="containermap">
+      <div class="row masonry">
+
 
         <% @events.each do |event| %>
 
-      <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= event.latitude %>' data-lng='<%= event.longitude %>' data-nom= "<%= event.game.home_team.name + ' - ' + event.game.visiting_team.name %>">
-        <div class="block block--style-3 block--style-3-v2">
-          <div class="block-image relative">
-            <div class="view view-second view--rounded">
-              <% if event.images.attached? %>
-              <%= image_tag event.images.first %>
-              <% else %>
-              <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg">
-              <% end %>
-              <div class="mask mask-base-1--style-2">
-                <div class="view-buttons text-center">
-                  <div class="view-buttons-inner text-center">        
-                    <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
+        <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= event.latitude %>' data-lng='<%= event.longitude %>' data-nom= "<%= event.game.home_team.name + ' - ' + event.game.visiting_team.name %>">
+          <div class="block block--style-3 block--style-3-v2">
+            <div class="block-image relative">
+              <div class="view view-second view--rounded">
+                <% if event.images.attached? %>
+                <%= image_tag event.images.first %>
+                <% else %>
+                <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg">
+                <% end %>
+                <div class="mask mask-base-1--style-2">
+                  <div class="view-buttons text-center">
+                    <div class="view-buttons-inner text-center">        
+                      <a href="<%= event_path(event.id) %>" class="c-white" data-fancybox>
                         <i class="icon ion-plus"></i>
                       </a>
                     </div>
@@ -132,188 +150,188 @@
           </div>
           <% end %> 
 
-      <% @bars.each do |bar| %>
+          <% @bars.each do |bar| %>
 
-      <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
-        <div class="block block--style-3 block--style-3-v2">
-          <div class="block-image relative">
-            <div class="view view-second view--rounded">
-              <% if bar.images.attached? %>
-              <%= image_tag bar.images.first %>
-              <% else %>
-              <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg">
-              <% end %>
-              <div class="mask mask-base-1--style-2">
-                <div class="view-buttons text-center">
-                  <div class="view-buttons-inner text-center">        
-                    <a href="<%= bar_path(bar.id) %>" class="c-white" data-fancybox>
-                     
-                        <i class="icon ion-plus"></i>
-                      </a>
+          <div class="item masonry-item col-md-6 col-lg-4 design" data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
+            <div class="block block--style-3 block--style-3-v2">
+              <div class="block-image relative">
+                <div class="view view-second view--rounded">
+                  <% if bar.images.attached? %>
+                  <%= image_tag bar.images.first %>
+                  <% else %>
+                  <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg">
+                  <% end %>
+                  <div class="mask mask-base-1--style-2">
+                    <div class="view-buttons text-center">
+                      <div class="view-buttons-inner text-center">        
+                        <a href="<%= bar_path(bar.id) %>" class="c-white" data-fancybox>
+
+                          <i class="icon ion-plus"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="pt-4 text-center">
-              <h3 class="heading heading-4 strong-500 mb-0">
-                <a href="<%= bar_path(bar.id) %>"><%= bar.name %></a>
-              </h3>
-              <p class="strong-300 c-gray-light">
-                <%= bar.address %></p>
+              <div class="pt-4 text-center">
+                <h3 class="heading heading-4 strong-500 mb-0">
+                  <a href="<%= bar_path(bar.id) %>"><%= bar.name %></a>
+                </h3>
+                <p class="strong-300 c-gray-light">
+                  <%= bar.address %></p>
+                </div>
               </div>
             </div>
+            <% end %>                               
           </div>
-          <% end %>                               
-        </div>
           <div class='map' id="map"></div>
 
-            <% end %>
+          <% end %>
 
-    </section>
-<script>
-let $map = document.querySelector('#map')
+        </section>
+        <script>
+          let $map = document.querySelector('#map')
 
 
-class GoogleMap {
+          class GoogleMap {
 
-  constructor () {
-    this.map = null
-    this.bounds = null
-    this.TextMarker = null
-  }
+            constructor () {
+              this.map = null
+              this.bounds = null
+              this.TextMarker = null
+            }
 
-  async load (element) {
-    return new Promise((resolve, reject) => {
+            async load (element) {
+              return new Promise((resolve, reject) => {
 
-      $script("https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU", () => {
-        this.textMarker = class TextMarker extends google.maps.OverlayView {
+                $script("https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU", () => {
+                  this.textMarker = class TextMarker extends google.maps.OverlayView {
 
-          constructor (pos, map, text) {
-            super()
-            this.div = null
-            this.html = null
-            this.pos = pos
-            this.text = text
-            this.setMap(map)
-            this.onActivation = []
+                    constructor (pos, map, text) {
+                      super()
+                      this.div = null
+                      this.html = null
+                      this.pos = pos
+                      this.text = text
+                      this.setMap(map)
+                      this.onActivation = []
+                    }
+
+                    onAdd () {
+                      this.div = document.createElement('div')
+                      this.div.classList.add('marker')
+                      this.div.style.position = 'absolute'
+                      this.div.innerHTML = this.text
+                      this.getPanes().overlayImage.appendChild(this.div)
+                      this.div.addEventListener('click', (e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        this.activate()
+
+                      })
+                    }
+
+                    draw () {
+                      let position = this.getProjection().fromLatLngToDivPixel(this.pos)
+                      this.div.style.left = position.x + "px"
+                      this.div.style.top = position.y + "px"
+                    }
+
+                    onRemove () {
+                      this.div.parentNode.removeChild(this.div)
+                    }
+
+                    hover () {
+                      if (this.div !== null) {
+                        this.div.classList.add('is-active')
+                      }
+                    }
+
+                    out () {
+                      if (this.div !== null) {
+
+                        this.div.classList.remove('is-active')
+                      }
+                    }
+
+                    activate () {
+                      if (this.div !== null) {
+                        this.div.innerHTML = this.html
+                      }
+                      this.onActivation.forEach(function (cb) { cb() } )
+
+                    }
+
+                    deactivate () {
+                      if (this.div !== null) {
+                        this.div.innerHTML = this.text
+                      }
+
+                    }
+
+                    setContent (html) {
+                      this.html = html
+                    }
+
+                  }
+                  this.map = new google.maps.Map(element) 
+                  this.bounds = new google.maps.LatLngBounds()
+                  resolve ()
+                })
+
+              })
+            }
+            addMarker (lat, lng, text) {
+              let point = new google.maps.LatLng(lat, lng)
+              let marker = new this.textMarker(point, this.map, text)
+              marker.onActivation.push( () => {
+                this.map.setCenter(marker.pos)
+              })
+              this.bounds.extend(point)
+              return marker
+
+            }
+            centerMap () {
+              this.map.panToBounds(this.bounds)
+              this.map.fitBounds(this.bounds)
+
+            }
+
           }
 
-          onAdd () {
-            this.div = document.createElement('div')
-            this.div.classList.add('marker')
-            this.div.style.position = 'absolute'
-            this.div.innerHTML = this.text
-            this.getPanes().overlayImage.appendChild(this.div)
-            this.div.addEventListener('click', (e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              this.activate()
-              
+          const initMap = async function () {
+            let map = new GoogleMap()
+            let activeMarker = null
+            let enabledMarker = null
+            await map.load($map)
+            Array.from(document.querySelectorAll('.item')).forEach(function (item) {
+              let marker = map.addMarker(item.dataset.lat, item.dataset.lng, item.dataset.nom)
+              marker.setContent(item.innerHTML)
+              marker.onActivation.push(function () {
+                if (enabledMarker !== null) {
+                  enabledMarker.deactivate()
+                }
+                enabledMarker = marker
+              })
+              item.addEventListener('mouseover', function (){
+                marker.hover()
+                if (activeMarker !== null) {
+                  activeMarker.out()
+                }
+                activeMarker = marker
+              })
+              item.addEventListener('mouseleave', function (){
+                if (activeMarker === marker) {
+                  marker.out()
+                  activeMarker = null
+                }
+              })
+
             })
+            map.centerMap()
           }
 
-          draw () {
-            let position = this.getProjection().fromLatLngToDivPixel(this.pos)
-            this.div.style.left = position.x + "px"
-            this.div.style.top = position.y + "px"
-          }
-
-          onRemove () {
-            this.div.parentNode.removeChild(this.div)
-          }
-
-          hover () {
-            if (this.div !== null) {
-              this.div.classList.add('is-active')
-            }
-          }
-
-          out () {
-            if (this.div !== null) {
-
-              this.div.classList.remove('is-active')
-            }
-          }
-
-          activate () {
-            if (this.div !== null) {
-              this.div.innerHTML = this.html
-            }
-            this.onActivation.forEach(function (cb) { cb() } )
-
-          }
-
-          deactivate () {
-            if (this.div !== null) {
-              this.div.innerHTML = this.text
-            }
-
-          }
-
-          setContent (html) {
-            this.html = html
-          }
-
-        }
-        this.map = new google.maps.Map(element) 
-        this.bounds = new google.maps.LatLngBounds()
-        resolve ()
-      })
-      
-    })
-  }
-  addMarker (lat, lng, text) {
-    let point = new google.maps.LatLng(lat, lng)
-    let marker = new this.textMarker(point, this.map, text)
-    marker.onActivation.push( () => {
-      this.map.setCenter(marker.pos)
-    })
-    this.bounds.extend(point)
-    return marker
-
-  }
-  centerMap () {
-    this.map.panToBounds(this.bounds)
-    this.map.fitBounds(this.bounds)
-
-  }
-
-}
-
-const initMap = async function () {
-  let map = new GoogleMap()
-  let activeMarker = null
-  let enabledMarker = null
-  await map.load($map)
-  Array.from(document.querySelectorAll('.item')).forEach(function (item) {
-    let marker = map.addMarker(item.dataset.lat, item.dataset.lng, item.dataset.nom)
-    marker.setContent(item.innerHTML)
-    marker.onActivation.push(function () {
-      if (enabledMarker !== null) {
-        enabledMarker.deactivate()
-      }
-      enabledMarker = marker
-    })
-    item.addEventListener('mouseover', function (){
-      marker.hover()
-      if (activeMarker !== null) {
-        activeMarker.out()
-      }
-      activeMarker = marker
-    })
-    item.addEventListener('mouseleave', function (){
-      if (activeMarker === marker) {
-        marker.out()
-        activeMarker = null
-      }
-    })
-
-  })
-  map.centerMap()
-}
-
-if ($map !== null) {
-  initMap()
-} </script>
+          if ($map !== null) {
+            initMap()
+          } </script>
 
