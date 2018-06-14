@@ -335,14 +335,24 @@
                                     <strong><%= Event.find(b).title %></strong>
                                 </h3>
                                 <p><%= Event.find(b).address %></p>
+                                <% a = Event.find(b).user_id %>
+                                <% r = User.find(a).reviews.all %>
+                                <% if User.find(a).reviews.count > 0 %>
+                                <% total = 0 %>
+                                <% r.each do |note| %>
+                                <% total += note.stars %>
+                                <% end %> 
+                                <% notemoy = (total / User.find(a).reviews.count).round %>                         
                                 <span class="star-rating">
+                                    <% notemoy.times do %>
                                     <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                                    <% end %>
+                                    <% (5 - notemoy).times do %>
                                     <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                                    <% end %>
                                 </span>
                                 <span class="clearfix"></span>
+                                <% end %>
                             </div>
                             
                         </div>
