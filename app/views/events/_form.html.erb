@@ -57,7 +57,7 @@
   
   <div class="row">
     <div class="col-md-12">
-      <%= form.label :smoke, 'Peut-on fumer ?' %>
+      <%= form.label :smoke, "Peut-on fumer à l'intérieur ?" %>
       <div class="form-check">
         <%= form.radio_button :smoke, 'true'%> 
         <label style="display: inline-block;position: relative;top: -5px" for="smoke1">Oui</label>
@@ -71,16 +71,16 @@
 
   <div class="row">
     <div class="col-md-12">
-      <%= form.label :food, 'Doit-on apporter à manger ?' %>
+      <%= form.label :food, 'Des appéritifs ?' %>
       <div class="form-check">
         <%= form.radio_button :food, 'true'%> 
         <!-- <input class="form-check-input" type="radio" name="food" id="food1" value="true"> -->
-        <label style="display: inline-block;position: relative;top: -5px" for="food1">Oui</label>
+        <label style="display: inline-block;position: relative;top: -5px" for="food1">C'est fourni</label>
       </div>
       <div class="form-check">
         <%= form.radio_button :food, 'false', :checked => true %> 
         <!-- <input class="form-check-input" type="radio" name="food" id="food2" value="false" checked> -->
-        <label style="display: inline-block;position: relative;top: -5px" for="food2">Non</label>
+        <label style="display: inline-block;position: relative;top: -5px" for="food2">À ramener</label>
       </div>
     </div>
   </div>
@@ -90,11 +90,11 @@
       <%= form.label :drink, 'Doit-on apporter à boire ?' %>
       <div class="form-check">
         <%= form.radio_button :drink, 'true'%> 
-        <label style="display: inline-block;position: relative;top: -5px" for="drink1">Oui</label>
+        <label style="display: inline-block;position: relative;top: -5px" for="drink1">C'est fourni</label>
       </div>
       <div class="form-check">
         <%= form.radio_button :drink, 'false', :checked => true %> 
-        <label style="display: inline-block;position: relative;top: -5px" for="drink2">Non</label>
+        <label style="display: inline-block;position: relative;top: -5px" for="drink2">À ramener</label>
       </div>
     </div>
   </div>
