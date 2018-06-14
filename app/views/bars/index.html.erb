@@ -55,117 +55,61 @@
   }
 </style>
   <div id="map"></div>
- 
-
-
-
-<section class="slice sct-color-1" id="scrollToSection">
-  <div class="container">
-    <div class="section-title section-title--style-1 text-center mb-1">
-      <h3 class="section-title-inner heading-sm strong-600 text-uppercase">
-        <span>Les bars</span>
+ <br>
+ <br>
+ <br>
+    <div class="text-center">
+      <h3 class="heading heading-1 strong-500 text-normal">
+        Trouver un bar près de chez vous.
       </h3>
-      <span class="section-title-delimiter clearfix d-none"></span>
-    </div>
+  </div>
 
-    <span class="clearfix"></span>
+<section class="slice-sm sct-color-1">
+  <div class="container">
+    <div class="row masonry">
+      <% @bars.each do |bar| %>
 
-    <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 text-center">
-      Ces bars diffuseront des matchs. Renseignez vous sur leur équipement, la capacité, ou encore le prix de la pinte !
-    </div>
-
-    <span class="space-xs-lg"></span>
-
-    <div class="row-wrapper">
-      <div class="row cols-md-space">
-        <% @bars.each do |bar| %>
-
-        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-          <div class="item block block--style-3"  data-lat='<%= bar.latitude %>' data-lng='<%= bar.longitude %>' data-nom= '<%= bar.name %>'>
-            <div class="block-image relative">
-              <div class="view view-first">
-                <a href="#">
-                  <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="190" class="img-responsive">
-                </a>
+      <div class="masonry-item col-md-6 col-lg-4 design">
+        <div class="block block--style-3 block--style-3-v2">
+          <div class="block-image relative">
+            <div class="view view-second view--rounded" style="width: 300px; height: 220px">
+              <% if bar.images.attached? %>
+              <% image = bar.images.first %>
+              <%= image_tag(image, style:'width:100%') %>
+              <% else %>
+              <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg">
+              <% end %>
+              <div class="mask mask-base-1--style-2">
+                <div class="view-buttons text-center">
+                  <div class="view-buttons-inner text-center">        
+                    <% if bar.images.attached? %>
+                    <a href="<%= bar_path(bar.id) %>" class="c-white" data-fancybox></a>
+                    <% else %>   
+                    <a href="<%= bar_path(bar.id) %>" class="c-white" data-fancybox></a>
+                    <% end %>
+                    <i class="icon ion-plus"></i>
+                  </div>
+                </div>
               </div>
-
-              <span class="block-price-over bg-base-4"><%= bar.name %> </span>
-
             </div>
-
-            <div class="block-body text-center mt-1">
-              <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                <strong>1.5 km</strong>
-                <span class="heading-6">de vous</span>
-              </h3>
-              <span class="star-rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-              </span>
-              <span class="clearfix"></span>
-            </div>
-
-            <div class="aux-info-wrapper border-top">
-              <ul class="aux-info">
-                <li class="heading strong-400 text-center">
-               <i class="fa fa-beer"> </i><%= bar.pint_price %> €
-              </li>
-              <li class="heading strong-400 text-center">
-                <%= bar.capacity %> personnes
-              </li>
-              <li class="heading strong-400 text-center">
-               <%= bar.screen %>
-            </li>
-          </ul>
+          </div>
+          <div class="pt-4 text-center">
+            <h3 class="heading heading-4 strong-500 mb-0">
+              <a href="<%= bar_path(bar.id) %>"><%= bar.name %></a>
+            </h3>
+            <p class="strong-300 ">
+              <a> <%= bar.address %></a>
+            </p>
+          </div>
         </div>
       </div>
+
+      <% end %>
+
     </div>
-    <% end %>
   </div>
-</div>
-</div>
 </section>
 
-
-
-<h1>Bars</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Installation</th>
-      <th>Adresse</th>
-      <th>Capacity</th>
-      <th>Interested people</th>
-      <th>Pint price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bars.each do |bar| %>
-    <tr>
-      <td><%= bar.name %></td>
-      <td><%= bar.description %></td>
-      <td><%= bar.screen %></td>
-      <td><%= bar.address %></td>
-      <td><%= bar.capacity %></td>
-      <td><%= bar.interested_people %></td>
-      <td><%= bar.pint_price %></td>
-      <td><%= link_to 'Show', bar %></td>
-      <td><%= link_to 'Edit', edit_bar_path(bar) %></td>
-      <td><%= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Bar', new_bar_path %>
 
