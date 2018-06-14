@@ -21,7 +21,7 @@
 
                                                        </h2>
                                                        <p class="lead mt-4 c-white">
-                                                        Vous ne savez pas ou regarder le prochain match de la coupe du monde ? 
+                                                        Vous ne savez pas où regarder le prochain match de la coupe du monde ? 
                                                         <br>
                                                         <br>
                                                         Pas de problème, nous nous chargeons de vous proposer une liste des lieux d'accueil dans votre ville. 
@@ -164,7 +164,7 @@
                                     <i class=" icon-real-estate-017"></i><%= Bar.find(b).capacity %> personnes
                                 </li>
                                 <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i> <%= Bar.find(b).screen %>
+                                    <i class="icon-hotel-restaurant-013"></i> <%=Bar.find(b).screen[0..30] %>
                                 </li>
                             </ul>
                         </div>
