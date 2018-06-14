@@ -1,19 +1,65 @@
-<h1>Bonjour, <%= @creator.firstname %>!</h1>
-<h1><%= @demandor.firstname %> <%= @demandor.lastname %>, un autre grand fan de foot, aimerait venir mater le match <%= Game.find(@event.game_id).home_team.name%> VS <%= Game.find(@event.game_id).visiting_team.name%> chez toi. </h1>
+<table class="body-wrap">
+    <tr>
+        <td class="container">
 
-<h1>Voici sa note moyenne sur notre site est de <%= @notemoyenne %>/5.</h1> 
-<% if @demandor.reviews.count >= 1 %> 
-<h1>Voici les derniers avis qu'il a reçu :</h1>
-<ul> 
-	<li><%= @firstreview %></li>
-	<li><%= @secondreview %></li>
-</ul>
-<%else%>
-<%end%>
+            <!-- Message start -->
+            <table>
+                <tr>
+                    <td align="center" class="masthead">
 
-<p>TTu as la possibilité de l'accepter ou non bien évidemment, c'est toi qui choisis. Souviens toi qu'après le match, <%= @demandor.firstname %> devra te noter ainsi que ton accueil. On compte sur toi pour envoyer du lourd ! </p>
-<br>
-<a href="http://localhost:3000/validation/<%=@demandor.id%>?event=<%=@event.id%>">Clique ici pour valider</a>
-<br>
-<p> Merci d'avoir organisé un événement sur notre plateforme, nous espérons que l'expérience te plaira et te disons à bientôt pour un nouvel événement ! </p>
+                        <h1>The football project</h1>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="content">
+
+                        <h2>Bonjour, <%= @creator.firstname %>!</h2>
+
+                        <p><%= @demandor.firstname %> <%= @demandor.lastname %>, un autre grand fan de foot, aimerait venir mater le match <%= Game.find(@event.game_id).home_team.name%> VS <%= Game.find(@event.game_id).visiting_team.name%> chez toi.</p>
+                        <p>Voici sa note moyenne sur notre site est de <%= @notemoyenne %>/5.</p>
+
+						<% if @demandor.reviews.count >= 1 %> 
+						<p>Voici les derniers avis qu'il a reçu :</p>
+						<ul> 
+							<li><%= @firstreview %></li>
+							<li><%= @secondreview %></li>
+						</ul>
+						<%else%>
+						<%end%>
+
+                        <table>
+                            <tr>
+                                <td align="center">
+                                    <p>
+                                        <a href="http://localhost:3000/validation/<%=@demandor.id%>?event=<%=@event.id%>" class="button">Clique ici pour valider</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p>Merci d'avoir organisé un événement sur notre plateforme, nous espérons que l'expérience te plaira et te disons à bientôt pour un nouvel événement !</p>
+
+                        <p><em>– Mr. Football Project</em></p>
+
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="container">
+
+            <!-- Message start -->
+            <table>
+                <tr>
+                    <td class="content footer" align="center">
+                        <p><a href="https://thefootballproject.herokuapp.com/">The football Project</a></p>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
