@@ -108,7 +108,10 @@
               </tbody>
             </table>
       </div>
+       <% if current_user != nil && current_user.id == @bar.user_id %>
+
       <%= link_to 'Modifier', edit_bar_path(@bar) %> |
+      <% end %>
       <%= link_to 'Retour', bars_path %>
     </div>
   </div>
