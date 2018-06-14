@@ -17,7 +17,7 @@
      <% end %>
 
      <div class="field">
-      <%= form.label :address, 'Adresse' %>
+      <%= form.label :address, 'Adresse:' %>
       <%= form.text_field :address, class: 'form-control', placeholder: '10 rue du 3-0', :required => true  %>
     </div>
     <div class="invalid-feedback">
@@ -39,11 +39,20 @@
    </div>
 
 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :title, 'Donne un titre à ton événement:' %>
+          <%= form.text_field :title, rows: 3, class: 'form-control', :required => true %>
+        </div>
+      </div>
+    </div>
+
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
         <%= form.label :description, 'On ramène des bières ? On prépare les cordes vocales ? On écrit en avance nos punchlines à la Pierre Menès ?' %>
-        <%= form.text_area :description, rows: 3, class: 'form-control' %>
+        <%= form.text_area :description, rows: 3, class: 'form-control', :required => true %>
       </div>
     </div>
   </div>
