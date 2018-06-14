@@ -5,6 +5,12 @@ class EventsController < ApplicationController
  # GET /events.json
  def index
    @events = Event.all
+    @events.each do |event|
+      if event.latitude == nil
+        event.geocode
+        event.save
+      end
+    end
  end
 
  # GET /events/1

@@ -1,3 +1,5 @@
+<!-- Begin section Slide et search -->
+
 <section class="sct-color-1 border-bottom">
     <div class="container-fluid no-padding">
         <div class="row row-no-padding">
@@ -106,7 +108,9 @@
 </div>
 </section>
 
-<!-- Properties listing -->
+<!-- Begin section Slide et search -->
+
+<!-- Section BAR -->
 <section class="slice sct-color-1" id="scrollToSection">
     <div class="container">
         <div class="section-title section-title--style-1 text-center mb-1">
@@ -126,359 +130,99 @@
 
         <div class="row-wrapper">
             <div class="row cols-md-space">
+                <!-- Begin First loop bar -->
+                <% Bar.ids.sample(4).each do |b| %>
                 <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="block block--style-3">
                         <div class="block-image relative">
                             <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-1.jpg' %>" width="300" height="190" class="img-responsive">
+                                <a href="<%= bar_path(b) %>">
+                                    <% if Bar.find(b).images.attached? %>
+                                        <% image = Bar.find(b).images.first %>
+                                        <%= image_tag(image, style:'width:300;height:190', class:'img-responsive') %>
+                                    <% else %>
+                                        <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg" width="300" height="190" class="img-responsive">
+                                    <% end %>
+                                    
                                 </a>
                             </div>
-                            <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-yellow">Nouveau</span>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(1).name %> </span>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(b).name %></span>
                         </div>
 
                         <div class="block-body text-center mt-1">
                             <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>1.5 km</strong>
-                                <span class="heading-6">de vous</span>
+                                <strong><%= Bar.find(b).address %></strong>
                             </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
                         </div>
 
                         <div class="aux-info-wrapper border-top">
                             <ul class="aux-info">
                                 <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(1).pint_price %>
+                                    <i class="icon-food-002"></i> <%= Bar.find(b).pint_price %>
                                 </li>
                                 <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(1).capacity %> personnes
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(b).capacity %> personnes
                                 </li>
                                 <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i> <%= Bar.find(1).screen %>
+                                    <i class="icon-hotel-restaurant-013"></i> <%= Bar.find(b).screen %>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="block block--style-3">
-                        <div class="block-image relative">
-                            <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-2.jpg' %>"
-                                    width="300" height="190"  class="img-responsive">
-                                </a>
-                            </div>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(2).name %></span>
-                        </div>
-
-                        <div class="block-body text-center mt-1">
-                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>3.4 km</strong>
-                                <span class="heading-6">de vous</span>
-                            </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
-                        </div>
-
-                        <div class="aux-info-wrapper border-top">
-                            <ul class="aux-info">
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(2).pint_price %>€
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(2).capacity %> personnes
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(2).screen %>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="block block--style-3">
-                        <div class="block-image relative">
-                            <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-3.jpg' %>" width="300" height="190" class="img-responsive">
-                                </a>
-                            </div>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(3).name %></span>
-                        </div>
-
-                        <div class="block-body text-center mt-1">
-                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>3.4 km</strong>
-                                <span class="heading-6">de vous</span>
-                            </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
-                        </div>
-
-                        <div class="aux-info-wrapper border-top">
-                            <ul class="aux-info">
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(3).pint_price %>€
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(3).capacity %> personnes
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(3).screen %>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="block block--style-3">
-                        <div class="block-image relative">
-                            <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-4.jpg' %>"
-                                    width="300" height="190" class="img-responsive">
-                                </a>
-                            </div>
-                            <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-green">Valeur sûre</span>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(4).name %></span>
-                        </div>
-
-                        <div class="block-body text-center mt-1">
-                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>3.4 km</strong>
-                                <span class="heading-6">de vous</span>
-                            </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
-                        </div>
-
-                        <div class="aux-info-wrapper border-top">
-                            <ul class="aux-info">
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(4).pint_price %>€
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(4).capacity %> personnes
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(4).screen %>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <% end %> 
             </div>
-
+            <!-- End first loop bar -->
+            <!-- Begin Second loop bar -->
             <div class="row cols-md-space">
+                <!-- Begin First loop bar -->
+                <% Bar.ids.sample(4).each do |b| %>
                 <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="block block--style-3">
                         <div class="block-image relative">
                             <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-5.jpg' %>"
-                                    width="300" height="190" class="img-responsive">
+                                <a href="<%= bar_path(b) %>">
+                                    <% if Bar.find(b).images.attached? %>
+                                        <% image = Bar.find(b).images.first %>
+                                        <%= image_tag(image, style:'width:300;height:190', class:'img-responsive') %>
+                                    <% else %>
+                                        <img src="https://s3.eu-west-3.amazonaws.com/rails-chaton/nopic.svg" width="300" height="190" class="img-responsive">
+                                    <% end %>
+                                    
                                 </a>
                             </div>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(5).name %></span>
+                            <span class="block-price-over bg-base-4"><%= Bar.find(b).name %></span>
                         </div>
 
                         <div class="block-body text-center mt-1">
                             <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>3.4 km</strong>
-                                <span class="heading-6">de vous</span>
+                                <strong><%= Bar.find(b).address %></strong>
                             </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
                         </div>
 
                         <div class="aux-info-wrapper border-top">
                             <ul class="aux-info">
                                 <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(5).pint_price %>€
+                                    <i class="icon-food-002"></i> <%= Bar.find(b).pint_price %>
                                 </li>
                                 <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(5).capacity %> personnes
+                                    <i class=" icon-real-estate-017"></i><%= Bar.find(b).capacity %> personnes
                                 </li>
                                 <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(5).screen %>
+                                    <i class="icon-hotel-restaurant-013"></i> <%= Bar.find(b).screen %>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="block block--style-3">
-                        <div class="block-image relative">
-                            <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-6.jpg' %>"
-                                    width="300" height="190" class="img-responsive">
-                                </a>
-                            </div>
-                            <span class="block-ribbon block-ribbon-fixed block-ribbon-right bg-purple">Super offre</span>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(6).name %></span>
-                        </div>
-
-                        <div class="block-body text-center mt-1">
-                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>3.4 km</strong>
-                                <span class="heading-6">de vous</span>
-                            </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
-                        </div>
-
-                        <div class="aux-info-wrapper border-top">
-                            <ul class="aux-info">
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(6).pint_price %>€
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(6).capacity %> personnes
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(6).screen %>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="block block--style-3">
-                        <div class="block-image relative">
-                            <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-7.jpg' %>"
-                                    width="300" height="190" class="img-responsive">
-                                </a>
-                            </div>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(7).name %></span>
-                        </div>
-
-                        <div class="block-body text-center mt-1">
-                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>3.4 km</strong>
-                                <span class="heading-6">de vous</span>
-                            </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
-                        </div>
-
-                        <div class="aux-info-wrapper border-top">
-                            <ul class="aux-info">
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(7).pint_price %>€
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(7).capacity %> personnes
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(7).screen %>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="block block--style-3">
-                        <div class="block-image relative">
-                            <div class="view view-first">
-                                <a href="#">
-                                    <img src="<%= image_path 'prv/real-estate/img-8.jpg' %>"
-                                    width="300" height="190" class="img-responsive">
-                                </a>
-                            </div>
-                            <span class="block-price-over bg-base-4"><%= Bar.find(8).name %></span>
-                        </div>
-
-                        <div class="block-body text-center mt-1">
-                            <h3 class="heading heading-5 strong-400 text-normal mb-1">
-                                <strong>3.4 km</strong>
-                                <span class="heading-6">de vous</span>
-                            </h3>
-                            <span class="star-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
-                            <span class="clearfix"></span>
-                        </div>
-
-                        <div class="aux-info-wrapper border-top">
-                            <ul class="aux-info">
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-food-002"></i> <%= Bar.find(8).pint_price %>€
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class=" icon-real-estate-017"></i><%= Bar.find(8).capacity %> personnes
-                                </li>
-                                <li class="heading strong-400 text-center">
-                                    <i class="icon-hotel-restaurant-013"></i><%= Bar.find(8).screen %>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <% end %> 
             </div>
         </div>
     </div>
 </section>
+<!-- Fin section Bar -->
 
+<!-- Begin section mise en avant -->
 <section class="slice sct-color-2 border-top border-bottom">
     <div class="container">
         <div class="row align-items-center">
@@ -540,6 +284,10 @@
     </div>
 </div>
 </section>
+
+<!-- End section mise en avant -->
+
+<!-- Begin section les events -->
 
 <section class="slice sct-color-1 border-top border-bottom">
     <div class="container">
@@ -739,76 +487,3 @@
     </div>
 </section>
 
-
-
-<script>
-      // This example displays an address form, using the autocomplete feature
-      // of the Google Places API to help users fill in the information.
-
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-      var placeSearch, autocomplete;
-      var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-      };
-
-      function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-          /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-          {types: ['geocode']});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
-      }
-
-      function fillInAddress() {
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
-
-        for (var component in componentForm) {
-          document.getElementById(component).value = ' ';
-          document.getElementById(component).disabled = false;
-        }
-
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        for (var i = 0; i < place.address_components.length; i++) {
-          var addressType = place.address_components[i].types[0];
-          if (componentForm[addressType]) {
-            var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
-          }
-        }
-      }
-
-      // Bias the autocomplete object to the user's geographical location,
-      // as supplied by the browser's 'navigator.geolocation' object.
-      function geolocate() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var geolocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle({
-              center: geolocation,
-              radius: position.coords.accuracy
-            });
-            autocomplete.setBounds(circle.getBounds());
-          });
-        }
-      }
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ-esJU3-9I9o8Oq6LdVZiN6CHX1J_MbU&libraries=places&callback=initAutocomplete" ">
-    </script>
