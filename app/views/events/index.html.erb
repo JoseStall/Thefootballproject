@@ -42,9 +42,6 @@
             <h2 class="heading heading-4 strong-500 mb-0">
               <a href="<%= event_path(event.id) %>"><%= event.title %></a>
             </h2>
-            <h3 class="heading heading-4 strong-500 mb-0">
-              <a href="<%= event_path(event.id) %>"><%= event.description %></a>
-            </h3>
             <p class="strong-300 c-gray-light">
               <%= Game.find(event.game_id).home_team.name %> VS <%= Game.find(event.game_id).visiting_team.name %>
             </p>
