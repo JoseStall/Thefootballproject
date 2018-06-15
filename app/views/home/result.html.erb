@@ -113,9 +113,10 @@
 
   <% else %>
   <section class="slice-sm sct-color-1">
+    <p style="padding-left: 10px;">Événements : <i class="fas fa-circle" style="color:#00497c"></i> Bars : <i class="fas fa-circle" style="color:#ff0047"></i></p>
     <div class="containermap">
       <div class="row masonry">
-
+        
 
         <% @events.each do |event| %>
 
@@ -141,7 +142,7 @@
             </div>
             <div class="pt-4 text-center">
               <h3 class="heading heading-4 strong-500 mb-0">
-                <a href="<%= event_path(event.id) %>"><%= event.game.home_team.name + ' - ' + event.game.visiting_team.name %></a>
+                <a href="<%= event_path(event.id) %>"><%= event.game.home_team.name + ' - ' + event.game.visiting_team.name %> <i class="fas fa-circle" style="color:#00497c"></i></a>
               </h3>
               <p class="strong-300 c-gray-light">
                 <%= event.address %></p>
@@ -175,7 +176,7 @@
               </div>
               <div class="pt-4 text-center">
                 <h3 class="heading heading-4 strong-500 mb-0">
-                  <a href="<%= bar_path(bar.id) %>"><%= bar.name %></a>
+                  <a href="<%= bar_path(bar.id) %>"><%= bar.name %> <i class="fas fa-circle" style="color:#ff0047"></i></a>
                 </h3>
                 <p class="strong-300 c-gray-light">
                   <%= bar.address %></p>

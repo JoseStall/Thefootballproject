@@ -47,7 +47,7 @@
 
                         <hr>
                         
-                        <h3>Organisé par <%= @organisateur.firstname %></h3>
+                        <h3 style="margin-bottom: 12px;">Organisé par <%= @organisateur.firstname %><br> au <%= @event.address %></h3>
 
                         <% if @organisateur.reviews.count >= 1 %>
                         <p>Note moyenne : <%= @notemoyenne %>/5</p>
