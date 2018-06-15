@@ -26,6 +26,8 @@ class HomeController < ApplicationController
       p idteam
       p @teamsearch
       p '-------------'
+    else
+      @teamsearch = 'xxxx'
     end
   end
 end
